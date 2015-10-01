@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: headerFragment">
+    <link href="../../style/app.css" th:href="@{/style/app.css}" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment">
+      </div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title here</h1>
+        <div th:if="${#lists.isEmpty(users)}">Table is empty.</div>
+        <div th:if="${not #lists.isEmpty(users)}">
+          <table>
+            <thead>
+              <tr>
+                <th> First Name </th>
+                <th> Last name </th>
+              </tr>
+            </thead>
+            <tbody th:remove="all-but-first">
+              <tr th:each="user : ${users}">
+                <td th:text="${user.firstName}">John</td>
+                <td th:text="${user.lastName}">Smith</td>
+              </tr>
+              <tr>
+                <td>Jane</td>
+                <td>Doe</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- workarea -->
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+    Footer
+    </div>
+  </body>
+</html>

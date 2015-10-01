@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <!--
+     You can run this change log on your database as many times as you want, it will ignore the
+     changes that are already applied. It also means that you can't modify an existing revision.
+     Always add to the end.
+
+     Use the maven goals: liquibase:update and liquibase:status
+      Potentially with -Dliquibase.dropFirst=true
+ -->
+
+  <changeSet author="roug" id="rev-1">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="LOV_ContentsGroup"/>
+      </not>
+    </preConditions>
+    <createTable tableName="LOV_ContentsGroup">
+      <column name="LOV_ContentsGroupID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="Code" type="varchar(255)">
+        <constraints unique="true" uniqueConstraintName="LOV_ContentsGroup_code_unique" nullable="false"/>
+      </column>
+      <column name="Name" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="StartYear" type="int">
+        <constraints nullable="true"/>
+      </column>
+      <column name="EndYear" type="int">
+        <constraints nullable="true"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-2">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="LOV_Culture"/>
+      </not>
+    </preConditions>
+    <createTable tableName="LOV_Culture">
+      <column name="LOV_CultureID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="EnglishName" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="Code" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CodeXliff" type="varchar(255)">
+        <constraints nullable="true"/>
+      </column>
+      <column name="CodeAEAT" type="varchar(255)">
+        <constraints nullable="true"/>
+      </column>
+      <column name="Name" type="varchar(255)">
+        <constraints nullable="true"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-3">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="ReviseResourceKey"/>
+      </not>
+    </preConditions>
+    <createTable tableName="ReviseResourceKey">
+      <column name="ResourceKeyID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="ResourceKey" type="varchar(200)"/>  <!-- NOTE: ResourceKey type is inconsistent in DB -->
+      <column name="ResourceType" type="varchar(250)"/>
+      <column name="AllowHTML" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="KeyDescription" type="varchar(255)"/>
+      <column name="KeyTitle" type="varchar(255)"/>
+      <column name="ContentsGroupID" type="int"/>
+      <column name="CreatedDate" type="DATETIME"/>
+    </createTable>
+    <addUniqueConstraint tableName="ReviseResourceKey"
+        constraintName="ResourceKeyTypeUnique"
+        columnNames="ResourceKey, ResourceType"/>
+    <addUniqueConstraint tableName="ReviseResourceKey"
+        constraintName="ReviseResourceKey_unique"
+        columnNames="ResourceType, ResourceKey"/>
+    <addForeignKeyConstraint
+        constraintName="FK_ReviseResourceKey_LOV_WASTETYPE_LOV_ContentsGroup"
+        baseTableName="ReviseResourceKey"
+        baseColumnNames="ContentsGroupID"
+        referencedTableName="LOV_ContentsGroup"
+        referencedColumnNames="LOV_ContentsGroupID"
+        onDelete="RESTRICT" onUpdate="RESTRICT"/>
+        <!--
+        baseTableSchemaName="EPRTRcms"
+        referencedTableSchemaName="EPRTRcms"
+        -->
+  </changeSet>
+
+  <changeSet author="roug" id="rev-4">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="ResourceValue_Historic"/>
+      </not>
+    </preConditions>
+    <createTable tableName="ResourceValue_Historic">
+      <column name="ID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="ResourceValue_Historic_ID" nullable="false"/>
+      </column>
+      <column name="TableID" type="int"/>
+      <column name="ResourceKey" type="text"/>
+      <column name="CultureCode" type="varchar(10)"/>
+      <column name="ResourceValue" type="text"/>
+      <column name="BodyText" type="text"/>
+      <column name="ChangedDate" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-5">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="ReviseResourceValue"/>
+      </not>
+    </preConditions>
+    <createTable tableName="ReviseResourceValue">
+      <column name="ResourceValueID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="ResourceKeyID" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CultureCode" type="varchar(10)"/>
+      <column name="ResourceValue" type="text"/>
+      <column name="ChangedDate" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-6">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="tAT_ResourceKey"/>
+      </not>
+    </preConditions>
+    <createTable tableName="tAT_ResourceKey">
+      <column name="ResourceKeyID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="ResourceKey" type="varchar(255)"/>
+      <column name="ResourceType" type="varchar(255)"/>
+      <column name="AllowHTML" type="BOOLEAN">
+        <constraints nullable="true"/>
+      </column>
+      <column name="EditCMS" type="BOOLEAN">
+        <constraints nullable="true"/>
+      </column>
+      <column name="KeyDescription" type="varchar(255)"/>
+      <column name="CreatedDate" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-7">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="tAT_ResourceValue"/>
+      </not>
+    </preConditions>
+    <createTable tableName="tAT_ResourceValue">
+      <column name="ResourceValueID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="ResourceKeyID" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CultureCode" type="varchar(10)"/>
+      <column name="ResourceValue" type="text"/>
+      <column name="ChangedDate" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-8">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="NewsKey"/>
+      </not>
+    </preConditions>
+    <createTable tableName="NewsKey">
+      <column name="NewsKeyID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="TopNewsIndicator" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="NewsDate" type="DATETIME">
+        <constraints nullable="false"/>
+      </column>
+      <column name="Visible" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CreatedDate" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-9">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="NewsValue"/>
+      </not>
+    </preConditions>
+    <createTable tableName="NewsValue">
+      <column name="NewsValueID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="NewsKeyID" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CultureCode" type="varchar(10)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="HeaderText" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="BodyText" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="AuthorName" type="text">
+        <constraints nullable="true"/>
+      </column>
+      <column name="CreateDate" type="DATETIME"/>
+      <column name="ChangedDate" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-10" dbms="h2,mssql">
+    <createView viewName="News">
+SELECT
+        k.NewsKeyID,
+        k.TopNewsIndicator,
+        v.CultureCode,
+    v.HeaderText,
+    v.BodyText,
+    v.AuthorName,
+    v.CreateDate
+FROM
+        NewsKey k
+INNER JOIN
+        NewsValue v
+ON      k.NewsKeyID = v.NewsKeyID
+    </createView>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-11" dbms="h2,mssql">
+    <createView viewName="StringResource">
+SELECT
+        tAT_ResourceKey.ResourceType,
+        tAT_ResourceKey.ResourceKey,
+        tAT_ResourceValue.CultureCode,
+    tAT_ResourceValue.ResourceValue
+FROM
+        tAT_ResourceKey
+INNER JOIN
+        tAT_ResourceValue
+ON      tAT_ResourceKey.ResourceKeyID = tAT_ResourceValue.ResourceKeyID
+union
+select
+        ReviseResourceKey.ResourceType,
+        ReviseResourceKey.ResourceKey,
+        ReviseResourceValue.CultureCode,
+    ReviseResourceValue.ResourceValue
+FROM
+        ReviseResourceKey
+INNER JOIN
+        ReviseResourceValue
+ON      ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID
+    </createView>
+  </changeSet>
+
+</databaseChangeLog>
