@@ -9,17 +9,6 @@
     <!-- Run database refactorings at startup using Liquibase -->
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
         <property name="dataSource" ref="dataSource" />
-        <property name="changeLog" value="classpath:database/database-struct.xml" />
-
-          <!-- contexts specifies the runtime contexts to use.  -->
-          <!--
-          <property name="contexts" value="demo, production" />
-          -->
-    </bean>
-
-    <!-- Run database refactorings at startup using Liquibase -->
-    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
-        <property name="dataSource" ref="dataSource" />
         <property name="changeLog" value="classpath:database/changelog-master.xml" />
 
       <!-- contexts specifies the runtime contexts to use.  -->
@@ -28,8 +17,8 @@
       -->
     </bean>
 
-    <bean id="initialUser" class="eionet.transfer.dao.InitialUser"
-        depends-on="org.h2.tools.Server" init-method="createUser">
+    <bean id="initialUser" class="eea.eprtr.cms.dao.InitialUser"
+         init-method="createUser">
         <property name="userManagementService" ref="userService"/>
         <property name="initialUsername" value="${initial.username}"/>
         <property name="initialPassword" value="${initial.password}"/>

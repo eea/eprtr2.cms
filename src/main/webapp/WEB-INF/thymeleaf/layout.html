@@ -45,7 +45,7 @@
           <a title="Frontpage" th:href="@{/}" href="#">
             <img src="../../images/eea-print-logo.gif" th:src="@{/images/eea-print-logo.gif}" alt="Logo" id="logo" width="428" height="87"/>
           </a>
-          <div id="networktitle">Web Transfer</div>
+          <div id="networktitle">E-PRTR CMS</div>
           <div id="sitetitle">European Environment Information and Observation Network</div>
           <div id="sitetagline">Networking improving Europe's environment</div>
         </div>
@@ -88,9 +88,8 @@
             <h2>Local navigation</h2>
             <ul>
               <li><a href="index.html" th:href="@{/}">Home</a></li>
-              <li><a href="about.html" th:href="@{/about}">About Transfer</a></li>
+              <li><a href="about.html" th:href="@{/about}">About CMS</a></li>
               <li><a href="fileupload.html" th:href="@{/fileupload}">Transfer file</a></li>
-              <li sec:authorize-url="/uploads"><a href="uploads.html" th:href="@{/uploads}">Current uploads</a></li>
               <li sec:authorize="hasRole('ADMIN')">
                  <a href="view_users.html" th:href="@{/users/view}">User authorisations</a>
               </li>

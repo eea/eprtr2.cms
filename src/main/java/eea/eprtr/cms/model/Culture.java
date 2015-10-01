@@ -3,14 +3,14 @@ package eea.eprtr.cms.model;
 /**
  * Lookup Value.
  */
-public class LOV {
+public class Culture {
 	
     private String code;
     
     private String name;
     
 
-    public LOV(String code, String name) {
+    public Culture(String code, String name) {
         this.code = code;
         this.name = name;
     }
@@ -19,7 +19,7 @@ public class LOV {
         return code;
     }
 
-    public String getName() {
+    public String getEnglishName() {
         return name;
     }
     

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: headerFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="developer.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/application.css" th:href="@{/css/application.css}" />
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment">
+      </div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title here</h1>
+        <div th:if="${#lists.isEmpty(texts)}">Table is empty.</div>
+        <div th:if="${not #lists.isEmpty(texts)}">
+          <form action="#" th:action="@{/deletefiles}" method="POST">
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Identifier</th>
+                  <th>Title</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody th:remove="all-but-first">
+                <tr th:each="entry : ${texts}">
+                  <td><input type="checkbox" name="id" th:name="id" th:value="${entry.name}"/>
+                  <td>99999</td>
+                  <td th:text="${entry.title}">Long realistic title</td>
+                  <td><a href="/edit">Edit</a></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" name="id" value="88888"/></td>
+                  <td>88888</td>
+                  <td>Filename.txt</td>
+                  <td><a href="/edit">Edit</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <div><input type="submit" value="Delete"/></div>
+          </form>
+        </div>
+      </div>
+      <!-- workarea -->
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+    Footer
+    </div>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <LOV_Culture LOV_CultureID="4" EnglishName="Dutch" Code="nl-NL" CodeXliff="nl" CodeAEAT="nl" Name="Nederlandse"/>
+  <LOV_Culture LOV_CultureID="5" EnglishName="English" Code="en-GB" CodeXliff="en" CodeAEAT="en" Name="English"/>
+  <LOV_Culture LOV_CultureID="8" EnglishName="French" Code="fr-FR" CodeXliff="fr" CodeAEAT="fr" Name="Fran&#231;ais"/>
+  <LOV_Culture LOV_CultureID="9" EnglishName="German" Code="de-DE" CodeXliff="de" CodeAEAT="de" Name="Deutsch"/>
+  <LOV_Culture LOV_CultureID="12" EnglishName="Italian" Code="it-IT" CodeXliff="it" CodeAEAT="it" Name="Italiano"/>
+  <LOV_Culture LOV_CultureID="16" EnglishName="Polish" Code="pl-PL" CodeXliff="pl" CodeAEAT="pl" Name="Polska"/>
+  <LOV_Culture LOV_CultureID="18" EnglishName="Romanian" Code="ro-RO" CodeXliff="ro" CodeAEAT="ro" Name="Rom&#226;n"/>
+  <LOV_Culture LOV_CultureID="21" EnglishName="Spanish" Code="es-ES" CodeXliff="es" CodeAEAT="es" Name="Espa&#241;ol&#xD;&#xA;"/>
+</dataset>
+

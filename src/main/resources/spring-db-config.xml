@@ -19,15 +19,16 @@
         <property name="password" value="${db.password}" />
     </bean>
 
-    <bean id="simpleDocService" class="eea.eprtr.dao.SimpleDocServiceJdbc">
+    <bean id="simpleDocService" class="eea.eprtr.cms.dao.SimpleDocServiceJdbc">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="countryService" class="eea.eprtr.dao.CountryServiceJdbc">
+    <bean id="cultureService" class="eea.eprtr.cms.dao.CultureServiceJdbc">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="facilityService" class="eea.eprtr.dao.FacilityServiceDummy">
+    <bean id="userService" class="eea.eprtr.cms.dao.UserManagementServiceJdbc">
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
 </beans>

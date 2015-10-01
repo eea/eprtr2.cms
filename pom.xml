@@ -47,6 +47,9 @@
     <!-- the build configuration -->
 
     <build>
+        <!-- name of the bundled project when it is finally built -->
+        <finalName>eprtr-cms</finalName>
+
         <plugins>
 
             <!-- Configure maven compiler -->
@@ -237,9 +240,6 @@
                 </includes>
             </testResource>
         </testResources>
-
-        <!-- name of the bundled project when it is finally built -->
-        <finalName>eprtr</finalName>
 
     </build>
 

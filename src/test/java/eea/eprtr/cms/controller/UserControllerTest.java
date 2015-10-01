@@ -1,48 +1,108 @@
+/*
+ * The contents of this file are subject to the Mozilla Public
+ * License Version 1.1 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a copy of
+ * the License at http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS
+ * IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
+ * implied. See the License for the specific language governing
+ * rights and limitations under the License.
+ *
+ * The Original Code is Web Questionnaires 2
+ *
+ * The Initial Owner of the Original Code is European Environment
+ * Agency. Portions created by TripleDev are Copyright
+ * (C) European Environment Agency.  All Rights Reserved.
+ *
+ * Contributor(s):
+ *        Anton Dmitrijev
+ *        Raptis Dimos
+ */
 package eea.eprtr.cms.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import org.junit.Before;
-import org.junit.runner.RunWith;
+import eea.eprtr.cms.model.UserRole;
+import eea.eprtr.cms.dao.UserManagementService;
+import eea.eprtr.cms.controller.AbstractContextControllerTests;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@ContextConfiguration(locations = {"classpath:spring-mvctest-config.xml", "classpath:spring-dbtest-config.xml"})
-
+import java.util.Collection;
+import static org.junit.Assert.assertFalse;
 
 /**
- * Test the user controller.
- *
- * @see <a href="http://docs.spring.io/spring-framework/docs/3.2.0.BUILD-SNAPSHOT/reference/htmlsingle/#spring-mvc-test-framework">MVC testing</a>
- * @see <a href="http://docs.spring.io/spring-framework/docs/3.2.0.RC2/api/org/springframework/test/web/servlet/ResultActions.html">Result Actions</a>
  */
-public class UserControllerTest {
-
+@RunWith(SpringJUnit4ClassRunner.class)
+public class UserControllerTest extends AbstractContextControllerTests {
     @Autowired
-    private WebApplicationContext wac;
+    UserManagementService userManagementService;
 
-    private MockMvc mockMvc;
+    private static final String TEST_USER = "test-user";
 
-    @Before
-    public void setUp() throws Exception {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+    @Test
+    public void userAuthoritiesPageExist() throws Exception {
+        request(get("/users/view"));
     }
 
     @Test
-    public void testListUsers() throws Exception {
-        this.mockMvc.perform(get("/users"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("users"))
-                .andExpect(view().name("users"));
+    public void allRolesAreInModel() throws Exception {
+        request(get("/users/view")).andExpect(model().attributeExists("allRoles"));
+    }
+
+    @Test
+    public void newUserView() throws Exception {
+        request(get("/users/view")).andExpect(view().name("view_users"));
+    }
+
+    @Test
+    public void addNewUser() throws Exception {
+        addUserWith(TEST_USER, UserRole.ROLE_NOEXPIRATION);
+
+        assertUserHasOnlyOneRole(TEST_USER, UserRole.ROLE_NOEXPIRATION);
+    }
+
+    @Test
+    public void changeUserRole() throws Exception {
+        addUserWith(TEST_USER, UserRole.ROLE_NOEXPIRATION);
+        assertUserHasOnlyOneRole(TEST_USER, UserRole.ROLE_NOEXPIRATION);
+
+        editUserTo(TEST_USER, UserRole.ROLE_ADMIN);
+        assertUserHasOnlyOneRole(TEST_USER, UserRole.ROLE_ADMIN);
+        
+        deleteUser(TEST_USER);
+        assertFalse("User should be deleted", UserExists(TEST_USER));
+    }
+
+    private void addUserWith(String username, UserRole role) throws Exception {
+        requestWithRedirect(post("/users/add").param("userId", username).param("authorisations", role.name()));
+    }
+    
+    private void editUserTo(String username, UserRole role) throws Exception {
+        requestWithRedirect(post("/users/edit").param("userId", username).param("authorisations", role.name()));
+    }
+    
+    private void deleteUser(String username) throws Exception {
+        requestWithRedirect(post("/users/delete").param("userName", username));
+    }
+    
+    private boolean UserExists(String username) throws Exception {
+        return userManagementService.userExists(username);
+    }
+
+    private void assertUserHasOnlyOneRole(String username, UserRole role) {
+        Collection<? extends GrantedAuthority> authorities = userManagementService.loadUserByUsername(username).getAuthorities();
+        assertThat(authorities.size(), equalTo(1));
+        assertThat(authorities.iterator().next().getAuthority(), equalTo(role.name()));
     }
 }
