@@ -20,15 +20,13 @@
                   <th></th>
                   <th>Identifier</th>
                   <th>Title</th>
-                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody th:remove="all-but-first">
                 <tr th:each="entry : ${texts}">
-                  <td><input type="checkbox" name="id" th:name="id" th:value="${entry.name}"/>
-                  <td>99999</td>
+                  <td><input type="checkbox" name="id" th:name="id" th:value="${entry.resourceKey}"/>
+                  <td><a href="/edit" th:text="${entry.resourceKey}">99999</a></td>
                   <td th:text="${entry.title}">Long realistic title</td>
-                  <td><a href="/edit">Edit</a></td>
                   </td>
                 </tr>
                 <tr>

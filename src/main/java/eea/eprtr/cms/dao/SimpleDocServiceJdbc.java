@@ -22,8 +22,9 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
     }
 
     @Override
-    public SimpleDoc getByName(String name) {
-        String query = "SELECT ResourceKey, KeyTitle, ResourceValue FROM ReviseResourceKey"
+    public SimpleDoc getByResourceKey(String name) {
+        String query = "SELECT ResourceKey, KeyTitle, ResourceValue, AllowHTML, ContentsGroupID"
+            + " FROM ReviseResourceKey"
             + " JOIN ReviseResourceValue ON ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID"
             + " AND CultureCode='en-GB' WHERE ResourceKey = ?";
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -35,8 +36,10 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
             public SimpleDoc mapRow(ResultSet rs, int rowNum)
                     throws SQLException {
                 SimpleDoc doc = new SimpleDoc();
-                doc.setName(rs.getString("ResourceKey"));
+                doc.setResourceKey(rs.getString("ResourceKey"));
                 doc.setTitle(rs.getString("KeyTitle"));
+                doc.setAllowHTML(rs.getBoolean("AllowHTML"));
+                doc.setContentsGroupID(rs.getInt("ContentsGroupID"));
                 doc.setContent(rs.getString("ResourceValue"));
                 return doc;
             }});
@@ -56,7 +59,7 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
 
         for(Map<String, Object> docRow : docRows){
             SimpleDoc doc = new SimpleDoc();
-            doc.setName(String.valueOf(docRow.get("ResourceKey")));
+            doc.setResourceKey(String.valueOf(docRow.get("ResourceKey")));
             doc.setTitle(String.valueOf(docRow.get("KeyTitle")));
             doc.setContent(String.valueOf(docRow.get("ResourceValue")));
             docList.add(doc);

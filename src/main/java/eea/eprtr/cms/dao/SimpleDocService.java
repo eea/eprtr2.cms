@@ -10,8 +10,10 @@ public interface SimpleDocService {
     //Create
     //void save(SimpleDoc doc);
 
-    //Read
-    SimpleDoc getByName(String name);
+    /**
+     * Read.
+     */
+    SimpleDoc getByResourceKey(String name);
 
     //Update
     //void update(SimpleDoc doc);
@@ -19,6 +21,8 @@ public interface SimpleDocService {
     //Delete
     //void deleteById(int id);
 
-    //Get All
+    /**
+     * Get All.
+     */
     List<SimpleDoc> getAll();
 }

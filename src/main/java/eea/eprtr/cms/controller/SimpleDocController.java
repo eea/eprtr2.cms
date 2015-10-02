@@ -29,23 +29,22 @@ public class SimpleDocController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String frontpage(Model model) {
-        
+        // This is toplevel. No breadcrumbs.
+        BreadCrumbs.set(model);
+        return "index";
+    }
+
+    /**
+     * Text edit.
+     */
+    @RequestMapping(value = "/statictexts")
+    public String staticTexts(Model model) {
+        model.addAttribute("title", "Static text editor");
         model.addAttribute("texts", simpleDocService.getAll());
         // This is toplevel. No breadcrumbs.
         BreadCrumbs.set(model);
         return "tableofcontent";
     }
-
-    /**
-     * Backup frontpage (Due to the .html suffix).
-     */
-    /*
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(Model model) {
-        loadFromDB("index", model);
-        return "simplecontent";
-    }
-    */
 
     /**
      * About.
@@ -70,7 +69,7 @@ public class SimpleDocController {
      */
     @RequestMapping(value = "/{page}/edit", method = RequestMethod.GET)
     public String editpage(@PathVariable String page, Model model) {
-        SimpleDoc doc = simpleDocService.getByName(page);
+        SimpleDoc doc = simpleDocService.getByResourceKey(page);
         model.addAttribute("pagetitle", doc.getTitle());
         model.addAttribute("content", doc.getContent());
         model.addAttribute("title", "Edit page");
@@ -78,7 +77,7 @@ public class SimpleDocController {
     }
 
     private void loadFromDB(String name, Model model) {
-        SimpleDoc doc = simpleDocService.getByName(name);
+        SimpleDoc doc = simpleDocService.getByResourceKey(name);
         if (doc == null)
             System.out.println("Doc was null");
         model.addAttribute("title", doc.getTitle());
