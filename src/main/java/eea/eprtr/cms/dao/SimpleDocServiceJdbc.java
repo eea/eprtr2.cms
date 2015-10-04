@@ -23,7 +23,7 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
 
     @Override
     public SimpleDoc getByResourceKey(String name) {
-        String query = "SELECT ResourceKey, KeyTitle, ResourceValue, AllowHTML, ContentsGroupID"
+        String query = "SELECT ResourceKey, KeyTitle, ResourceValue, AllowHTML, ContentsGroupID, AllowHTML"
             + " FROM ReviseResourceKey"
             + " JOIN ReviseResourceValue ON ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID"
             + " AND CultureCode='en-GB' WHERE ResourceKey = ?";
@@ -41,6 +41,7 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
                 doc.setAllowHTML(rs.getBoolean("AllowHTML"));
                 doc.setContentsGroupID(rs.getInt("ContentsGroupID"));
                 doc.setContent(rs.getString("ResourceValue"));
+                doc.setAllowHTML(rs.getBoolean("AllowHTML"));
                 return doc;
             }});
 
@@ -49,7 +50,7 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
 
     @Override
     public List<SimpleDoc> getAll() {
-        String query = "SELECT ResourceKey, KeyTitle, ContentsGroupID, LOV_ContentsGroup.Name AS GroupName"
+        String query = "SELECT ResourceKey, KeyTitle, ContentsGroupID, LOV_ContentsGroup.Name AS GroupName, AllowHTML"
             + " FROM ReviseResourceKey"
             + " JOIN ReviseResourceValue ON ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID"
             + " JOIN LOV_ContentsGroup ON ContentsGroupID = LOV_ContentsGroupID"
@@ -65,6 +66,7 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
             doc.setResourceKey(String.valueOf(docRow.get("ResourceKey")));
             doc.setTitle(String.valueOf(docRow.get("KeyTitle")));
             doc.setContentsGroupName(String.valueOf(docRow.get("GroupName")));
+            doc.setAllowHTML((Boolean)docRow.get("AllowHTML"));
             docList.add(doc);
         }
         return docList;

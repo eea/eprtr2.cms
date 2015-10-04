@@ -40,9 +40,9 @@ public class FileUploadControllerTest {
 
     @Test
     public void testUploadForm() throws Exception {
-        this.mockMvc.perform(get("/fileupload"))
+        this.mockMvc.perform(get("/filecatalogue"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("breadcrumbs"))
-                .andExpect(view().name("fileupload"));
+                .andExpect(view().name("uploads"));
     }
 }
