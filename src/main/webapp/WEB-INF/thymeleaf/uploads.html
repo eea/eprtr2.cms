@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: headerFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="developer.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/application.css" th:href="@{/css/application.css}" />
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment">
+      </div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title here</h1>
+        <p>
+        The File catalogue is used to upload documents to the E-PRTR website.
+        </p>
+        <p>
+        Uploaded files can be linked to internally from static pages or news stories using the relative paths shown in the right side of the table.
+        </p>
+        <p>
+        Upload only files that naturally belong with the E-PRTR website. Documents that originate outside the context of E-PRTR, should be externally linked to at the original sources. Typical file types are PDF and Word.
+        </p>
+        <form id="uploadform" action="fileupload.html" th:action="@{/fileupload}" method="post" enctype="multipart/form-data">
+          <div class="formrow">
+            <label for="file">Select a file to upload:</label>
+            <input type="file" name="file" id="file" onchange="fileSelected();"/>
+          </div>
+          <div class="formrow">
+            <p>Click this button to upload your file</p>
+            <input type="submit" id="submitbutton" onclick="return uploadFile()" value="Upload" />
+          </div>
+        </form>
+
+        <div th:if="${#lists.isEmpty(uploads)}">Table is empty.</div>
+        <div th:if="${not #lists.isEmpty(uploads)}">
+          <form action="#" th:action="@{/deletefiles}" method="POST">
+            <table class="datatable">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>File name</th>
+                  <th>Size</th>
+                  <th>Modified</th>
+                </tr>
+              </thead>
+              <tbody th:remove="all-but-first">
+                <tr th:each="upload : ${uploads}">
+                  <td><input type="checkbox" name="id" th:name="filename" th:value="${upload.filename}"/></td>
+                  <td><a th:href="@{'/docs/'+${upload.filename}}" href="#" th:text="${upload.filename}">Long realistic file name.pdf</a></td>
+                  <td th:text="${upload.humaneSize}">8932893</td>
+                  <td th:text="${upload.modificationTime}">2014-11-29 11:54:22</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Filename.txt</td>
+                  <td>2992929</td>
+                  <td>2015-05-29 17:22:11</td>
+                </tr>
+              </tbody>
+            </table>
+            <div><input type="submit" value="Delete"/></div>
+          </form>
+        </div>
+      </div>
+      <!-- workarea -->
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+    Footer
+    </div>
+  </body>
+</html>

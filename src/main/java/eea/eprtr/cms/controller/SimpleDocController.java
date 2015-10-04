@@ -43,7 +43,7 @@ public class SimpleDocController {
         model.addAttribute("texts", simpleDocService.getAll());
         // This is toplevel. No breadcrumbs.
         BreadCrumbs.set(model);
-        return "tableofcontent";
+        return "statictexts";
     }
 
     /**
@@ -56,12 +56,24 @@ public class SimpleDocController {
     }
 
     /**
-     * FAQ.
+     * Redirects to welcome page after login.
+     *
+     * @param model holder for model attributes
+     * @return view name
      */
-    @RequestMapping(value = "/faq", method = RequestMethod.GET)
-    public String faq(Model model) {
-        loadFromDB("FAQPageContent", model);
-        return "simplecontent";
+    @RequestMapping(value = "/login")
+    public String login(Model model) {
+        return frontpage(model);
+    }
+
+    /**
+     * Shows page which allows to perform SingleSignOut.
+     *
+     * @return view name
+     */
+    @RequestMapping(value = "/logout")
+    public String logout() {
+        return "logout_all_apps";
     }
 
     /**
