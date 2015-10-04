@@ -20,7 +20,7 @@
         <p>
         Upload only files that naturally belong with the E-PRTR website. Documents that originate outside the context of E-PRTR, should be externally linked to at the original sources. Typical file types are PDF and Word.
         </p>
-        <form id="uploadform" action="fileupload.html" th:action="@{/fileupload}" method="post" enctype="multipart/form-data">
+        <form id="uploadform" action="fileupload.html" th:action="@{/filecatalogue}" method="post" enctype="multipart/form-data">
           <div class="formrow">
             <label for="file">Select a file to upload:</label>
             <input type="file" name="file" id="file" onchange="fileSelected();"/>

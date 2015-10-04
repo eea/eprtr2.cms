@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * This controller class is meant to be super-simple to understand for beginners.
@@ -27,7 +28,7 @@ public class SimpleDocController {
     /**
      * Frontpage.
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/")
     public String frontpage(Model model) {
         // This is toplevel. No breadcrumbs.
         BreadCrumbs.set(model);
@@ -79,8 +80,8 @@ public class SimpleDocController {
     /**
      * TODO: Add param
      */
-    @RequestMapping(value = "/{page}/edit", method = RequestMethod.GET)
-    public String editpage(@PathVariable String page, Model model) {
+    @RequestMapping(value = "/edittext", method = RequestMethod.GET)
+    public String editpage(@RequestParam("key") String page, Model model) {
         SimpleDoc doc = simpleDocService.getByResourceKey(page);
         model.addAttribute("pagetitle", doc.getTitle());
         model.addAttribute("content", doc.getContent());

@@ -88,8 +88,10 @@
             <h2>Local navigation</h2>
             <ul>
               <li><a href="index.html" th:href="@{/}">Home</a></li>
+              <li><a href="statictexts.html" th:href="@{/statictexts}">Static text editor</a></li>
+              <li><a href="newseditor.html" th:href="@{/newstexts}">News editor</a></li>
+              <li><a href="filecatalogue.html" th:href="@{/filecatalogue}">File catalogue</a></li>
               <li><a href="about.html" th:href="@{/about}">About CMS</a></li>
-              <li><a href="fileupload.html" th:href="@{/fileupload}">Transfer file</a></li>
               <li sec:authorize="hasRole('ADMIN')">
                  <a href="view_users.html" th:href="@{/users/view}">User authorisations</a>
               </li>

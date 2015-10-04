@@ -56,39 +56,42 @@ public class FileOpsController {
     private Log logger = LogFactory.getLog(FileOpsController.class);
 
     /**
-     * Form for uploading a file.
+     * View uploaded files.
      */
-    @RequestMapping(value = "/fileupload")
-    public String fileUpload(Model model) {
-        String pageTitle = "Transfer file";
+    @RequestMapping(value = "/filecatalogue", method = RequestMethod.GET)
+    public String findUploads(Model model) {
+        String pageTitle = "File catalogue";
+
+        List<Upload> uploads = storageService.getIndex();
+        model.addAttribute("uploads", uploads);
         model.addAttribute("title", pageTitle);
         BreadCrumbs.set(model, pageTitle);
-        return "fileupload";
+        return "uploads";
     }
 
     /**
      * Upload file for transfer.
      */
-    @RequestMapping(value = "/fileupload", method = RequestMethod.POST)
+    @RequestMapping(value = "/filecatalogue", method = RequestMethod.POST)
     public String importFile(@RequestParam("file") MultipartFile myFile,
                         final RedirectAttributes redirectAttributes,
                         final HttpServletRequest request) throws IOException {
 
         if (myFile == null || myFile.getOriginalFilename() == null) {
             redirectAttributes.addFlashAttribute("message", "Select a file to upload");
-            return "redirect:fileupload";
+            return "redirect:filecatalogue";
         }
         String fileName = storeFile(myFile);
         redirectAttributes.addFlashAttribute("filename", fileName);
         StringBuffer requestUrl = request.getRequestURL();
-        redirectAttributes.addFlashAttribute("url", requestUrl.substring(0, requestUrl.length() - "/fileupload".length()));
-        return "redirect:fileupload";
+        redirectAttributes.addFlashAttribute("url", requestUrl.substring(0, requestUrl.length() - "/filecatalogue".length()));
+        return "redirect:filecatalogue";
     }
 
     /**
      * AJAX Upload file for transfer.
      */
-    @RequestMapping(value = "/fileupload", method = RequestMethod.POST, params="ajaxupload=1")
+    @RequestMapping(value = "/filecatalogue", method = RequestMethod.POST, params="ajaxupload=1")
     public void importFileWithAJAX(@RequestParam("file") MultipartFile myFile,
                         HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -100,7 +103,7 @@ public class FileOpsController {
         response.setContentType("text/xml");
         PrintWriter printer = response.getWriter();
         StringBuffer requestUrl = request.getRequestURL();
-        String url = requestUrl.substring(0, requestUrl.length() - "/fileupload".length());
+        String url = requestUrl.substring(0, requestUrl.length() - "/filecatalogue".length());
         printer.println("<?xml version='1.0'?>");
         printer.println("<package>");
         printer.println("<downloadLink>" + url + "/download/" + fileName + "</downloadLink>");
@@ -150,11 +153,12 @@ public class FileOpsController {
 
     /**
      * Download a file.
+     * FIXME: Extension is stripped by Spring. See http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-suffix-pattern-match
      */
     @RequestMapping(value = "/docs/{file_name}", method = RequestMethod.GET)
     public void downloadFile(
         @PathVariable("file_name") String fileId, HttpServletResponse response) throws IOException {
-        // FIXME. Verify fileId for ..
+        // FIXME. Verify fileId for ../
         long fileSize = storageService.getSizeById(fileId);
         InputStream is = null;
         is = storageService.getById(fileId);
@@ -187,21 +191,6 @@ public class FileOpsController {
         }
         redirectAttributes.addFlashAttribute("message", "File(s) deleted");
         return "redirect:/";
-    }
-
-    /**
-     * View uploaded files.
-     */
-
-    @RequestMapping(value = "/filecatalogue", method = RequestMethod.GET)
-    public String findUploads(Model model) {
-        String pageTitle = "File catalogue";
-
-        List<Upload> uploads = storageService.getIndex();
-        model.addAttribute("uploads", uploads);
-        model.addAttribute("title", pageTitle);
-        BreadCrumbs.set(model, pageTitle);
-        return "uploads";
     }
 
 }

@@ -49,9 +49,12 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
 
     @Override
     public List<SimpleDoc> getAll() {
-        String query = "SELECT ResourceKey, KeyTitle, ResourceValue FROM ReviseResourceKey"
+        String query = "SELECT ResourceKey, KeyTitle, ContentsGroupID, LOV_ContentsGroup.Name AS GroupName"
+            + " FROM ReviseResourceKey"
             + " JOIN ReviseResourceValue ON ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID"
-            + " AND CultureCode='en-GB'";
+            + " JOIN LOV_ContentsGroup ON ContentsGroupID = LOV_ContentsGroupID"
+            + " AND CultureCode='en-GB'"
+            + " ORDER BY GroupName, KeyTitle";
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         List<SimpleDoc> docList = new ArrayList<SimpleDoc>();
 
@@ -61,7 +64,7 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
             SimpleDoc doc = new SimpleDoc();
             doc.setResourceKey(String.valueOf(docRow.get("ResourceKey")));
             doc.setTitle(String.valueOf(docRow.get("KeyTitle")));
-            doc.setContent(String.valueOf(docRow.get("ResourceValue")));
+            doc.setContentsGroupName(String.valueOf(docRow.get("GroupName")));
             docList.add(doc);
         }
         return docList;

@@ -89,7 +89,7 @@
       <div id="workarea">
         <h1 th:text="${title}">Page title here</h1>
 <form>
-    <label>Page title: <input type="text" name="pagetitle" size="60" th:text="${pagetitle}"/></label>
+    <label>Page title: <input type="text" name="pagetitle" size="60" th:value="${pagetitle}"/></label>
     <textarea name="page" id="page" rows="30" cols="80" th:text="${content}">
                 This is my textarea to be replaced with CKEditor.
     </textarea>

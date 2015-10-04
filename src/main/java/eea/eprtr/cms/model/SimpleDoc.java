@@ -17,6 +17,8 @@ public class SimpleDoc {
 
     private int contentsGroupID;
 
+    private String contentsGroupName;
+
     /** Content of page. */
     private String content;
     
@@ -42,7 +44,7 @@ public class SimpleDoc {
         return allowHTML;
     }
 
-    public void setAllowHTML(Boolean allowHTML) {
+    public void setAllowHTML(final Boolean allowHTML) {
         this.allowHTML = allowHTML;
     }
 
@@ -50,7 +52,7 @@ public class SimpleDoc {
         return contentsGroupID;
     }
 
-    public void setContentsGroupID(int contentsGroupID) {
+    public void setContentsGroupID(final int contentsGroupID) {
         this.contentsGroupID = contentsGroupID;
     }
 
@@ -60,6 +62,14 @@ public class SimpleDoc {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getContentsGroupName() {
+        return contentsGroupName;
+    }
+
+    public void setContentsGroupName(final String contentsGroupName) {
+        this.contentsGroupName = contentsGroupName;
     }
 
 }
