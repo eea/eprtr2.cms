@@ -11,7 +11,12 @@
       Potentially with -Dliquibase.dropFirst=true
  -->
 
-  <changeSet author="roug" id="rev-200" context="demo">
+  <changeSet author="roug" id="rev-1" context="demo">
+    <preConditions>
+      <sqlCheck expectedResult="0">SELECT COUNT(*) FROM LOV_ContentsGroup</sqlCheck>
+      <sqlCheck expectedResult="0">SELECT COUNT(*) FROM ReviseResourceKey</sqlCheck>
+    </preConditions>
+
     <comment>Load some demo data</comment>
 
     <insert tableName="LOV_ContentsGroup">
@@ -24,6 +29,12 @@
       <column name="LOV_ContentsGroupID" valueNumeric="2"/>
       <column name="Code" value="STP"/>
       <column name="Name" value="Static Pages"/>
+      <column name="StartYear" valueNumeric="2007"/>
+    </insert>
+    <insert tableName="LOV_ContentsGroup">
+      <column name="LOV_ContentsGroupID" valueNumeric="7"/>
+      <column name="Code" value="DIFSRC_AIR_NOX"/>
+      <column name="Name" value="Diffuse Sources Air, NOx"/>
       <column name="StartYear" valueNumeric="2007"/>
     </insert>
 
@@ -117,6 +128,23 @@
       <column name="ChangedDate" valueDate="2013-03-17T09:39:01"/>
     </insert>
 
+    <insert tableName="ReviseResourceKey">
+      <column name="ResourceKeyID" valueNumeric="304"/>
+      <column name="ResourceKey" value="AIR_NOX_InternationalShipping.TitleFull"/>
+      <column name="ResourceType" value="DiffuseSources"/>
+      <column name="AllowHTML" valueBoolean="false"/>
+      <column name="KeyDescription" value=""/>
+      <column name="KeyTitle" value="NOX, International Shipping, Full title"/>
+      <column name="ContentsGroupID" valueNumeric="7"/>
+      <column name="CreatedDate" valueDate="2011-05-13 14:53:47.957"/>
+   </insert>
+    <insert tableName="ReviseResourceValue">
+      <column name="ResourceValueID" value="788"/>
+      <column name="ResourceKeyID" value="304"/>
+      <column name="CultureCode" value="en-GB"/>
+      <column name="ResourceValue" value="Nitrogen oxides (NOX) emissions from international shipping (in tonnes per grid cell)"/>
+      <column name="ChangedDate" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
   </changeSet>
 
 </databaseChangeLog>

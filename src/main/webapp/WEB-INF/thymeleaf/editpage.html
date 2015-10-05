@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title th:text="${title}">Layout template</title>
     <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" media="screen"/>
-    <link href="../../style/app.css" th:href="@{/style/app.css}" rel="stylesheet"/>
+    <link href="../../style/application.css" th:href="@{/style/application.css}" rel="stylesheet"/>
   </head>
   <body>
     <div id="container">
@@ -88,14 +88,23 @@
       </div>
       <div id="workarea">
         <h1 th:text="${title}">Page title here</h1>
-<form>
-    <label>Page title: <input type="text" name="pagetitle" size="60" th:value="${pagetitle}"/></label>
-    <textarea name="page" id="page" rows="30" cols="80" th:text="${content}">
-                This is my textarea to be replaced with CKEditor.
-    </textarea>
-    <input type="submit" value="Change"/>
-</form>
-
+        <form>
+          <div class="formrow">
+            <label>Page title: <input type="text" name="pagetitle" size="60" th:value="${pagetitle}"/></label>
+          </div>
+          <div class="formrow" th:if="${not allowHTML}">
+            <input type="text" name="textstring" size="60" th:value="${content}"/>
+            <div>(Only plain text is allowed in this text field)</div>
+          </div>
+          <div class="formrow" th:if="${allowHTML}">
+            <textarea name="page" id="page" rows="30" cols="80" th:text="${content}">
+                      This is my textarea to be replaced with CKEditor.
+            </textarea>
+          </div>
+          <div class="formrow">
+          <input type="submit" value="Change"/>
+          </div>
+        </form>
       </div>
       <!-- workarea -->
     </div>

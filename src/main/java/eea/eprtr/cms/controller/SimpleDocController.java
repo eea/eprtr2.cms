@@ -85,6 +85,7 @@ public class SimpleDocController {
         SimpleDoc doc = simpleDocService.getByResourceKey(page);
         model.addAttribute("pagetitle", doc.getTitle());
         model.addAttribute("content", doc.getContent());
+        model.addAttribute("allowHTML", doc.getAllowHTML());
         model.addAttribute("title", "Edit page");
         return "editpage";
     }
