@@ -34,9 +34,34 @@ For Windows see the pages on:
 
 To build you do:
 ```
-git clone https://github.com/eea/thymeleaf-test.git
-cd thymeleaf-test
+git clone https://github.com/eea/eprtr2.cms.git
+cd eprtr2.cms
 mvn.bat install
 ```
 
 This will create a `target` subdirectory, build the code, run the tests and put a WAR file in target. You can then deploy this file to Tomcat. It contains an embedded database with demo data.
+
+Deployment
+----------
+The default configuration is to allow you to deploy to your own workstation directly. You install the target/transfer.war to Tomcat's webapps directory as ROOT.war. You can make it create an initial user with administrator rights by setting system properties to configure the application.
+
+On a CentOS system you can start Tomcat with the environment variable JAVA_OPTS set to some value or add lines to /etc/sysconfig/tomcat that looks like this:
+```
+JAVA_OPTS="-Dcas.service=http://transfers.com -Dinitial.username=myname"
+JAVA_OPTS="$JAVA_OPTS -Ddb.url=jdbc:h2:tcp://localhost:8043//work/transferdb -Dstorage.dir=/work -Dupload.dir=/work"
+```
+These are the properties you can set:
+```
+db.driver
+db.url
+db.username
+db.password
+storage.dir
+upload.dir
+initial.username
+initial.password
+cas.service
+cas.server.host
+```
+The default values are in src/main/resources/application.properties and src/main/resources/cas.properties.
+
