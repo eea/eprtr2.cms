@@ -16,7 +16,7 @@ Dependencies
 
 Features
 --------
-The rich text editor was implemented with [CKEditor](http://ckeditor.com/). The package was downloaded and placed in src/main/webapp/scripts.
+The rich text editor was implemented with [CKEditor](http://ckeditor.com/). The package was downloaded and placed in src/main/webapp/js.
 
 Automated tests
 ---------------
@@ -43,12 +43,12 @@ This will create a `target` subdirectory, build the code, run the tests and put 
 
 Deployment
 ----------
-The default configuration is to allow you to deploy to your own workstation directly. You install the target/transfer.war to Tomcat's webapps directory as ROOT.war. You can make it create an initial user with administrator rights by setting system properties to configure the application.
+The default configuration is to allow you to deploy to your own workstation directly. You install the target/eprtr-cms.war to Tomcat's webapps directory as cms.war. You can make it create an initial user with administrator rights by setting system properties to configure the application.
 
 On a CentOS system you can start Tomcat with the environment variable JAVA_OPTS set to some value or add lines to /etc/sysconfig/tomcat that looks like this:
 ```
-JAVA_OPTS="-Dcas.service=http://transfers.com -Dinitial.username=myname"
-JAVA_OPTS="$JAVA_OPTS -Ddb.url=jdbc:h2:tcp://localhost:8043//work/transferdb -Dstorage.dir=/work -Dupload.dir=/work"
+JAVA_OPTS="-Dcas.service=http://prtr.eea.europa.eu/cms -Dinitial.username=MyName"
+JAVA_OPTS="$JAVA_OPTS -Ddb.url=jdbc:h2:tcp://localhost:8043//work/eprtrcms -Dstorage.dir=/work -Dupload.dir=/work"
 ```
 These are the properties you can set:
 ```
@@ -59,7 +59,7 @@ db.password
 storage.dir
 upload.dir
 initial.username
-initial.password
+initial.password  # Not needed when integrated with CAS.
 cas.service
 cas.server.host
 ```
