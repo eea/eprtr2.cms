@@ -88,20 +88,21 @@
       </div>
       <div id="workarea">
         <h1 th:text="${title}">Page title here</h1>
-        <form>
+        <form action="#" th:action="@{/edittext}" th:object="${document}" method="post">
           <div class="formrow">
-            <label>Page title: <input type="text" name="pagetitle" size="60" th:value="${pagetitle}"/></label>
+            <label>Page title: <input type="text" size="60" th:field="*{title}"/></label>
           </div>
-          <div class="formrow" th:if="${not allowHTML}">
-            <input type="text" name="textstring" size="60" th:value="${content}"/>
+          <div class="formrow" th:unless="*{allowHTML}">
+            <input type="text" size="60" th:field="*{content}"/>
             <div>(Only plain text is allowed in this text field)</div>
           </div>
-          <div class="formrow" th:if="${allowHTML}">
-            <textarea name="page" id="page" rows="30" cols="80" th:text="${content}">
+          <div class="formrow" th:if="*{allowHTML}">
+            <textarea id="page" rows="30" cols="80" th:field="*{content}">
                       This is my textarea to be replaced with CKEditor.
             </textarea>
           </div>
           <div class="formrow">
+          <input type="hidden" th:field="*{resourceKey}"/>
           <input type="submit" value="Change"/>
           </div>
         </form>

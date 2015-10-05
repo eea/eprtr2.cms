@@ -7,8 +7,10 @@ import eea.eprtr.cms.model.SimpleDoc;
 //CRUD operations
 public interface SimpleDocService {
 
-    //Create
-    //void save(SimpleDoc doc);
+    /**
+     * Save a document.
+     */
+    void save(SimpleDoc doc);
 
     /**
      * Read.

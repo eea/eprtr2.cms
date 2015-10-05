@@ -82,13 +82,25 @@ public class SimpleDocController {
      */
     @RequestMapping(value = "/edittext", method = RequestMethod.GET)
     public String editpage(@RequestParam("key") String page, Model model) {
-        SimpleDoc doc = simpleDocService.getByResourceKey(page);
-        model.addAttribute("pagetitle", doc.getTitle());
-        model.addAttribute("content", doc.getContent());
-        model.addAttribute("allowHTML", doc.getAllowHTML());
+        SimpleDoc document = simpleDocService.getByResourceKey(page);
+        //model.addAttribute("pagetitle", doc.getTitle());
+        //model.addAttribute("content", doc.getContent());
+        //model.addAttribute("allowHTML", doc.getAllowHTML());
+        model.addAttribute("document", document);
         model.addAttribute("title", "Edit page");
         return "editpage";
     }
+
+    @RequestMapping(value = "/edittext", method = RequestMethod.POST)
+    public String savepage(SimpleDoc doc, Model model) {
+        SimpleDoc docInDb = simpleDocService.getByResourceKey(doc.getResourceKey());
+        docInDb.setTitle(doc.getTitle());
+        docInDb.setContent(doc.getContent());
+        simpleDocService.save(docInDb);
+        model.addAttribute("title", "Edit page");
+        return "editpage";
+    }
+
 
     private void loadFromDB(String name, Model model) {
         SimpleDoc doc = simpleDocService.getByResourceKey(name);

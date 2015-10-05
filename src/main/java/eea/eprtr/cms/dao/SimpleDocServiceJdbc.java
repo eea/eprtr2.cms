@@ -22,8 +22,15 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
     }
 
     @Override
+    public void save(SimpleDoc doc) {
+        String query = "UPDATE ReviseResourceValue SET ResourceValue=? WHERE CultureCode='en-GB' AND ResourceKey=?";
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(query, doc.getContent(), doc.getResourceKey());
+    }
+
+    @Override
     public SimpleDoc getByResourceKey(String name) {
-        String query = "SELECT ResourceKey, KeyTitle, ResourceValue, AllowHTML, ContentsGroupID, AllowHTML"
+        String query = "SELECT ResourceKey, KeyTitle, ResourceValue, ContentsGroupID, AllowHTML"
             + " FROM ReviseResourceKey"
             + " JOIN ReviseResourceValue ON ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID"
             + " AND CultureCode='en-GB' WHERE ResourceKey = ?";
