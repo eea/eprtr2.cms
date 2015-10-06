@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: headerFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment">
+      </div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title</h1>
+    <p>
+    With this CMS website you can edit those parts of the E-PRTR website that are CMS enabled.
+    </p>
+    <h2>Basic text editing</h2>
+    <ul>
+        <li>Enter the desired content, and press the submit button below the text editor to upload changes.</li>
+        <li>Note that your changes become online on the E-PRTR website (and Review) immediately when you click the submit button.</li>
+        <li>To cancel the current changes select a different text entry from the left side tree view or close the browser window if you are done.</li>
+    </ul>
+    <h2>Styling guideline, keep in mind, i.e.:</h2>
+    <ul>
+        <li>Please don't use Heading1; it reserved for the actual page titles.</li>
+        <li>Use Heading2 as the high level of titles within the page.</li>
+        <li>You can use Heading3 for sub-titles.</li>
+        <li>Bold and Italic can be used to emphasize minor parts.</li>
+    </ul>
+    <h2>Inserting links</h2>
+    <ul>
+        <li>Select the text you want to turn into a link.</li>
+        <li>Click the "Insert/edit URL" button to open the link dialog.</li>
+        <li>Type the URL   
+            <ul>
+                <li>If you link to external sources, type the entire URL including "http://". I.e. <a href="http://www.unece.org">http://www.unece.org</a>.</li>
+                <li>If you link internally to an E-PRTR webpage, simply copy the page name from the address field, i.e. "pgNews.aspx" or "FacilityLevels.aspx".</li>
+                <li>If you link to a document in the E-PRTR document folder, type "docs/" in front of the filename, i.e. "docs/EN_E-PRTR_fin.pdf" in order to link to the English version of the E-PRTR Guidance Document in PDF format.</li>
+            </ul>
+        </li>
+        <li>As Target select either "open in this window" or "open in new window".</li>
+    </ul>
+    <h2>Author</h2>
+    <ul>
+      <li>Søren Roug, European Environment Agency</li>
+    </ul>
+
+      </div>
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+    Footer
+    </div>
+  </body>
+</html>

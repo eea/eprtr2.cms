@@ -52,8 +52,10 @@ public class SimpleDocController {
      */
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String about(Model model) {
-        loadFromDB("AboutPageContent", model);
-        return "simplecontent";
+        String title = "About";
+        model.addAttribute("title", title);
+        BreadCrumbs.set(model, title);
+        return "about";
     }
 
     /**

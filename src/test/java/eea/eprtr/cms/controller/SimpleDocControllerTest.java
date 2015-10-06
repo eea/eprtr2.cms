@@ -39,18 +39,18 @@ public class SimpleDocControllerTest {
 
     private MockMvc mockMvc;
 
-    @Autowired
-    private DataSource dataSource;
+    //@Autowired
+    //private DataSource dataSource;
 
-    private IDatabaseTester databaseTester;
+    //private IDatabaseTester databaseTester;
 
     @Before
     public void setUp() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-        databaseTester = new DataSourceDatabaseTester(dataSource);
-        IDataSet dataSet = new FlatXmlDataSetBuilder().build(getClass().getClassLoader().getResourceAsStream("seed-cms.xml"));
-        databaseTester.setDataSet(dataSet);
-        databaseTester.onSetup();
+        //databaseTester = new DataSourceDatabaseTester(dataSource);
+        //IDataSet dataSet = new FlatXmlDataSetBuilder().build(getClass().getClassLoader().getResourceAsStream("seed-cms.xml"));
+        //databaseTester.setDataSet(dataSet);
+        //databaseTester.onSetup();
     }
 
     @Test
@@ -58,7 +58,7 @@ public class SimpleDocControllerTest {
         this.mockMvc.perform(get("/about"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("breadcrumbs"))
-                .andExpect(model().attributeExists("content"))
-                .andExpect(view().name("simplecontent"));
+                .andExpect(model().attributeExists("title"))
+                .andExpect(view().name("about"));
     }
 }
