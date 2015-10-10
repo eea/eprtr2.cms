@@ -237,46 +237,56 @@
   </changeSet>
 
   <changeSet author="roug" id="rev-10" dbms="h2,mssql">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <viewExists viewName="News"/>
+      </not>
+    </preConditions>
     <createView viewName="News">
 SELECT
-        k.NewsKeyID,
-        k.TopNewsIndicator,
-        v.CultureCode,
+    k.NewsKeyID,
+    k.TopNewsIndicator,
+    v.CultureCode,
     v.HeaderText,
     v.BodyText,
     v.AuthorName,
     v.CreateDate
 FROM
-        NewsKey k
+    NewsKey k
 INNER JOIN
-        NewsValue v
-ON      k.NewsKeyID = v.NewsKeyID
+    NewsValue v
+ON  k.NewsKeyID = v.NewsKeyID
     </createView>
   </changeSet>
 
   <changeSet author="roug" id="rev-11" dbms="h2,mssql">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <viewExists viewName="StringResource"/>
+      </not>
+    </preConditions>
     <createView viewName="StringResource">
 SELECT
-        tAT_ResourceKey.ResourceType,
-        tAT_ResourceKey.ResourceKey,
-        tAT_ResourceValue.CultureCode,
+    tAT_ResourceKey.ResourceType,
+    tAT_ResourceKey.ResourceKey,
+    tAT_ResourceValue.CultureCode,
     tAT_ResourceValue.ResourceValue
 FROM
-        tAT_ResourceKey
+    tAT_ResourceKey
 INNER JOIN
-        tAT_ResourceValue
-ON      tAT_ResourceKey.ResourceKeyID = tAT_ResourceValue.ResourceKeyID
-union
-select
-        ReviseResourceKey.ResourceType,
-        ReviseResourceKey.ResourceKey,
-        ReviseResourceValue.CultureCode,
+    tAT_ResourceValue
+ON  tAT_ResourceKey.ResourceKeyID = tAT_ResourceValue.ResourceKeyID
+UNION
+SELECT
+    ReviseResourceKey.ResourceType,
+    ReviseResourceKey.ResourceKey,
+    ReviseResourceValue.CultureCode,
     ReviseResourceValue.ResourceValue
 FROM
-        ReviseResourceKey
+    ReviseResourceKey
 INNER JOIN
-        ReviseResourceValue
-ON      ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID
+    ReviseResourceValue
+ON  ReviseResourceKey.ResourceKeyID = ReviseResourceValue.ResourceKeyID
     </createView>
   </changeSet>
 

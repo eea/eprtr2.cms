@@ -40,11 +40,23 @@ public class SimpleDocController {
      */
     @RequestMapping(value = "/statictexts")
     public String staticTexts(Model model) {
-        model.addAttribute("title", "Static text editor");
+        String title = "Static text editor";
+        model.addAttribute("title", title);
         model.addAttribute("texts", simpleDocService.getAll());
-        // This is toplevel. No breadcrumbs.
-        BreadCrumbs.set(model);
+        BreadCrumbs.set(model, title);
         return "statictexts";
+    }
+
+    /**
+     * Netws edit.
+     */
+    @RequestMapping(value = "/newstexts")
+    public String newsTexts(Model model) {
+        String title = "News text editor";
+        model.addAttribute("title", title);
+        model.addAttribute("texts", simpleDocService.getAll());
+        BreadCrumbs.set(model, title);
+        return "newstexts";
     }
 
     /**

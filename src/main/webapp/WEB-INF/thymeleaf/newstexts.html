@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: headerFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="developer.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/application.css" th:href="@{/css/application.css}" />
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment">
+      </div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title here</h1>
+        <p>
+        This section is not implemented.
+        </p>
+      </div>
+      <!-- workarea -->
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+    Footer
+    </div>
+  </body>
+</html>
