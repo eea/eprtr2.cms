@@ -88,9 +88,10 @@
       </div>
       <div id="workarea">
         <h1 th:text="${title}">Page title here</h1>
-        <form action="#" th:action="@{/edittext}" th:object="${document}" method="post">
+        <div th:if="${message}" th:text="${message}" class="system-msg">System message</div>
+        <form action="editpage.html" th:action="@{/edittext}" th:object="${document}" method="post">
           <div class="formrow">
-            <label>Page title: <input type="text" size="60" th:field="*{title}"/></label>
+            <label>Page title: <input type="text" size="60" th:field="*{title}" disabled="disabled"/></label>
           </div>
           <div class="formrow" th:unless="*{allowHTML}">
             <input type="text" size="60" th:field="*{content}"/>
@@ -102,7 +103,7 @@
             </textarea>
           </div>
           <div class="formrow">
-          <input type="hidden" th:field="*{resourceKey}"/>
+          <input type="hidden" th:field="*{resourceValueID}"/>
           <input type="submit" value="Change"/>
           </div>
         </form>

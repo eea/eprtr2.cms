@@ -23,7 +23,7 @@
             </thead>
             <tbody th:remove="all-but-first">
               <tr th:each="entry : ${texts}">
-                <td><a href="editpage.html" th:href="@{/edittext(key=${entry.resourceKey})}"
+                <td><a href="editpage.html" th:href="@{/edittext(key=${entry.resourceValueID})}"
                     th:text="${entry.resourceKey}">AirNH3_Agriculture.TitleShort</a></td>
                 <td th:text="${entry.contentsGroupName}">Contents group</td>
                 <td th:text="${entry.title}">Long realistic title</td>

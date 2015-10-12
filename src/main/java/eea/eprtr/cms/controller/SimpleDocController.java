@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * This controller class is meant to be super-simple to understand for beginners.
- * We could have optimized it using wildcards in order to have less methods, but that would have made it harder to read.
+ * Controller for text pages.
  */
 
 @Controller
@@ -95,8 +94,8 @@ public class SimpleDocController {
      * TODO: Add param
      */
     @RequestMapping(value = "/edittext", method = RequestMethod.GET)
-    public String editpage(@RequestParam("key") String page, Model model) {
-        SimpleDoc document = simpleDocService.getByResourceKey(page);
+    public String editpage(@RequestParam("key") int page, Model model) {
+        SimpleDoc document = simpleDocService.getByResourceValueID(page);
         //model.addAttribute("pagetitle", doc.getTitle());
         //model.addAttribute("content", doc.getContent());
         //model.addAttribute("allowHTML", doc.getAllowHTML());
@@ -105,19 +104,24 @@ public class SimpleDocController {
         return "editpage";
     }
 
+    /**
+     * Saving the page.
+     */
     @RequestMapping(value = "/edittext", method = RequestMethod.POST)
     public String savepage(SimpleDoc doc, Model model) {
-        SimpleDoc docInDb = simpleDocService.getByResourceKey(doc.getResourceKey());
+        SimpleDoc docInDb = simpleDocService.getByResourceValueID(doc.getResourceValueID());
         docInDb.setTitle(doc.getTitle());
         docInDb.setContent(doc.getContent());
         simpleDocService.save(docInDb);
+        model.addAttribute("document", docInDb);
         model.addAttribute("title", "Edit page");
+        model.addAttribute("message", "Text is updated");
         return "editpage";
     }
 
 
-    private void loadFromDB(String name, Model model) {
-        SimpleDoc doc = simpleDocService.getByResourceKey(name);
+    private void loadFromDB(int name, Model model) {
+        SimpleDoc doc = simpleDocService.getByResourceValueID(name);
         if (doc == null)
             System.out.println("Doc was null");
         model.addAttribute("title", doc.getTitle());

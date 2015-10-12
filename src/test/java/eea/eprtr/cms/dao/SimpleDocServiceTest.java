@@ -23,12 +23,12 @@ public class SimpleDocServiceTest {
          
         //Run some tests for JDBC CRUD operations
         SimpleDoc doc = new SimpleDoc();
-        doc.setResourceKey("testpage");
+        doc.setResourceValueID(9);
         doc.setTitle("Test Page");
         doc.setContent("Java Developer");
          
         //Read
-        SimpleDoc doc1 = simpledocService.getByResourceKey("AboutPageContent");
+        SimpleDoc doc1 = simpledocService.getByResourceValueID(3);
         assertNotNull(doc1);
          
         //Get All

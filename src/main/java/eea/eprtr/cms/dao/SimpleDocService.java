@@ -15,7 +15,7 @@ public interface SimpleDocService {
     /**
      * Read.
      */
-    SimpleDoc getByResourceKey(String name);
+    SimpleDoc getByResourceValueID(int valueID);
 
     //Update
     //void update(SimpleDoc doc);
