@@ -96,9 +96,6 @@ public class SimpleDocController {
     @RequestMapping(value = "/edittext", method = RequestMethod.GET)
     public String editpage(@RequestParam("key") int page, Model model) {
         SimpleDoc document = simpleDocService.getByResourceValueID(page);
-        //model.addAttribute("pagetitle", doc.getTitle());
-        //model.addAttribute("content", doc.getContent());
-        //model.addAttribute("allowHTML", doc.getAllowHTML());
         model.addAttribute("document", document);
         model.addAttribute("title", "Edit page");
         return "editpage";
@@ -110,7 +107,7 @@ public class SimpleDocController {
     @RequestMapping(value = "/edittext", method = RequestMethod.POST)
     public String savepage(SimpleDoc doc, Model model) {
         SimpleDoc docInDb = simpleDocService.getByResourceValueID(doc.getResourceValueID());
-        docInDb.setTitle(doc.getTitle());
+        //docInDb.setTitle(doc.getTitle());
         docInDb.setContent(doc.getContent());
         simpleDocService.save(docInDb);
         model.addAttribute("document", docInDb);
