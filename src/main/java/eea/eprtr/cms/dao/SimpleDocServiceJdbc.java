@@ -2,22 +2,19 @@ package eea.eprtr.cms.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.sql.DataSource;
 
 import eea.eprtr.cms.model.SimpleDoc;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public class SimpleDocServiceJdbc implements SimpleDocService {
 
     private DataSource dataSource;
@@ -26,7 +23,6 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
 
     private JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         jdbcTemplate = new JdbcTemplate(dataSource);
@@ -35,8 +31,9 @@ public class SimpleDocServiceJdbc implements SimpleDocService {
 
     @Override
     public void save(SimpleDoc doc) {
-        //doc.setChangedDate = 
-        String query = "UPDATE ReviseResourceValue SET ResourceValue=:content WHERE CultureCode='en-GB' AND ResourceValueID=:resourceValueID";
+        doc.setChangedDate(new Timestamp(System.currentTimeMillis()));
+        String query = "UPDATE ReviseResourceValue SET ResourceValue=:content, ChangedDate=:changedDate"
+            + " WHERE CultureCode='en-GB' AND ResourceValueID=:resourceValueID";
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(doc);
         namedParameterJdbcTemplate.update(query, namedParameters);
     }

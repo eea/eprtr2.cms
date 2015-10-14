@@ -1,5 +1,7 @@
 package eea.eprtr.cms.model;
 
+import java.sql.Timestamp;
+
 /**
  * This class implements one single simple html document.
  */
@@ -15,6 +17,9 @@ public class SimpleDoc {
     /** Title of page. */
     private String title;
 
+    /** Timestamp of last change. */
+    private Timestamp changedDate;
+
     private Boolean allowHTML;
 
     private int contentsGroupID;
@@ -24,8 +29,6 @@ public class SimpleDoc {
     /** Content of page. */
     private String content;
     
-    //resourceType    allowHTML       keyDescription  keyTitle        contentsGroupID createdDate
-
     public int getResourceValueID() {
         return resourceValueID;
     }
@@ -64,6 +67,14 @@ public class SimpleDoc {
 
     public void setContentsGroupID(final int contentsGroupID) {
         this.contentsGroupID = contentsGroupID;
+    }
+
+    public Timestamp getChangedDate() {
+        return changedDate;
+    }
+
+    public void setChangedDate(Timestamp changedDate) {
+        this.changedDate = changedDate;
     }
 
     public String getContent() {
