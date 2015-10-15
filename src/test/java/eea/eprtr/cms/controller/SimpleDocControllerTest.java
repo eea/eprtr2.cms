@@ -4,7 +4,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.UserRequestPostProcessor.*;
+import static org.hamcrest.Matchers.*;
 
+import eea.eprtr.cms.model.SimpleDoc;
 import java.io.File;
 import javax.sql.DataSource;
 import org.dbunit.dataset.IDataSet;
@@ -72,6 +74,30 @@ public class SimpleDocControllerTest {
                 .andExpect(model().attributeExists("breadcrumbs"))
                 .andExpect(model().attributeExists("title"))
                 .andExpect(view().name("about"))
+                .andExpect(content().contentType("text/html;charset=UTF-8"));
+    }
+
+    @Test
+    public void getStaticTexts() throws Exception {
+        this.mockMvc.perform(get("/statictexts").with(user("uploader")))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("breadcrumbs"))
+                .andExpect(model().attributeExists("title"))
+                .andExpect(model().attributeExists("texts"))
+                .andExpect(view().name("statictexts"))
+                .andExpect(content().contentType("text/html;charset=UTF-8"));
+    }
+
+
+    @Test
+    public void loadText() throws Exception {
+        this.mockMvc.perform(get("/edittext")
+                .param("key", "3")
+                .with(user("uploader")))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("title", "document"))
+                .andExpect(model().attribute("document", isA(SimpleDoc.class)))
+                .andExpect(view().name("editpage"))
                 .andExpect(content().contentType("text/html;charset=UTF-8"));
     }
 }
