@@ -100,4 +100,18 @@ public class SimpleDocControllerTest {
                 .andExpect(view().name("editpage"))
                 .andExpect(content().contentType("text/html;charset=UTF-8"));
     }
+
+    @Test
+    public void saveText() throws Exception {
+        this.mockMvc.perform(post("/edittext")
+                .param("resourceValueID", "3")
+                .param("content", "Some content here")
+                .with(csrf())
+                .with(user("admin").roles("ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("title", "document"))
+                .andExpect(model().attribute("document", isA(SimpleDoc.class)))
+                .andExpect(view().name("editpage"))
+                .andExpect(content().contentType("text/html;charset=UTF-8"));
+    }
 }
