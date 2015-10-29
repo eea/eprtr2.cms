@@ -43,12 +43,24 @@ This will create a `target` subdirectory, build the code, run the tests and put 
 
 Deployment
 ----------
+The application needs a database. It won't create or populate it automatically. To do it manually, do:
+
+```
+mysqladmin -p -u root create EPRTRcms
+mysqladmin -p -u root
+SQL> CREATE USER 'eprtradmin'@'localhost' IDENTIFIED BY 'password-here';
+SQL> GRANT ALL PRIVILEGES ON EPRTRcms.* TO 'eprtradmin'@'localhost';
+SQL> exit;
+edit the prod-liquibase.properties file
+mvn liquibase:update
+```
+
 The default configuration is to allow you to deploy to your own workstation directly. You install the target/eprtr-cms.war to Tomcat's webapps directory as cms.war. You can make it create an initial user with administrator rights by setting system properties to configure the application.
 
-On a CentOS system you can start Tomcat with the environment variable JAVA_OPTS set to some value or add lines to /etc/sysconfig/tomcat that looks like this:
+On a CentOS system you can start Tomcat with the environment variable CATALINA_OPTS set to some value or add lines to /etc/sysconfig/tomcat that looks like this:
 ```
-JAVA_OPTS="-Dcas.service=http://prtr.eea.europa.eu/cms -Dinitial.username=MyName"
-JAVA_OPTS="$JAVA_OPTS -Ddb.url=jdbc:h2:tcp://localhost:8043//work/eprtrcms -Dstorage.dir=/work -Dupload.dir=/work"
+CATALINA_OPTS="-Dcas.service=http://prtr.eea.europa.eu/cms -Dinitial.username=MyName"
+CATALINA_OPTS="$CATALINA_OPTS -Ddb.url=jdbc:h2:tcp://localhost:8043//work/eprtrcms -Dstorage.dir=/work -Dupload.dir=/work"
 ```
 These are the properties you can set:
 ```

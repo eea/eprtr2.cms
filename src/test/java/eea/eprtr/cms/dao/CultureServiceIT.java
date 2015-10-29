@@ -18,7 +18,7 @@ import org.unitils.database.annotations.TestDataSource;
  
 // See http://www.journaldev.com/2593/spring-jdbc-and-jdbctemplate-crud-with-datasource-example-tutorial
 @DataSet("seed-culture.xml")
-public class CultureServiceTest extends UnitilsJUnit4 {
+public class CultureServiceIT extends UnitilsJUnit4 {
  
     @TestDataSource
     private DataSource dataSource;

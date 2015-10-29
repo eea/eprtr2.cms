@@ -44,7 +44,7 @@ import static org.junit.Assert.assertFalse;
 /**
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-public class UserControllerTest extends AbstractContextControllerTests {
+public class UserControllerIT extends AbstractContextControllerTests {
     @Autowired
     UserManagementService userManagementService;
 

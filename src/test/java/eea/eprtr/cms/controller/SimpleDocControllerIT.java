@@ -35,7 +35,7 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  * Test the simple doc controller.
  */
-public class SimpleDocControllerTest {
+public class SimpleDocControllerIT {
 
     @Autowired
     private WebApplicationContext wac;

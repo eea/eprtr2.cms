@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
  
 // See http://www.journaldev.com/2593/spring-jdbc-and-jdbctemplate-crud-with-datasource-example-tutorial
-public class SimpleDocServiceTest {
+public class SimpleDocServiceIT {
  
     @Test
     public void simpleTest() {
