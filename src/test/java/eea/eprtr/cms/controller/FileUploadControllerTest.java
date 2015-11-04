@@ -19,12 +19,8 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration
 @ContextConfiguration(locations = {"classpath:spring-mvctest-config.xml", "classpath:spring-dbtest-config.xml"})
 
-
 /**
  * Test the simple doc controller.
- *
- * @see <a href="http://docs.spring.io/spring-framework/docs/3.2.0.BUILD-SNAPSHOT/reference/htmlsingle/#spring-mvc-test-framework">MVC testing</a>
- * @see <a href="http://docs.spring.io/spring-framework/docs/3.2.0.RC2/api/org/springframework/test/web/servlet/ResultActions.html">Result Actions</a>
  */
 public class FileUploadControllerTest {
 

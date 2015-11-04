@@ -79,24 +79,24 @@ public class UserControllerIT extends AbstractContextControllerTests {
 
         editUserTo(TEST_USER, UserRole.ROLE_ADMIN);
         assertUserHasOnlyOneRole(TEST_USER, UserRole.ROLE_ADMIN);
-        
+
         deleteUser(TEST_USER);
-        assertFalse("User should be deleted", UserExists(TEST_USER));
+        assertFalse("User should be deleted", checkUserExists(TEST_USER));
     }
 
     private void addUserWith(String username, UserRole role) throws Exception {
         requestWithRedirect(post("/users/add").param("userId", username).param("authorisations", role.name()));
     }
-    
+
     private void editUserTo(String username, UserRole role) throws Exception {
         requestWithRedirect(post("/users/edit").param("userId", username).param("authorisations", role.name()));
     }
-    
+
     private void deleteUser(String username) throws Exception {
         requestWithRedirect(post("/users/delete").param("userName", username));
     }
-    
-    private boolean UserExists(String username) throws Exception {
+
+    private boolean checkUserExists(String username) throws Exception {
         return userManagementService.userExists(username);
     }
 

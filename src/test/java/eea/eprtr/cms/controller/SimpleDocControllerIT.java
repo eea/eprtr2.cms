@@ -7,12 +7,6 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.hamcrest.Matchers.*;
 
 import eea.eprtr.cms.model.SimpleDoc;
-import java.io.File;
-import javax.sql.DataSource;
-import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.dbunit.DataSourceDatabaseTester;
-import org.dbunit.IDatabaseTester;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.Test;
@@ -50,11 +44,6 @@ public class SimpleDocControllerIT {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac)
             .addFilters(this.springSecurityFilterChain)
             .build();
-
-        //databaseTester = new DataSourceDatabaseTester(dataSource);
-        //IDataSet dataSet = new FlatXmlDataSetBuilder().build(getClass().getClassLoader().getResourceAsStream("seed-cms.xml"));
-        //databaseTester.setDataSet(dataSet);
-        //databaseTester.onSetup();
     }
 
 
