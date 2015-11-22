@@ -59,21 +59,27 @@ The default configuration is to allow you to deploy to your own workstation dire
 
 On a CentOS system you can start Tomcat with the environment variable CATALINA_OPTS set to some value or add lines to /etc/sysconfig/tomcat that looks like this:
 ```
-CATALINA_OPTS="-Dcas.service=http://prtr.eea.europa.eu/cms -Dinitial.username=MyName"
-CATALINA_OPTS="$CATALINA_OPTS -Ddb.url=jdbc:h2:tcp://localhost:8043//work/eprtrcms -Dstorage.dir=/work -Dupload.dir=/work"
+CATALINA_OPTS="-Dcmsdb.url=jdbc:h2:tcp://localhost:8043//work/eprtrcms -Dstorage.dir=/work -Dupload.dir=/work"
 ```
 These are the properties you can set:
 ```
-db.driver
-db.url
-db.username
-db.password
+cmsdb.driver
+cmsdb.url
+cmsdb.username
+cmsdb.password
 storage.dir
 upload.dir
-initial.username
-initial.password  # Not needed when integrated with CAS.
-cas.service
-cas.server.host
+ldap.service
 ```
 The default values are in src/main/resources/application.properties and src/main/resources/cas.properties.
+
+Deployment as Docker container
+------------------------------
+
+The application can be deployed as a Docker container. To do so you first build the image using Maven:
+
+```
+mvn -Pdocker clean install docker:push
+```
+Then you can deploy it with docker-compose using a YAML file derived from the one you see in the top directory.
 

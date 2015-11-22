@@ -21,8 +21,8 @@ import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-mvctest-config.xml",
-        "classpath:spring-dbtest-config.xml"})
+@ContextConfiguration(locations = {"classpath:spring-mvc-config.xml",
+        "classpath:spring-db-config.xml"})
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
         DirtiesContextTestExecutionListener.class,
         TransactionalTestExecutionListener.class,

@@ -12,6 +12,8 @@
  -->
 
  <include file="database/eprtr_cms.xml"/>
+ <!--
  <include file="database/eprtr_auth.xml"/>
+ -->
  <include file="database/loaddemodata.xml"/>
 </databaseChangeLog>

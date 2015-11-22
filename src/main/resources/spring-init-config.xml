@@ -14,11 +14,12 @@
     </bean>
     -->
 
+<!--
     <bean id="initialUser" class="eea.eprtr.cms.dao.InitialUser"
          init-method="createUser">
         <property name="userManagementService" ref="userService"/>
         <property name="initialUsername" value="${initial.username}"/>
         <property name="initialPassword" value="${initial.password}"/>
     </bean>
-
+-->
 </beans>

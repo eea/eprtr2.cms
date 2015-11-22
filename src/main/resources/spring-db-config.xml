@@ -7,16 +7,17 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
                 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
-    <util:properties id="cas" location="classpath:cas.properties"/>
+
+    <util:properties id="ldap" location="classpath:ldap.properties"/>
     <util:properties id="application" location="classpath:application.properties"/>
 
     <context:property-placeholder order="0" ignore-unresolvable="true" system-properties-mode="OVERRIDE" properties-ref="application"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${db.driver}" />
-        <property name="url" value="${db.url}" />
-        <property name="username" value="${db.username}" />
-        <property name="password" value="${db.password}" />
+        <property name="driverClassName" value="${cmsdb.driver}" />
+        <property name="url" value="${cmsdb.url}" />
+        <property name="username" value="${cmsdb.username}" />
+        <property name="password" value="${cmsdb.password}" />
     </bean>
 
     <bean id="simpleDocService" class="eea.eprtr.cms.dao.SimpleDocServiceJdbc">
@@ -26,6 +27,7 @@
     <bean id="cultureService" class="eea.eprtr.cms.dao.CultureServiceJdbc">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
 
     <bean id="userService" class="eea.eprtr.cms.dao.UserManagementServiceJdbc">
         <property name="dataSource" ref="dataSource"/>

@@ -15,7 +15,7 @@ public class SimpleDocServiceIT {
     @Test
     public void simpleTest() {
         //Get the Spring Context
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-dbtest-config.xml");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-db-config.xml");
 
         //Get the SimpleDocService Bean from the context.
         SimpleDocService simpledocService = ctx.getBean("simpleDocService", SimpleDocService.class);

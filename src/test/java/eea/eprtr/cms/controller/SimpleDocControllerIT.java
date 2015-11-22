@@ -22,8 +22,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations = {"classpath:spring-mvctest-config.xml",
-        "classpath:spring-dbtest-config.xml",
+@ContextConfiguration(locations = {"classpath:spring-mvc-config.xml",
+        "classpath:spring-db-config.xml",
         "classpath:spring-securitytest-config.xml"})
 
 /**

@@ -17,6 +17,7 @@
           <li><a href="newseditor.html" th:href="@{/newstexts}">News editor</a> (not implemented)</li>
           <li><a href="filecatalogue.html" th:href="@{/filecatalogue}">File catalogue</a></li>
         </ul>
+        Roles: <span sec:authorize="isAuthenticated()" sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
       </div>
     </div>
     <!-- container -->
