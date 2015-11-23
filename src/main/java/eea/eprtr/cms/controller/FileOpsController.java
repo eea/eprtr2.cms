@@ -32,15 +32,18 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -88,33 +91,6 @@ public class FileOpsController {
         return "redirect:filecatalogue";
     }
 
-    /**
-     * AJAX Upload file for transfer.
-     */
-    /*
-    @RequestMapping(value = "/filecatalogue", method = RequestMethod.POST, params="ajaxupload=1")
-    public void importFileWithAJAX(@RequestParam("file") MultipartFile myFile,
-                        HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        if (myFile == null || myFile.getOriginalFilename() == null) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST,"Select a file to upload");
-            return;
-        }
-        String fileName = storeFile(myFile);
-        response.setContentType("text/xml");
-        PrintWriter printer = response.getWriter();
-        StringBuffer requestUrl = request.getRequestURL();
-        String url = requestUrl.substring(0, requestUrl.length() - "/filecatalogue".length());
-        printer.println("<?xml version='1.0'?>");
-        printer.println("<package>");
-        printer.println("<downloadLink>" + url + "/download/" + fileName + "</downloadLink>");
-        printer.println("<deleteLink>" + url + "/delete/" + fileName + "</deleteLink>");
-        printer.println("</package>");
-        printer.flush();
-        response.flushBuffer();
-    }
-    */
-
     private String storeFile(MultipartFile myFile) throws IOException {
         String fileName = storageService.save(myFile);
         String userName = getUserName();
@@ -127,9 +103,6 @@ public class FileOpsController {
      */
     private String getUserName() {
         Authentication auth =  SecurityContextHolder.getContext().getAuthentication();
-        //if (auth == null) {
-        //    throw new IllegalArgumentException("Not authenticated");
-        //}
         Object principal = auth.getPrincipal();
         if (principal instanceof UserDetails) {
             return ((UserDetails) principal).getUsername();
@@ -155,15 +128,22 @@ public class FileOpsController {
 
     /**
      * Download a file.
-     * FIXME: Extension is stripped by Spring. See http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-suffix-pattern-match
+     * Extension is stripped by Spring unless reconfigured.
+     * @see <a href="http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-suffix-pattern-match">Suffix Pattern Matching</a>
+     * @see <a href="http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-config-path-matching">21.16.11 Path Matching</a>
      */
     @RequestMapping(value = "/docs/{file_name}", method = RequestMethod.GET)
     public void downloadFile(
         @PathVariable("file_name") String fileId, HttpServletResponse response) throws IOException {
-        // FIXME. Verify fileId for ../
-        long fileSize = storageService.getSizeById(fileId);
+
+        long fileSize = 0;
         InputStream is = null;
-        is = storageService.getById(fileId);
+        try {
+            fileSize = storageService.getSizeById(fileId);
+            is = storageService.getById(fileId);
+        } catch (Exception e) {
+            throw new FileNotFoundException(fileId);
+        }
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Length", Long.toString(fileSize));
         response.setHeader("Content-Disposition", "attachment; filename=" + fileId);
@@ -173,12 +153,14 @@ public class FileOpsController {
         is.close();
     }
 
+    /*
     @RequestMapping(value = "/delete/{file_name}")
     public String deleteFile(
         @PathVariable("file_name") String fileId, final Model model) throws IOException {
         model.addAttribute("filename", fileId);
         return "deleteConfirmation";
     }
+    */
 
     /**
      * Delete files by filename.
@@ -186,13 +168,19 @@ public class FileOpsController {
      * @param ids - list of filenames
      */
     @RequestMapping(value = "/deletefiles", method = RequestMethod.POST)
-    public String deleteFiles(@RequestParam("id") List<String> ids,
+    public String deleteFiles(@RequestParam("filename") List<String> ids,
             final RedirectAttributes redirectAttributes) throws IOException {
         for (String fileId : ids) {
             storageService.deleteById(fileId);
         }
         redirectAttributes.addFlashAttribute("message", "File(s) deleted");
         return "redirect:/";
+    }
+
+    @ExceptionHandler(FileNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public String filenotFoundError(HttpServletRequest req, Exception exception) {
+        return "filenotfound";
     }
 
 }

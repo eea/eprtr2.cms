@@ -15,7 +15,11 @@
 	<context:component-scan base-package="eea.eprtr.cms" />
 	
 	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+            <mvc:path-matching
+                suffix-pattern="false"
+                trailing-slash="false"/>
+	</mvc:annotation-driven>
 	
         <!-- You might want to try
              class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver"

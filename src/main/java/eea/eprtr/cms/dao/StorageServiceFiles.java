@@ -64,8 +64,7 @@ public class StorageServiceFiles implements StorageService {
 
     @Override
     public InputStream getById(String fileName) throws IOException {
-        String realFileName = getNegotiatedName(fileName);
-        File location = new File(storageDir, realFileName);
+        File location = new File(storageDir, fileName);
         return new FileInputStream(location);
     }
 
@@ -103,19 +102,7 @@ public class StorageServiceFiles implements StorageService {
 
     @Override
     public long getSizeById(String fileName) {
-        String realFileName = getNegotiatedName(fileName);
-        File location = new File(storageDir, realFileName);
+        File location = new File(storageDir, fileName);
         return location.length();
-    }
-
-    private String getNegotiatedName(String fileToFind) {
-        File fileDir = new File(storageDir);
-        assert fileDir.isDirectory();
-        for (File member : fileDir.listFiles()) {
-            if (member.getName().startsWith(fileToFind)) {
-                return member.getName();
-            }
-        }
-        return "";
     }
 }

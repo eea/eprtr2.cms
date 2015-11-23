@@ -81,13 +81,43 @@ public class FileUploadControllerTest {
      */
     @Test
     public void goodUpload() throws Exception {
-        MockMultipartFile mockFile = new MockMultipartFile("file", "file.txt", "text/plain", "ABCDEF".getBytes("UTF-8"));
+        uploadFile("uploaded-file.txt", "ABCDEF");
+        uploadFile("uploaded-file.csv", "A,B,C,D,E,F");
+
+        // Check that it is there.
+        mockMvc.perform(get("/docs/uploaded-file.txt")
+                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .andExpect(status().isOk());
+        mockMvc.perform(get("/docs/uploaded-file.doc")
+                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/docs/uploaded-file")
+                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .andExpect(status().isNotFound());
+    }
+
+    /**
+     * Helper method
+     */
+    private void uploadFile(String originalFilename, String content) throws Exception {
+        MockMultipartFile mockFile = new MockMultipartFile("file", originalFilename, "text/plain", content.getBytes("UTF-8"));
         mockMvc.perform(fileUpload("/filecatalogue")
                 .file(mockFile)
                 .with(csrf()).with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("filecatalogue"))
                 .andExpect(flash().attributeCount(2));
+    }
+
+    /**
+     * Attempt to download a non-existent file.
+     */
+    @Test
+    public void downloadNotFound() throws Exception {
+        mockMvc.perform(get("/docs/no-such-file")
+                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .andExpect(status().isNotFound())
+                .andExpect(view().name("filenotfound"));
     }
 
 }
