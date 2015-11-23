@@ -91,6 +91,7 @@ public class FileOpsController {
     /**
      * AJAX Upload file for transfer.
      */
+    /*
     @RequestMapping(value = "/filecatalogue", method = RequestMethod.POST, params="ajaxupload=1")
     public void importFileWithAJAX(@RequestParam("file") MultipartFile myFile,
                         HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -112,11 +113,12 @@ public class FileOpsController {
         printer.flush();
         response.flushBuffer();
     }
+    */
 
     private String storeFile(MultipartFile myFile) throws IOException {
         String fileName = storageService.save(myFile);
-        String userName = getUserName();
-        logger.info("Uploaded: " + myFile.getOriginalFilename() + " by " + userName);
+        //String userName = getUserName();
+        //logger.info("Uploaded: " + myFile.getOriginalFilename() + " by " + userName);
         return fileName;
     }
 
