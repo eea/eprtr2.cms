@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.security.web.FilterChainProxy;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -19,11 +20,12 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations = {"classpath:spring-mvc-config.xml", "classpath:spring-db-config.xml",
-   "classpath:spring-security.xml"})
+@ContextConfiguration(locations = {"classpath:spring-mvc-config.xml",
+                    "classpath:spring-db-config.xml",
+                    "classpath:spring-security.xml"})
 
 /**
- * Test the simple doc controller.
+ * Test the File storage controller.
  */
 public class FileUploadControllerTest {
 
@@ -32,17 +34,46 @@ public class FileUploadControllerTest {
 
     private MockMvc mockMvc;
 
+    @Autowired
+    private FilterChainProxy springSecurityFilterChain;
+
     @Before
     public void setUp() throws Exception {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac)
+        .addFilters(this.springSecurityFilterChain)
+        .build();
     }
 
+    /**
+     * Since it is protected, it will redirect to login.
+     */
     @Test
     public void testUploadForm() throws Exception {
         this.mockMvc.perform(get("/filecatalogue"))
+                .andExpect(status().is3xxRedirection());
+    }
+
+    /**
+     * This will succeed.
+     */
+    @Test
+    public void authenticatedUploadForm() throws Exception {
+        this.mockMvc.perform(get("/filecatalogue")
+                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("breadcrumbs"))
-                .andExpect(view().name("uploads"));
+                .andExpect(view().name("uploads"))
+                .andExpect(content().contentType("text/html;charset=UTF-8"));
+    }
+
+    /**
+     * No authentication.
+     */
+    @Test
+    public void failUpload() throws Exception {
+        mockMvc.perform(fileUpload("/filecatalogue")
+                .file("file", "ABCDEF".getBytes("UTF-8")))
+                .andExpect(status().isForbidden());
     }
 
     /**
@@ -53,7 +84,7 @@ public class FileUploadControllerTest {
         MockMultipartFile mockFile = new MockMultipartFile("file", "file.txt", "text/plain", "ABCDEF".getBytes("UTF-8"));
         mockMvc.perform(fileUpload("/filecatalogue")
                 .file(mockFile)
-                .with(csrf()).with(user("admin").roles("AUTHOR")))
+                .with(csrf()).with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("filecatalogue"))
                 .andExpect(flash().attributeCount(2));

@@ -20,6 +20,7 @@
 package eea.eprtr.cms.dao;
 
 import eea.eprtr.cms.model.Upload;
+import eea.eprtr.cms.util.Filenames;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -55,7 +56,7 @@ public class StorageServiceFiles implements StorageService {
     @Override
     public String save(MultipartFile myFile) throws IOException {
         assert storageDir != null;
-        String fileName = myFile.getOriginalFilename();
+        String fileName = Filenames.removePath(myFile.getOriginalFilename());
         File destination = new File(storageDir, fileName);
         myFile.transferTo(destination);
         return fileName;

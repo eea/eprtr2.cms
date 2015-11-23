@@ -9,7 +9,7 @@
  * implied. See the License for the specific language governing
  * rights and limitations under the License.
  *
- * The Original Code is Web Transfer 1.0
+ * The Original Code is EPRTR CMS 2.0
  *
  * The Initial Owner of the Original Code is European Environment
  * Agency. All Rights Reserved.
@@ -117,8 +117,8 @@ public class FileOpsController {
 
     private String storeFile(MultipartFile myFile) throws IOException {
         String fileName = storageService.save(myFile);
-        //String userName = getUserName();
-        //logger.info("Uploaded: " + myFile.getOriginalFilename() + " by " + userName);
+        String userName = getUserName();
+        logger.info("Uploaded: " + myFile.getOriginalFilename() + " by " + userName);
         return fileName;
     }
 
