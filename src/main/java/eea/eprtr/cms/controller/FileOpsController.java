@@ -65,7 +65,7 @@ public class FileOpsController {
     public String findUploads(Model model) {
         String pageTitle = "File catalogue";
 
-        List<Upload> uploads = storageService.getIndex();
+        List<Upload> uploads = storageService.getIndex("docs");
         model.addAttribute("uploads", uploads);
         model.addAttribute("title", pageTitle);
         BreadCrumbs.set(model, pageTitle);
@@ -92,7 +92,7 @@ public class FileOpsController {
     }
 
     private String storeFile(MultipartFile myFile) throws IOException {
-        String fileName = storageService.save(myFile);
+        String fileName = storageService.save(myFile, "docs");
         String userName = getUserName();
         logger.info("Uploaded: " + myFile.getOriginalFilename() + " by " + userName);
         return fileName;
@@ -139,8 +139,8 @@ public class FileOpsController {
         long fileSize = 0;
         InputStream is = null;
         try {
-            fileSize = storageService.getSizeById(fileId);
-            is = storageService.getById(fileId);
+            fileSize = storageService.getSizeById(fileId, "docs");
+            is = storageService.getById(fileId, "docs");
         } catch (Exception e) {
             throw new FileNotFoundException(fileId);
         }
@@ -171,7 +171,7 @@ public class FileOpsController {
     public String deleteFiles(@RequestParam("filename") List<String> ids,
             final RedirectAttributes redirectAttributes) throws IOException {
         for (String fileId : ids) {
-            storageService.deleteById(fileId);
+            storageService.deleteById(fileId, "docs");
         }
         redirectAttributes.addFlashAttribute("message", "File(s) deleted");
         return "redirect:/";

@@ -54,30 +54,30 @@ public class StorageServiceFiles implements StorageService {
     }
 
     @Override
-    public String save(MultipartFile myFile) throws IOException {
+    public String save(MultipartFile myFile, String section) throws IOException {
         assert storageDir != null;
         String fileName = Filenames.removePath(myFile.getOriginalFilename());
-        File destination = new File(storageDir, fileName);
+        File destination = getLocation(section, fileName);
         myFile.transferTo(destination);
         return fileName;
     }
 
     @Override
-    public InputStream getById(String fileName) throws IOException {
-        File location = new File(storageDir, fileName);
+    public InputStream getById(String fileName, String section) throws IOException {
+        File location = getLocation(section, fileName);
         return new FileInputStream(location);
     }
 
     @Override
-    public boolean deleteById(String fileName) throws IOException {
-        File location = new File(storageDir, fileName);
+    public boolean deleteById(String fileName, String section) throws IOException {
+        File location = getLocation(section, fileName);
         return location.delete();
     }
 
     @Override
-    public List<Upload> getIndex() {
+    public List<Upload> getIndex(String section) {
         List<Upload> uploadList = new ArrayList<Upload>();
-        File fileDir = new File(storageDir);
+        File fileDir = new File(storageDir, section);
         if (fileDir.isDirectory()) {
             for (File member : fileDir.listFiles()) {
                 Upload uploadRec = new Upload();
@@ -91,8 +91,8 @@ public class StorageServiceFiles implements StorageService {
     }
 
     @Override
-    public void deleteAll() {
-        File fileDir = new File(storageDir);
+    public void deleteAll(String section) {
+        File fileDir = new File(storageDir, section);
         if (fileDir.isDirectory()) {
             for (File member : fileDir.listFiles()) {
                 member.delete();
@@ -101,8 +101,22 @@ public class StorageServiceFiles implements StorageService {
     }
 
     @Override
-    public long getSizeById(String fileName) {
-        File location = new File(storageDir, fileName);
+    public long getSizeById(String fileName, String section) throws IOException {
+        File location = getLocation(section, fileName);
         return location.length();
+    }
+
+    /**
+     * Generate a File pointing to a location to store a file.
+     */
+    private File getLocation(String section, String fileName) throws IOException {
+        File sectionFolder = new File(storageDir, section);
+        if (sectionFolder.isFile()) {
+            throw new IOException("Error: " + section + " is not a directory");
+        }
+        if (!sectionFolder.exists()) {
+            sectionFolder.mkdir(); //FIXME: Check if it was created.
+        }
+        return new File(sectionFolder, fileName);
     }
 }

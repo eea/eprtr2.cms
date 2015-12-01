@@ -34,7 +34,7 @@ public interface StorageService {
     /**
      * Store the file at a location and return a generated unique identifier for it.
      */
-    String save(MultipartFile myFile) throws IOException;
+    String save(MultipartFile myFile, String section) throws IOException;
 
     /**
      * Method to show the user the max upload size.
@@ -44,24 +44,24 @@ public interface StorageService {
     /**
      * Get an open stream to the stored object.
      */
-    InputStream getById(String id) throws IOException;
+    InputStream getById(String id, String section) throws IOException;
 
     /**
      * Delete a file in the storage service. If the file does not exist, then return false.
      *
      * @param id - unique identifier for the file.
      */
-    boolean deleteById(String id) throws IOException;
+    boolean deleteById(String id, String section) throws IOException;
 
     /**
      * Get all records.
      */
-    List<Upload> getIndex();
+    List<Upload> getIndex(String section);
 
     /**
      * Delete all uploads. Mainly used for testing.
      */
-    void deleteAll();
+    void deleteAll(String section);
 
-    long getSizeById(String id);
+    long getSizeById(String id, String section) throws IOException;
 }
