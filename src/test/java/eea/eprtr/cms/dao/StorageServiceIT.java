@@ -72,7 +72,7 @@ public class StorageServiceIT {
 
     private void uploadAndDelete(StorageService storageService) throws Exception {
         String testData = "ABCDEF";
-        MultipartFile file = new MockMultipartFile("Testfile.txt", testData.getBytes());
+        MultipartFile file = new MockMultipartFile("Testfile.txt", "Testfile.txt", "text/plain", testData.getBytes());
 
         String newId = "Testfile.txt";
         storageService.save(file, SECTION);
