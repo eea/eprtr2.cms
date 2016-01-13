@@ -106,6 +106,12 @@
                         <cmsdb.driver>org.h2.Driver</cmsdb.driver>
                         <cmsdb.username>dbuser</cmsdb.username>
                         <cmsdb.password>password</cmsdb.password>
+                        <storage.dir>${project.build.directory}</storage.dir>
+                        <swift.username>elefant</swift.username>
+                        <swift.password></swift.password>
+                        <swift.authurl>https://identity.stack.cloudvps.com/v2.0</swift.authurl>
+                        <swift.tenantid>771b8f3c956b4244bf355a135cdfc580</swift.tenantid>
+                        <swift.mock>true</swift.mock>
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
@@ -380,7 +386,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.6</version>
+            <version>1.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javaswift</groupId>
+            <artifactId>joss</artifactId>
+            <version>0.9.10</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
