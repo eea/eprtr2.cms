@@ -18,6 +18,7 @@
         <thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
         <checkstyle.config.location>${basedir}/doc/checkstyle.xml</checkstyle.config.location>
         <liquibase.changeLogFile>database/changelog-master.xml</liquibase.changeLogFile>
+        <jclouds.version>1.9.1</jclouds.version>
     </properties>
 
     <version>2.1-SNAPSHOT</version>
@@ -107,11 +108,12 @@
                         <cmsdb.username>dbuser</cmsdb.username>
                         <cmsdb.password>password</cmsdb.password>
                         <storage.dir>${project.build.directory}</storage.dir>
-                        <swift.username>elefant</swift.username>
-                        <swift.password></swift.password>
+                        <swift.username>eprtr-swift@eea.europa.eu</swift.username>
+                        <swift.password>d77_34bwW-99#4VA</swift.password>
+                        <swift.container>prtrtest</swift.container>
                         <swift.authurl>https://identity.stack.cloudvps.com/v2.0</swift.authurl>
                         <swift.tenantid>771b8f3c956b4244bf355a135cdfc580</swift.tenantid>
-                        <swift.mock>true</swift.mock>
+                        <swift.mock>false</swift.mock>
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
@@ -388,11 +390,29 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.6.4</version>
         </dependency>
+        <!-- jclouds dependencies -->
         <dependency>
-            <groupId>org.javaswift</groupId>
-            <artifactId>joss</artifactId>
-            <version>0.9.10</version>
+            <groupId>org.apache.jclouds.driver</groupId>
+            <artifactId>jclouds-slf4j</artifactId>
+            <version>${jclouds.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.jclouds.driver</groupId>
+            <artifactId>jclouds-sshj</artifactId>
+            <version>${jclouds.version}</version>
+        </dependency>
+        <!-- jclouds OpenStack dependencies -->
+        <dependency>
+            <groupId>org.apache.jclouds.api</groupId>
+            <artifactId>openstack-keystone</artifactId>
+            <version>${jclouds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jclouds.api</groupId>
+            <artifactId>openstack-swift</artifactId>
+            <version>${jclouds.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>

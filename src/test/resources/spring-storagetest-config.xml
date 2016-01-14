@@ -13,7 +13,8 @@
         <property name="swiftTenantId" value="${swift.tenantid}" />
         <property name="swiftUsername" value="${swift.username}" />
         <property name="swiftPassword" value="${swift.password}" />
-        <property name="swiftMock" value="true" />
+        <property name="swiftContainer" value="${swift.container}" />
+        <property name="swiftMock" value="${swift.mock}" />
     </bean>
 
     <bean id="storageServiceFiles" class="eea.eprtr.cms.dao.StorageServiceFiles">

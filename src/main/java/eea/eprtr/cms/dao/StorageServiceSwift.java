@@ -13,17 +13,26 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.io.Closeables;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.javaswift.joss.client.factory.AccountConfig;
-import org.javaswift.joss.client.factory.AccountFactory;
-import org.javaswift.joss.exception.NotFoundException;
-import org.javaswift.joss.model.Account;
-import org.javaswift.joss.model.Container;
-import org.javaswift.joss.model.DirectoryOrObject;
-import org.javaswift.joss.model.StoredObject;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.jclouds.ContextBuilder;
+import org.jclouds.io.Payload;
+import org.jclouds.io.payloads.InputStreamPayload;
+//import org.jclouds.logging.slf4j.config.SLF4JLoggingModule;
+import org.jclouds.openstack.swift.v1.domain.Container;
+import org.jclouds.openstack.swift.v1.domain.ObjectList;
+import org.jclouds.openstack.swift.v1.domain.SwiftObject;
+import org.jclouds.openstack.swift.v1.features.ContainerApi;
+import org.jclouds.openstack.swift.v1.features.ObjectApi;
+import org.jclouds.openstack.swift.v1.options.CreateContainerOptions;
+import org.jclouds.openstack.swift.v1.options.PutOptions;
+import org.jclouds.openstack.swift.v1.SwiftApi;
+
 
 /**
  * Service to store files in the Swift Object Store.
@@ -31,12 +40,17 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class StorageServiceSwift implements StorageService {
 
+    private static final String PROVIDER = "openstack-swift";
+    private SwiftApi swiftApi;
+
     private String swiftAuthUrl;
 
     private String swiftTenantId;
 
+    private String swiftRegion;
+
     /** * The swift location where to store the uploaded files.  */
-    private String swiftContainer = "transfer";
+    private String swiftContainer = "eprtr";
 
     private String swiftUsername;
 
@@ -45,11 +59,8 @@ public class StorageServiceSwift implements StorageService {
     /** Set to the string "true" if testing. */
     private String swiftMock;
 
-    private AccountConfig config;
 
-    private Account account;
 
-    private Container container;
 
     private Log logger = LogFactory.getLog(StorageServiceSwift.class);
 
@@ -77,6 +88,7 @@ public class StorageServiceSwift implements StorageService {
         this.swiftMock = swiftMock;
     }
 
+
     /**
      * Logs into the Object store, but note that the token only works for 24 hours.
      * FIXME: Test
@@ -86,107 +98,119 @@ public class StorageServiceSwift implements StorageService {
             System.out.println("ERROR: Swift storage account is not configured");
             logger.error("Swift storage account is not configured");
         }
-        config = new AccountConfig();
-        config.setUsername(swiftUsername);
-        config.setPassword(swiftPassword);
-        config.setAuthUrl(swiftAuthUrl);
-        config.setTenantId(swiftTenantId);
-//      config.setTenantName(swiftTenantName);
-        if (swiftMock != null) {
-            config.setMock(Boolean.valueOf(swiftMock));
+        assert swiftUsername != null;
+        swiftApi = ContextBuilder.newBuilder(PROVIDER)
+            .endpoint(swiftAuthUrl)
+            .credentials(swiftTenantId + ":" + swiftUsername, swiftPassword)
+            //.modules(modules)
+            .buildApi(SwiftApi.class);
+
+        if (swiftRegion == null || "".equals(swiftRegion)) {
+            swiftRegion = getFirstRegion();
         }
-        account = new AccountFactory(config).createAccount();
-        container = account.getContainer(swiftContainer);
-        if (!container.exists()) {
-            container.create();
+        ContainerApi containerApi = swiftApi.getContainerApi(swiftRegion);
+
+        Container container = containerApi.get(swiftContainer);
+        if (container == null) {
+            CreateContainerOptions options = CreateContainerOptions.Builder
+                .metadata(ImmutableMap.of("description", "E-PRTR data"));
+            containerApi.create(swiftContainer, options);
         }
-        //container.makePublic();
     }
 
-// https://github.com/javaswift/joss/blob/master/src/main/java/org/javaswift/joss/model/StoredObject.java
+    private String getFirstRegion() {
+        Set<String> regions = swiftApi.getConfiguredRegions();
+        for (String region : regions) {
+            System.out.println("Region:" + region);
+            return region;
+        }
+        return null;
+    }
+
+    // https://jclouds.apache.org/reference/javadoc/1.9.x/
     @Override
     public String save(MultipartFile myFile, String section) throws IOException {
-        if (swiftUsername == null) {
-            System.out.println("Swift username is not configured");
-        }
-        assert swiftUsername != null;
-        if (config == null) {
+        if (swiftApi == null) {
             login();
         }
         String fileName = Filenames.removePath(myFile.getOriginalFilename());
         String destination = getLocation(section, fileName);
+        ObjectApi objectApi = swiftApi.getObjectApi(swiftRegion, swiftContainer);
+        Payload payload = new InputStreamPayload(myFile.getInputStream());
 
-        StoredObject swiftObject = container.getObject(destination);
-        swiftObject.uploadObject(myFile.getInputStream());
         if (myFile.getContentType() != null) {
-            swiftObject.setContentType(myFile.getContentType());
+            //swiftObject.setContentType(myFile.getContentType());
         }
 
-        Map<String, Object> metadata = new HashMap<String, Object>();
+        Map<String, String> metadata = new HashMap<String, String>();
         if (myFile.getOriginalFilename() != null) {
             metadata.put("filename", myFile.getOriginalFilename());
         }
         if (myFile.getContentType() != null) {
             metadata.put("content-type", myFile.getContentType());
         }
-        swiftObject.setMetadata(metadata);
-        swiftObject.saveMetadata();
+        objectApi.put(destination, payload, PutOptions.Builder.metadata(metadata));
         return fileName;
     }
 
     @Override
     public InputStream getById(String fileName, String section) throws IOException {
-        if (config == null) {
+        if (swiftApi == null) {
             login();
         }
         String destination = getLocation(section, fileName);
-        StoredObject swiftObject = null;
+        ObjectApi objectApi = swiftApi.getObjectApi(swiftRegion, swiftContainer);
+        SwiftObject swiftObject = null;
         try {
-            swiftObject = container.getObject(destination);
+            swiftObject = objectApi.get(destination);
         } catch (Exception e) {
             throw new FileNotFoundException(destination);
         }
-        return swiftObject.downloadObjectAsInputStream();
+        return swiftObject.getPayload().openStream();
     }
 
     @Override
     public boolean deleteById(String fileName, String section) throws IOException {
+        if (swiftApi == null) {
+            login();
+        }
         String destination = getLocation(section, fileName);
-        try {
-            StoredObject swiftObject = container.getObject(destination);
-            swiftObject.delete();
+        ObjectApi objectApi = swiftApi.getObjectApi(swiftRegion, swiftContainer);
+        SwiftObject swiftObject = objectApi.get(destination);
+        if (swiftObject != null) {
+            objectApi.delete(destination);
             return true;
-        } catch (NotFoundException e) {
+        } else {
             return false;
         }
     }
 
     @Override
     public void deleteAll(String section) {
-        Collection<DirectoryOrObject> allObjects = container.listDirectory();
-        for (DirectoryOrObject obj : allObjects) {
-            StoredObject swiftObject = container.getObject(obj.getBareName());
-            swiftObject.delete();
+        if (swiftApi == null) {
+            login();
+        }
+        ObjectApi objectApi = swiftApi.getObjectApi(swiftRegion, swiftContainer);
+        ObjectList allObjects = objectApi.list();
+        for (SwiftObject obj : allObjects) {
+            objectApi.delete(obj.getName());
         }
     }
 
     @Override
     public long getSizeById(String fileName, String section) throws IOException {
-        String destination = getLocation(section, fileName);
-        StoredObject swiftObject = null;
-        try {
-            swiftObject = container.getObject(destination);
-        } catch (Exception e) {
-            throw new FileNotFoundException(destination);
-        }
-        return swiftObject.getContentLength();
+        // FIXME
+        return 0L;
     }
 
     @Override
     public List<Upload> getIndex(String section) {
-      // FIXME
-      List<Upload> uploadList = new ArrayList<Upload>();
-      return uploadList;
+        if (swiftApi == null) {
+            login();
+        }
+        // FIXME
+        List<Upload> uploadList = new ArrayList<Upload>();
+        return uploadList;
     }
 
     @Override
@@ -197,4 +221,10 @@ public class StorageServiceSwift implements StorageService {
     private String getLocation(String section, String fileName) {
         return section + "/" + fileName;
     }
+
+   private void close() throws IOException {
+      Closeables.close(swiftApi, true);
+      swiftApi = null;
+   }
+
 }
