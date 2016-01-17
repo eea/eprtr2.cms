@@ -11,14 +11,23 @@
     <bean id="storageServiceSwift" class="eea.eprtr.cms.dao.StorageServiceSwift">
         <property name="swiftAuthUrl" value="${swift.authurl}" />
         <property name="swiftTenantId" value="${swift.tenantid}" />
-        <property name="swiftUsername" value="${swift.username}" />
+        <property name="swiftUsername" value="${swift.tenantid}:${swift.username}" />
         <property name="swiftPassword" value="${swift.password}" />
         <property name="swiftContainer" value="${swift.container}" />
-        <property name="swiftMock" value="${swift.mock}" />
+        <property name="blobApi" value="openstack-swift" />
     </bean>
 
     <bean id="storageServiceFiles" class="eea.eprtr.cms.dao.StorageServiceFiles">
         <property name="storageDir" value="${storage.dir}" />
+    </bean>
+
+    <bean id="storageServiceBlob" class="eea.eprtr.cms.dao.StorageServiceBlob">
+        <property name="swiftAuthUrl" value="${swift.authurl}" />
+        <property name="swiftTenantId" value="${swift.tenantid}" />
+        <property name="swiftUsername" value="${swift.tenantid}:${swift.username}" />
+        <property name="swiftPassword" value="${swift.password}" />
+        <property name="swiftContainer" value="${swift.container}" />
+        <property name="blobApi" value="${blob.api}" /> <!-- openstack-swift, transient -->
     </bean>
 
 </beans>

@@ -137,20 +137,20 @@ public class FileOpsController {
         @PathVariable("file_name") String fileId, HttpServletResponse response) throws IOException {
 
         long fileSize = 0;
-        InputStream is = null;
+        InputStream iStream = null;
         try {
             fileSize = storageService.getSizeById(fileId, "docs");
-            is = storageService.getById(fileId, "docs");
+            iStream = storageService.getById(fileId, "docs");
         } catch (Exception e) {
-            throw new FileNotFoundException(fileId);
+            throw new java.io.FileNotFoundException(fileId);
         }
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Length", Long.toString(fileSize));
         response.setHeader("Content-Disposition", "attachment; filename=" + fileId);
 
-        org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+        org.apache.commons.io.IOUtils.copy(iStream, response.getOutputStream());
         response.flushBuffer();
-        is.close();
+        iStream.close();
     }
 
     /*
@@ -177,7 +177,7 @@ public class FileOpsController {
         return "redirect:/";
     }
 
-    @ExceptionHandler(FileNotFoundException.class)
+    @ExceptionHandler(java.io.FileNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public String filenotFoundError(HttpServletRequest req, Exception exception) {
         return "filenotfound";

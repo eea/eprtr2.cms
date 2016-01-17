@@ -33,6 +33,8 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import eea.eprtr.cms.model.Upload;
+//import eea.eprtr.cms.controller.FileNotFoundException;
+import java.io.FileNotFoundException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -55,26 +57,38 @@ public class StorageServiceIT {
     @Test
     public void productionTest() throws Exception {
         StorageService storageService = ctx.getBean("storageService", StorageService.class);
-        uploadAndDelete(storageService);
-    }
-
-    @Test
-    public void swiftTest() throws Exception {
-        StorageService storageService = ctx.getBean(StorageServiceSwift.class);
-        uploadAndDelete(storageService);
+        runSuite(storageService);
     }
 
     @Test
     public void filesTest() throws Exception {
         StorageService storageService = ctx.getBean("storageServiceFiles", StorageServiceFiles.class);
+        runSuite(storageService);
+    }
+
+    @Test
+    public void blobTest() throws Exception {
+        StorageService storageService = ctx.getBean(StorageServiceBlob.class);
+        runSuite(storageService);
+    }
+
+    //@Test
+    public void swiftTest() throws Exception {
+        StorageService storageService = ctx.getBean(StorageServiceSwift.class);
+        runSuite(storageService);
+    }
+
+    private void runSuite(StorageService storageService) throws Exception {
         uploadAndDelete(storageService);
+        upload10Files(storageService);
+        downloadNonExistant(storageService);
     }
 
     private void uploadAndDelete(StorageService storageService) throws Exception {
         String testData = "ABCDEF";
-        MultipartFile file = new MockMultipartFile("Testfile.txt", "Testfile.txt", "text/plain", testData.getBytes());
-
         String newId = "Testfile.txt";
+        MultipartFile file = new MockMultipartFile(newId, newId, "text/plain", testData.getBytes());
+
         storageService.save(file, SECTION);
 
         byte[] resultBuf = new byte[100];
@@ -82,12 +96,48 @@ public class StorageServiceIT {
         InputStream infp = storageService.getById(newId, SECTION);
         infp.read(resultBuf);
         infp.close();
+        // Check that we read the same size as we wrote
         assertEquals((byte) 0, resultBuf[6]);
+        // Check that we read the same as we wrote.
         assertEquals(new String(resultBuf, 0, 6, Charset.forName("US-ASCII")), testData);
+        // Check delete
         assertTrue(storageService.deleteById(newId, SECTION));
 
-        //exception.expect(IOException.class);
         // Can't delete twice.
         assertFalse(storageService.deleteById(newId, SECTION));
+    }
+
+    private void upload10Files(StorageService storageService) throws Exception {
+        String testData = "ABCDEF";
+        final int BATCH_SIZE = 10;
+
+        // Put a test file in the "documents" section - longer section name than "doc"
+        String documentId = "Document here.txt";
+        MultipartFile file = new MockMultipartFile(documentId, documentId, "text/plain", testData.getBytes());
+        storageService.save(file, "documents");
+
+        for (int i = 0; i < BATCH_SIZE; i++) {
+            String newId = "Testfile-" + String.valueOf(i) + ".txt";
+            MultipartFile testFile = new MockMultipartFile(newId, newId, "text/plain", newId.getBytes());
+            storageService.save(testFile, SECTION);
+        }
+        List<Upload> files = storageService.getIndex(SECTION);
+        assertEquals(BATCH_SIZE, files.size());
+        for (Upload upload : files) {
+            String fileName = upload.getFilename();
+            assertTrue(fileName.startsWith("Testfile-"));
+            assertEquals(fileName.getBytes().length, upload.getSize());
+        }
+
+        // Delete the files.
+        for (Upload upload : files) {
+            assertTrue(storageService.deleteById(upload.getFilename(), SECTION));
+        }
+        assertTrue(storageService.deleteById(documentId, "documents"));
+    }
+
+    private void downloadNonExistant(StorageService storageService) throws Exception {
+        exception.expect(FileNotFoundException.class);
+        InputStream infp = storageService.getById("Non-existant file.xml", SECTION);
     }
 }

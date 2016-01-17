@@ -45,14 +45,6 @@ public class StorageServiceFiles implements StorageService {
         this.storageDir = storageDir;
     }
 
-    /**
-     * Experimental method to show the user the max upload size.
-     */
-    @Override
-    public long getFreeSpace() {
-        return new File(storageDir).getFreeSpace();
-    }
-
     @Override
     public String save(MultipartFile myFile, String section) throws IOException {
         assert storageDir != null;

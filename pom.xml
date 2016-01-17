@@ -108,12 +108,12 @@
                         <cmsdb.username>dbuser</cmsdb.username>
                         <cmsdb.password>password</cmsdb.password>
                         <storage.dir>${project.build.directory}</storage.dir>
-                        <swift.username>eprtr-swift@eea.europa.eu</swift.username>
-                        <swift.password>d77_34bwW-99#4VA</swift.password>
+                        <swift.username>eprtr@eea.europa.eu</swift.username>
+                        <swift.password>password-here</swift.password>
                         <swift.container>prtrtest</swift.container>
                         <swift.authurl>https://identity.stack.cloudvps.com/v2.0</swift.authurl>
                         <swift.tenantid>771b8f3c956b4244bf355a135cdfc580</swift.tenantid>
-                        <swift.mock>false</swift.mock>
+                        <blob.api>transient</blob.api> <!-- openstack-swift, transient -->
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
