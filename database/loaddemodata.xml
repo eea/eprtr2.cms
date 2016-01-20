@@ -145,6 +145,117 @@
       <column name="ResourceValue" value="Nitrogen oxides (NOX) emissions from international shipping (in tonnes per grid cell)"/>
       <column name="ChangedDate" valueDate="2011-05-13 14:53:48.82"/>
     </insert>
+	<!-- inserted by hjelm -->
+    <insert tableName="SurveyMaster">
+      <column name="SurveyID" value="1"/>
+      <column name="SurveyText" value="What kind of organisation do you represent?"/>
+      <column name="SurveyLabel" value="Organisation"/>
+      <column name="ListIndex" value="0"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyMaster">
+      <column name="SurveyID" value="2"/>
+      <column name="SurveyText" value="What kind of information are you looking for?"/>
+      <column name="SurveyLabel" value="Information"/>
+      <column name="ListIndex" value="1"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyMaster">
+      <column name="SurveyID" value="3"/>
+      <column name="SurveyText" value="For what purpose do you want to use the E-PRTR information?"/>
+      <column name="SurveyLabel" value="Purpose"/>
+      <column name="ListIndex" value="2"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="1"/>
+      <column name="FK_SurveyID" value="1"/>
+      <column name="SurveyItem" value="Public organisation"/>
+      <column name="SurveyItemResultID" value="1a"/>
+      <column name="ListIndex" value="0"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="2"/>
+      <column name="FK_SurveyID" value="1"/>
+      <column name="SurveyItem" value="Commercial organisation"/>
+      <column name="SurveyItemResultID" value="1b"/>
+      <column name="ListIndex" value="0"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="3"/>
+      <column name="FK_SurveyID" value="1"/>
+      <column name="SurveyItem" value="Private person"/>
+      <column name="SurveyItemResultID" value="1c"/>
+      <column name="ListIndex" value="0"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="4"/>
+      <column name="FK_SurveyID" value="2"/>
+      <column name="SurveyItem" value="Information concerning a specific facility"/>
+      <column name="SurveyItemResultID" value="2a"/>
+      <column name="ListIndex" value="0"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="5"/>
+      <column name="FK_SurveyID" value="2"/>
+      <column name="SurveyItem" value="Information concerning a sector of industry"/>
+      <column name="SurveyItemResultID" value="2b"/>
+      <column name="ListIndex" value="1"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="6"/>
+      <column name="FK_SurveyID" value="2"/>
+      <column name="SurveyItem" value="Information concerning a country"/>
+      <column name="SurveyItemResultID" value="2c"/>
+      <column name="ListIndex" value="2"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="7"/>
+      <column name="FK_SurveyID" value="2"/>
+      <column name="SurveyItem" value="EU-wide information"/>
+      <column name="SurveyItemResultID" value="2d"/>
+      <column name="ListIndex" value="3"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="8"/>
+      <column name="FK_SurveyID" value="3"/>
+      <column name="SurveyItem" value="Academic purposes"/>
+      <column name="SurveyItemResultID" value="3a"/>
+      <column name="ListIndex" value="0"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="9"/>
+      <column name="FK_SurveyID" value="3"/>
+      <column name="SurveyItem" value="Policy making"/>
+      <column name="SurveyItemResultID" value="3b"/>
+      <column name="ListIndex" value="1"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="10"/>
+      <column name="FK_SurveyID" value="3"/>
+      <column name="SurveyItem" value="Public participation in decision making / Access to environmental information"/>
+      <column name="SurveyItemResultID" value="3c"/>
+      <column name="ListIndex" value="2"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+    <insert tableName="SurveyItems">
+      <column name="SurveyItemID" value="11"/>
+      <column name="FK_SurveyID" value="3"/>
+      <column name="SurveyItem" value="Business"/>
+      <column name="SurveyItemResultID" value="3d"/>
+      <column name="ListIndex" value="3"/>
+      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
+    </insert>
+
   </changeSet>
 
 </databaseChangeLog>

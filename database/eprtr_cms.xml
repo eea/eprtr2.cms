@@ -236,6 +236,72 @@
     </createTable>
   </changeSet>
 
+  <changeSet author="hjelm" id="rev-8">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="SurveyItems"/>
+      </not>
+    </preConditions>
+    <createTable tableName="SurveyItems">
+      <column name="SurveyItemID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="FK_SurveyID" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="SurveyItem" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="SurveyItemResultID" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="ListIndex" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="Updated" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="hjelm" id="rev-8">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="SurveyMaster"/>
+      </not>
+    </preConditions>
+    <createTable tableName="SurveyMaster">
+      <column name="SurveyID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="SurveyText" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="SurveyLabel" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="ListIndex" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="Updated" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="hjelm" id="rev-8">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="SurveyResults"/>
+      </not>
+    </preConditions>
+    <createTable tableName="SurveyResults">
+      <column name="SurveyResultID" type="int" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="SurveyResult" type="text">
+        <constraints nullable="false"/>
+      </column>
+      <column name="Inserted" type="DATETIME"/>
+    </createTable>
+  </changeSet>
+
   <changeSet author="roug" id="rev-10" dbms="h2,mssql">
     <preConditions onFail="MARK_RAN">
       <not>
