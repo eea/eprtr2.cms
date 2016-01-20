@@ -24,6 +24,10 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <bean id="eprtrSurveyService" class="eea.eprtr.cms.dao.EprtrSurveyServiceJdbc">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <bean id="cultureService" class="eea.eprtr.cms.dao.CultureServiceJdbc">
         <property name="dataSource" ref="dataSource" />
     </bean>
