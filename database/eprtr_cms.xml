@@ -236,7 +236,7 @@
     </createTable>
   </changeSet>
 
-  <changeSet author="hjelm" id="rev-8">
+  <changeSet author="hjelm" id="rev-10">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="SurveyItems"/>
@@ -262,7 +262,7 @@
     </createTable>
   </changeSet>
 
-  <changeSet author="hjelm" id="rev-8">
+  <changeSet author="hjelm" id="rev-11">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="SurveyMaster"/>
@@ -285,7 +285,7 @@
     </createTable>
   </changeSet>
 
-  <changeSet author="hjelm" id="rev-8">
+  <changeSet author="hjelm" id="rev-12">
     <preConditions onFail="MARK_RAN">
       <not>
         <tableExists tableName="SurveyResults"/>
@@ -302,7 +302,7 @@
     </createTable>
   </changeSet>
 
-  <changeSet author="roug" id="rev-10" dbms="h2,mssql">
+  <changeSet author="roug" id="rev-13" dbms="h2,mssql">
     <preConditions onFail="MARK_RAN">
       <not>
         <viewExists viewName="News"/>
@@ -325,7 +325,7 @@ ON  k.NewsKeyID = v.NewsKeyID
     </createView>
   </changeSet>
 
-  <changeSet author="roug" id="rev-11" dbms="h2,mssql">
+  <changeSet author="roug" id="rev-14" dbms="h2,mssql">
     <preConditions onFail="MARK_RAN">
       <not>
         <viewExists viewName="StringResource"/>
