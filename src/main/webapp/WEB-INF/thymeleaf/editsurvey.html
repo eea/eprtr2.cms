@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head  th:include="layout :: headerFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:text="${title}">Layout template</title>
+    <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/screen.css" media="screen"/>
+    <link href="../../style/application.css" th:href="@{/style/application.css}" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment"></div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title here</h1>
+        <div th:if="${message}" th:text="${message}" class="system-msg">System message</div>
+        <form action="editsurvey.html" th:action="@{/editsurvey}" th:object="${document}" method="post">
+          <div class="formrow">
+            <label>Survey title: <input type="text" size="60" th:field="*{surveyLabel}" /></label>
+          </div>
+          <div class="formrow" >
+            <label>Survey question: <input type="text" size="60" th:field="*{surveyText}"/></label>
+          </div>
+          <div class="formrow" >
+            <label>Survey index: <input type="text" size="60" th:field="*{listIndex}"/></label>
+          </div>
+          <div class="formrow" >
+            <label>Survey answers:</label>
+              <table>
+              <thead>
+                <tr>
+                  <!-- th>ID</th>
+                  <th>SurveyID</th-->
+                  <th>Order</th>
+                  <th>Answer</th>
+                  <th>AnswerID</th>
+                  <th>
+                    <button type="submit" name="addAnswer" >Add Answer</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="surv,iterStat : *{eprtrSurveyItems}">
+                  <td>
+                    <input type="text" th:field="*{eprtrSurveyItems[__${iterStat.index}__].listIndex}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{eprtrSurveyItems[__${iterStat.index}__].surveyItem}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                    <input type="text" th:field="*{eprtrSurveyItems[__${iterStat.index}__].surveyItemResultID}" th:errorclass="fieldError" />
+                  </td>
+                  <td>
+                  	<input type="hidden" th:field="*{eprtrSurveyItems[__${iterStat.index}__].surveyItemID}"/>
+                  	<input type="hidden" th:field="*{eprtrSurveyItems[__${iterStat.index}__].fkSurveyID}"/>
+                    <button type="submit" name="deleteAnswer" th:value="*{eprtrSurveyItems[__${iterStat.index}__].surveyItemID}" >Remove Answer</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- div class="formrow" th:if="*{allowHTML}">
+            <textarea id="page" rows="30" cols="80" th:field="*{content}">
+                      This is my textarea to be replaced with CKEditor.
+            </textarea>
+          </div-->
+          <div class="formrow">
+          <input type="hidden" th:field="*{surveyID}"/>
+          <input type="submit" name="save" value="Change"/>
+          </div>
+        </form>
+      </div>
+      <!-- workarea -->
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+      <p>
+Footer
+</p>
+      <p><a href="/disclaimer">Disclaimer</a>.
+Copyright: <a rel="license" href="http://creativecommons.org/licenses/by/2.5/dk/deed.en_GB" title="Creative Commons Attribution License"><img alt="Creative Commons Attribution License" src="http://i.creativecommons.org/l/by/2.5/dk/80x15.png"/></a>
+</p>
+    </div>
+    <!--script src="../../js/ckeditor/ckeditor.js" th:src="@{/js/ckeditor/ckeditor.js}"></script-->
+    <!--script>
+        CKEDITOR.replace( 'page' );
+    </script -->
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:include="layout :: headerFragment">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="developer.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/application.css" th:href="@{/css/application.css}" />
+  </head>
+  <body>
+    <div id="container">
+      <div th:include="layout :: bannerFragment">
+      </div>
+      <div id="workarea">
+        <h1 th:text="${title}">Page title here</h1>
+        <div th:if="${#lists.isEmpty(texts)}">Table is empty.</div>
+        <div th:if="${not #lists.isEmpty(texts)}">
+        <form action="eprtrsurvey.html" th:action="@{/eprtrsurvey}" th:object="${texts}" method="post">
+          <table class="datatable">
+            <thead>
+              <tr>
+                <th>Titel</th>
+                <th>Question</th>
+                  <th>
+                    <button type="submit" name="add" >Add Question</button>
+                  </th>
+              </tr>
+            </thead>
+            <tbody th:remove="all-but-first">
+              <tr th:each="entry : ${texts}">
+                <td><a href="editsurvey.html" th:href="@{/editsurvey(surveyID=${entry.surveyID})}"
+                    th:text="${entry.surveyLabel}">SurveyLabel</a></td>
+                <td th:text="${entry.surveyText}">SurveyText</td>
+                  <td>
+                    <button type="submit" name="delete" th:value="${entry.surveyID}" >Remove Question</button>
+                  </td>
+              </tr>
+              <tr>
+                <td>SurveyLabel</td>
+                <td>SurveyText</td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+          </form>
+        </div>
+      </div>
+      <!-- workarea -->
+    </div>
+    <!-- container -->
+    <div id="pagefoot" th:include="layout :: footerFragment">
+    Footer
+    </div>
+  </body>
+</html>
