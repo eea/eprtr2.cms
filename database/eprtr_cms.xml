@@ -96,7 +96,7 @@
         baseColumnNames="ContentsGroupID"
         referencedTableName="LOV_ContentsGroup"
         referencedColumnNames="LOV_ContentsGroupID"
-        onDelete="RESTRICT" onUpdate="RESTRICT"/>
+        onDelete="NO ACTION" onUpdate="NO ACTION"/>
         <!--
         baseTableSchemaName="EPRTRcms"
         referencedTableSchemaName="EPRTRcms"
