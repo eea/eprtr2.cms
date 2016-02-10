@@ -8,7 +8,7 @@ create tables, load demo data and launch.
 
 Dependencies
 ------------
-* Tomcat 7
+* Tomcat 7 or 8
 * Java 1.7
 * Spring 4
 * Thymeleaf 2.1.4
@@ -67,9 +67,15 @@ cmsdb.driver
 cmsdb.url
 cmsdb.username
 cmsdb.password
+cmsdb.createtables = false - If true then the application will create the database
 storage.dir
 upload.dir
 ldap.service
+
+deploy.contexts = prod - If set to demo, then some demo data will be inserted
+initial.username = - Username will become administrator
+initial.password =
+
 ```
 The default values are in src/main/resources/application.properties and src/main/resources/cas.properties.
 

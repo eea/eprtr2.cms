@@ -47,18 +47,6 @@ public class SimpleDocController {
     }
 
     /**
-     * Netws edit.
-     */
-    @RequestMapping(value = "/newstexts")
-    public String newsTexts(Model model) {
-        String title = "News text editor";
-        model.addAttribute("title", title);
-        model.addAttribute("texts", simpleDocService.getAll());
-        BreadCrumbs.set(model, title);
-        return "newstexts";
-    }
-
-    /**
      * About.
      */
     @RequestMapping(value = "/about", method = RequestMethod.GET)

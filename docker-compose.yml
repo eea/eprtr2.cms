@@ -1,11 +1,11 @@
 web:
   restart: always
-  image: dockerrepo.eionet.europa.eu:5000/eprtr.cms:latest
+  image: dockerrepo.eionet.europa.eu:5000/eprtr/eprtr.cms:latest
   ports:
     - "4180:8080"
     - "4109:8009"
   environment:
-    - CATALINA_OPTS="-Djava.security.egd=file:/dev/./urandom" "-Dcmsdb.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver" "-Dcmsdb.url=jdbc:sqlserver://j59lw2b2ei.database.windows.net:1433;database=EPRTRcms;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30" "-Dcmsdb.username=username" "-Dcmsdb.password=password"
+    - CATALINA_OPTS="-Djava.security.egd=file:/dev/./urandom" "-Dcmsdb.driver=net.sourceforge.jtds.jdbc.Driver" "-Dcmsdb.url=jdbc:jtds:sqlserver://dbhost/EPRTRcms" "-Dcmsdb.username=username" "-Dcmsdb.password=password" "-Dstorage.dir=/var/local/eprtr"
   volumes:
     - /etc/localtime:/etc/localtime:ro # Share timezone data with host
   hostname: eprtr-cms

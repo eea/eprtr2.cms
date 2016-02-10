@@ -13,7 +13,7 @@
 
     <context:property-placeholder order="0" ignore-unresolvable="true" system-properties-mode="OVERRIDE" properties-ref="application"/>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${cmsdb.driver}" />
         <property name="url" value="${cmsdb.url}" />
         <property name="username" value="${cmsdb.username}" />

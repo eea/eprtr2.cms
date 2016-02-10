@@ -7,19 +7,18 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
     <!-- Run database refactorings at startup using Liquibase -->
-    <!--
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
         <property name="dataSource" ref="dataSource" />
         <property name="changeLog" value="classpath:database/changelog-master.xml" />
+        <property name="shouldRun" value="${cmsdb.createtables}" />
+        <property name="contexts" value="${deploy.contexts}" />
     </bean>
-    -->
 
-<!--
     <bean id="initialUser" class="eea.eprtr.cms.dao.InitialUser"
          init-method="createUser">
         <property name="userManagementService" ref="userService"/>
         <property name="initialUsername" value="${initial.username}"/>
         <property name="initialPassword" value="${initial.password}"/>
     </bean>
--->
+
 </beans>
