@@ -137,7 +137,7 @@
       <column name="KeyTitle" value="NOX, International Shipping, Full title"/>
       <column name="ContentsGroupID" valueNumeric="7"/>
       <column name="CreatedDate" valueDate="2011-05-13 14:53:47.957"/>
-   </insert>
+    </insert>
     <insert tableName="ReviseResourceValue">
       <column name="ResourceValueID" value="788"/>
       <column name="ResourceKeyID" value="304"/>
@@ -145,6 +145,25 @@
       <column name="ResourceValue" value="Nitrogen oxides (NOX) emissions from international shipping (in tonnes per grid cell)"/>
       <column name="ChangedDate" valueDate="2011-05-13 14:53:48.82"/>
     </insert>
+
+    <insert tableName="ReviseResourceKey">
+      <column name="ResourceKeyID" valueNumeric="9"/>
+      <column name="ResourceKey" value="DownloadGuidancePageContent"/>
+      <column name="ResourceType" value="Static"/>
+      <column name="AllowHTML" valueBoolean="true"/>
+      <column name="KeyDescription" value=""/>
+      <column name="KeyTitle" value="Download Guidance Content"/>
+      <column name="ContentsGroupID" valueNumeric="2"/>
+      <column name="CreatedDate" valueDate="2010-03-17 00:00:00.0"/>
+    </insert>
+    <insert tableName="ReviseResourceValue">
+      <column name="ResourceValueID" value="9"/>
+      <column name="ResourceKeyID" value="9"/>
+      <column name="CultureCode" value="en-GB"/>
+      <column name="ResourceValue" valueClobFile="downloadguidance.content" encoding="UTF-8"/>
+      <column name="ChangedDate" valueDate="2016-02-11 11:37:39.85"/>
+    </insert>
+
 	<!-- inserted by hjelm -->
     <insert tableName="SurveyMaster">
       <column name="SurveyID" value="1"/>
