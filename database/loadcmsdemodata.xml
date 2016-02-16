@@ -12,7 +12,7 @@
  -->
 
   <changeSet author="roug" id="rev-1" context="demo">
-    <preConditions>
+    <preConditions onFail="MARK_RAN">
       <sqlCheck expectedResult="0">SELECT COUNT(*) FROM LOV_ContentsGroup</sqlCheck>
       <sqlCheck expectedResult="0">SELECT COUNT(*) FROM ReviseResourceKey</sqlCheck>
     </preConditions>
