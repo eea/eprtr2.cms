@@ -92,7 +92,7 @@
               <li><a href="eprtrsurvey.html" th:href="@{/eprtrsurvey}">E-PRTR Survey</a></li>
               <li><a href="filecatalogue.html" th:href="@{/filecatalogue}">File catalogue</a></li>
               <li><a href="about.html" th:href="@{/about}">About CMS</a></li>
-              <li sec:authorize="hasRole('EXTRANET-EPRTR-EPRTRCMS')">
+              <li sec:authorize="hasRole('ADMIN')">
                  <a href="view_users.html" th:href="@{/users/view}">User authorisations</a>
               </li>
             </ul>

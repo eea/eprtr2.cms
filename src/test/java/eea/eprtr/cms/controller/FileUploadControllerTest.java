@@ -59,7 +59,7 @@ public class FileUploadControllerTest {
     @Test
     public void authenticatedUploadForm() throws Exception {
         this.mockMvc.perform(get("/filecatalogue")
-                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .with(user("admin").roles("AUTHOR")))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("breadcrumbs"))
                 .andExpect(view().name("uploads"))
@@ -86,13 +86,13 @@ public class FileUploadControllerTest {
 
         // Check that it is there.
         mockMvc.perform(get("/docs/uploaded-file.txt")
-                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .with(user("admin").roles("AUTHOR")))
                 .andExpect(status().isOk());
         mockMvc.perform(get("/docs/uploaded-file.doc")
-                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .with(user("admin").roles("AUTHOR")))
                 .andExpect(status().isNotFound());
         mockMvc.perform(get("/docs/uploaded-file")
-                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .with(user("admin").roles("AUTHOR")))
                 .andExpect(status().isNotFound());
     }
 
@@ -103,7 +103,7 @@ public class FileUploadControllerTest {
         MockMultipartFile mockFile = new MockMultipartFile("file", originalFilename, "text/plain", content.getBytes("UTF-8"));
         mockMvc.perform(fileUpload("/filecatalogue")
                 .file(mockFile)
-                .with(csrf()).with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .with(csrf()).with(user("admin").roles("AUTHOR")))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("filecatalogue"))
                 .andExpect(flash().attributeCount(2));
@@ -115,7 +115,7 @@ public class FileUploadControllerTest {
     @Test
     public void downloadNotFound() throws Exception {
         mockMvc.perform(get("/docs/no-such-file")
-                .with(user("admin").roles("EXTRANET-EPRTR-EPRTRCMS")))
+                .with(user("admin").roles("AUTHOR")))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("filenotfound"));
     }

@@ -192,6 +192,7 @@
                             <includes>
                                 <include>*.xml</include>
                                 <include>*.content</include>
+                                <include>*.cvs</include>
                             </includes>
                         </resource>
                     </webResources>
@@ -323,7 +324,7 @@
 
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-ldap</artifactId>
+            <artifactId>spring-security-cas</artifactId>
             <version>${spring.security.version}</version>
         </dependency>
         <dependency>
@@ -561,7 +562,7 @@
                       </build>
                       <run>
                         <env>
-                          <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom -Dcmsdb.driver=org.h2.Driver -Dcmsdb.url=jdbc:h2:tcp://database:1521//var/tmp/cmstest -Dcmsdb.username=dbuser -Dcmsdb.password=password -Dcmsdb.createtables=true -Ddeploy.contexts=test,demo</CATALINA_OPTS>
+                          <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom -Dcmsdb.driver=org.h2.Driver -Dcmsdb.url=jdbc:h2:tcp://database:1521//var/tmp/cmstest -Dcmsdb.username=dbuser -Dcmsdb.password=password -Dcmsdb.createtables=true -Ddeploy.contexts=test,demo -Dcas.service=http://localhost:4180/ -Dinitial.username=roug</CATALINA_OPTS>
                         </env>
                         <!-- Assign dynamically mapped ports to maven variables (which can be reused in integration tests) -->
                         <ports>
