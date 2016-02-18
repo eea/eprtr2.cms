@@ -19,42 +19,12 @@
 
     <comment>Load some demo data</comment>
 
-    <insert tableName="LOV_ContentsGroup">
-      <column name="LOV_ContentsGroupID" valueNumeric="1"/>
-      <column name="Code" value="DCL"/>
-      <column name="Name" value="Disclaimer Texts"/>
-      <column name="StartYear" valueNumeric="2007"/>
-    </insert>
-    <insert tableName="LOV_ContentsGroup">
-      <column name="LOV_ContentsGroupID" valueNumeric="2"/>
-      <column name="Code" value="STP"/>
-      <column name="Name" value="Static Pages"/>
-      <column name="StartYear" valueNumeric="2007"/>
-    </insert>
-    <insert tableName="LOV_ContentsGroup">
-      <column name="LOV_ContentsGroupID" valueNumeric="7"/>
-      <column name="Code" value="DIFSRC_AIR_NOX"/>
-      <column name="Name" value="Diffuse Sources Air, NOx"/>
-      <column name="StartYear" valueNumeric="2007"/>
-    </insert>
-
-    <insert tableName="LOV_Culture">
-      <column name="LOV_CultureID" valueNumeric="4"/>
-      <column name="EnglishName" value="Dutch"/>
-      <column name="Code" value="nl-NL"/>
-      <column name="CodeXliff" value="nl"/>
-      <column name="CodeAEAT" value="nl"/>
-      <column name="Name" value="Nederlandse"/>
-    </insert>
-
-    <insert tableName="LOV_Culture">
-      <column name="LOV_CultureID" valueNumeric="5"/>
-      <column name="EnglishName" value="English"/>
-      <column name="Code" value="en-GB"/>
-      <column name="CodeXliff" value="en"/>
-      <column name="CodeAEAT" value="en"/>
-      <column name="Name" value="English"/>
-    </insert>
+    <sql dbms="mssql">SET IDENTITY_INSERT LOV_ContentsGroup ON</sql>
+    <loadData tableName="LOV_ContentsGroup" file="database/lov_contentsgroup.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT LOV_ContentsGroup OFF</sql>
+    <sql dbms="mssql">SET IDENTITY_INSERT LOV_Culture ON</sql>
+    <loadData tableName="LOV_Culture" file="database/lov_culture.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT LOV_Culture OFF</sql>
 
     <insert tableName="ReviseResourceKey">
       <column name="ResourceKeyID" valueNumeric="2"/>
@@ -165,116 +135,18 @@
     </insert>
 
 	<!-- inserted by hjelm -->
-    <insert tableName="SurveyMaster">
-      <column name="SurveyID" value="1"/>
-      <column name="SurveyText" value="What kind of organisation do you represent?"/>
-      <column name="SurveyLabel" value="Organisation"/>
-      <column name="ListIndex" value="0"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyMaster">
-      <column name="SurveyID" value="2"/>
-      <column name="SurveyText" value="What kind of information are you looking for?"/>
-      <column name="SurveyLabel" value="Information"/>
-      <column name="ListIndex" value="1"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyMaster">
-      <column name="SurveyID" value="3"/>
-      <column name="SurveyText" value="For what purpose do you want to use the E-PRTR information?"/>
-      <column name="SurveyLabel" value="Purpose"/>
-      <column name="ListIndex" value="2"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="1"/>
-      <column name="FK_SurveyID" value="1"/>
-      <column name="SurveyItem" value="Public organisation"/>
-      <column name="SurveyItemResultID" value="1a"/>
-      <column name="ListIndex" value="0"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="2"/>
-      <column name="FK_SurveyID" value="1"/>
-      <column name="SurveyItem" value="Commercial organisation"/>
-      <column name="SurveyItemResultID" value="1b"/>
-      <column name="ListIndex" value="0"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="3"/>
-      <column name="FK_SurveyID" value="1"/>
-      <column name="SurveyItem" value="Private person"/>
-      <column name="SurveyItemResultID" value="1c"/>
-      <column name="ListIndex" value="0"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="4"/>
-      <column name="FK_SurveyID" value="2"/>
-      <column name="SurveyItem" value="Information concerning a specific facility"/>
-      <column name="SurveyItemResultID" value="2a"/>
-      <column name="ListIndex" value="0"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="5"/>
-      <column name="FK_SurveyID" value="2"/>
-      <column name="SurveyItem" value="Information concerning a sector of industry"/>
-      <column name="SurveyItemResultID" value="2b"/>
-      <column name="ListIndex" value="1"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="6"/>
-      <column name="FK_SurveyID" value="2"/>
-      <column name="SurveyItem" value="Information concerning a country"/>
-      <column name="SurveyItemResultID" value="2c"/>
-      <column name="ListIndex" value="2"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="7"/>
-      <column name="FK_SurveyID" value="2"/>
-      <column name="SurveyItem" value="EU-wide information"/>
-      <column name="SurveyItemResultID" value="2d"/>
-      <column name="ListIndex" value="3"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="8"/>
-      <column name="FK_SurveyID" value="3"/>
-      <column name="SurveyItem" value="Academic purposes"/>
-      <column name="SurveyItemResultID" value="3a"/>
-      <column name="ListIndex" value="0"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="9"/>
-      <column name="FK_SurveyID" value="3"/>
-      <column name="SurveyItem" value="Policy making"/>
-      <column name="SurveyItemResultID" value="3b"/>
-      <column name="ListIndex" value="1"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="10"/>
-      <column name="FK_SurveyID" value="3"/>
-      <column name="SurveyItem" value="Public participation in decision making / Access to environmental information"/>
-      <column name="SurveyItemResultID" value="3c"/>
-      <column name="ListIndex" value="2"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-    <insert tableName="SurveyItems">
-      <column name="SurveyItemID" value="11"/>
-      <column name="FK_SurveyID" value="3"/>
-      <column name="SurveyItem" value="Business"/>
-      <column name="SurveyItemResultID" value="3d"/>
-      <column name="ListIndex" value="3"/>
-      <column name="Updated" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-
+    <loadData tableName="SurveyMaster" file="database/surveymaster.csv"/>
+    <loadData tableName="SurveyItems" file="database/surveyitems.csv"/>
   </changeSet>
+
+  <changeSet author="roug" id="rev-2" context="demo">
+    <preConditions>
+      <sqlCheck expectedResult="0">SELECT COUNT(*) FROM tAT_ResourceKey</sqlCheck>
+    </preConditions>
+    <comment>Load example data</comment>
+    <loadData tableName="tAT_ResourceKey" file="database/tat_resourcekey.csv"/>
+    <loadData tableName="tAT_ResourceValue" file="database/tat_resourcevalue.csv"/>
+  </changeSet>
+
 
 </databaseChangeLog>

@@ -1,0 +1,27 @@
+LOV_ContentsGroupID,Code,Name,StartYear,EndYear
+1,DCL,Disclaimer Texts,2007,NULL
+2,STP,Static Pages,2007,NULL
+3,CNF,Confidential Texts,2007,NULL
+4,DIFSRC_WATER,Diffuse Sources Water,2007,NULL
+5,HELP,Help Texts,2007,NULL
+6,DIFSRC_AIR,Diffuse Sources Air,2007,NULL
+7,DIFSRC_AIR_NOX,"Diffuse Sources Air, NOx",2007,NULL
+8,DIFSRC_AIR_SOX,"Diffuse Sources Air, SO2",2007,NULL
+9,DIFSRC_AIR_PM10,"Diffuse Sources Air, PM10",2007,NULL
+10,DIFSRC_AIR_NH3,"Diffuse Sources Air, NH3",2007,NULL
+11,DIFSRC_AIR_CO,"Diffuse Sources Air, CO",2007,NULL
+12,DIFSRC_AIR_CO2,"Diffuse Sources Air, CO2",2007,NULL
+13,DIFSRC_WATER_ANTHRACENE,"Diffuse Sources Water, Anthracene",2015,NULL
+14,DIFSRC_WATER_CD,"Diffuse Sources Water, CD",2015,NULL
+15,DIFSRC_WATER_CO,"Diffuse Sources Water, CO",2015,NULL
+16,DIFSRC_WATER__FLUORANTHENE,"Diffuse Sources Water, Fluoranthene",2015,NULL
+17,DIFSRC_WATER_HG,"Diffuse Sources Water, HG",2015,NULL
+18,DIFSRC_WATER_NI,"Diffuse Sources Water, NI",2015,NULL
+19,DIFSRC_WATER_N,"Diffuse Sources Water, N",2015,NULL
+20,DIFSRC_WATER_PB,"Diffuse Sources Water, PB",2015,NULL
+21,DIFSRC_WATER_P,"Diffuse Sources Water, P",2015,NULL
+22,DIFSRC_WATER_TOC,"Diffuse Sources Water, TOC",2015,NULL
+23,DIFSRC_WATER_ZN,"Diffuse Sources Water, ZN",2015,NULL
+24,LCP,Large Combustion Plants,2015,NULL
+25,POLLUTANTINFO,Pollutant info,2015,NULL
+26,SURVEY,Survey,2015,NULL
