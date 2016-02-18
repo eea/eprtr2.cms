@@ -19,6 +19,7 @@
         <checkstyle.config.location>${basedir}/doc/checkstyle.xml</checkstyle.config.location>
         <liquibase.changeLogFile>database/changelog-master.xml</liquibase.changeLogFile>
         <jclouds.version>1.9.1</jclouds.version>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HHmm</maven.build.timestamp.format>
     </properties>
 
     <version>2.1-SNAPSHOT</version>
@@ -541,6 +542,7 @@
                         <tags>
                           <tag>latest</tag>
                           <tag>${project.version}</tag>
+                          <tag>${maven.build.timestamp}</tag>
                         </tags>
                         <assembly>
                           <!--descriptor>assembly.xml</descriptor-->
