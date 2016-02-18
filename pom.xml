@@ -193,7 +193,7 @@
                             <includes>
                                 <include>*.xml</include>
                                 <include>*.content</include>
-                                <include>*.cvs</include>
+                                <include>*.csv</include>
                             </includes>
                         </resource>
                     </webResources>
