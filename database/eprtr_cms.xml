@@ -256,9 +256,11 @@
         <constraints nullable="false"/>
       </column>
       <column name="ListIndex" type="int">
-        <constraints nullable="false"/>
+        <constraints nullable="true"/>
       </column>
-      <column name="Updated" type="DATETIME"/>
+      <column name="Updated" type="DATETIME">
+        <constraints nullable="true"/>
+      </column>
     </createTable>
   </changeSet>
 
@@ -276,12 +278,14 @@
         <constraints nullable="false"/>
       </column>
       <column name="SurveyLabel" type="text">
-        <constraints nullable="false"/>
+        <constraints nullable="true"/>
       </column>
       <column name="ListIndex" type="int">
-        <constraints nullable="false"/>
+        <constraints nullable="true"/>
       </column>
-      <column name="Updated" type="DATETIME"/>
+      <column name="Updated" type="DATETIME">
+        <constraints nullable="true"/>
+      </column>
     </createTable>
   </changeSet>
 
@@ -298,7 +302,9 @@
       <column name="SurveyResult" type="text">
         <constraints nullable="false"/>
       </column>
-      <column name="Inserted" type="DATETIME"/>
+      <column name="Inserted" type="DATETIME">
+        <constraints nullable="true"/>
+      </column>
     </createTable>
   </changeSet>
 
