@@ -1,0 +1,12 @@
+SurveyItemID,FK_SurveyID,SurveyItem,SurveyItemResultID,ListIndex,Updated
+1,1,Public organisation,1a,0,2016-01-12 11:18:12
+2,1,Commercial organisation,1b,1,2016-01-12 11:18:12
+3,1,Private person,1c,2,2016-01-12 11:18:12
+4,2,Information concerning a specific facility,2a,0,2016-01-12 11:18:12
+5,2,Information concerning a sector of industry,2b,1,2016-01-12 11:18:12
+6,2,Information concerning a country,2c,2,2016-01-12 11:18:12
+7,2,EU-wide information,2d,3,2016-01-12 11:18:12
+8,3,Academic purposes,3a,0,2016-01-12 11:18:12
+9,3,Policy making,3b,1,2016-01-12 11:18:12
+10,3,Public participation in decision making / Access to environmental information,3c,2,2016-01-12 11:18:12
+11,3,Business,3d,3,2016-01-12 11:18:12
