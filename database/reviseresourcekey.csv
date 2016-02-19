@@ -1,0 +1,7 @@
+ResourceKeyID,ResourceKey,ResourceType,AllowHTML,KeyDescription,KeyTitle,ContentsGroupID,CreatedDate
+2,HomeWelcomeText,Static,1,NULL,Welcome to E-PRTR,2,2010-03-17 00:00:00
+3,AboutPageContent,Static,1,NULL,About E-PRTR,2,2010-03-17 00:00:00
+9,DownloadGuidancePageContent,Static,1,NULL,Download Guidance Content,2,2010-03-17 00:00:00
+13,FAQPageContent,Static,1,NULL,Frequently Asked Questions,2,2010-03-17 00:00:00
+60,Approach,Static,1,Page describing the approach for diffuse sources,Releases from Diffuse Sources - Approach,2,2010-03-17 00:00:00
+304,AIR_NOX_InternationalShipping.TitleFull,DiffuseSources,0,NULL,"NOX, International Shipping, Full title",7,2011-05-13 14:53:47
