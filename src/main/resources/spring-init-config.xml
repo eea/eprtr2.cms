@@ -9,7 +9,7 @@
     <!-- Run database refactorings at startup using Liquibase -->
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
         <property name="dataSource" ref="dataSource" />
-        <property name="changeLog" value="classpath:database/changelog-master.xml" />
+        <property name="changeLog" value="classpath:database/changelog-cms.xml" />
         <property name="shouldRun" value="${cmsdb.createtables}" />
         <property name="contexts" value="${deploy.contexts}" />
     </bean>

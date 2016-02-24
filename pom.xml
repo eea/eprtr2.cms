@@ -17,7 +17,7 @@
         <tiles.version>3.0.1</tiles.version>
         <thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
         <checkstyle.config.location>${basedir}/doc/checkstyle.xml</checkstyle.config.location>
-        <liquibase.changeLogFile>database/changelog-master.xml</liquibase.changeLogFile>
+        <liquibase.changeLogFile>database/changelog-cms.xml</liquibase.changeLogFile>
         <jclouds.version>1.9.1</jclouds.version>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HHmm</maven.build.timestamp.format>
     </properties>
