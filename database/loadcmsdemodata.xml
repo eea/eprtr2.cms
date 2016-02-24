@@ -59,4 +59,17 @@
     <sql dbms="mssql">SET IDENTITY_INSERT SurveyItems OFF</sql>
   </changeSet>
 
+  <changeSet author="roug" id="rev-5" context="demo">
+    <preConditions>
+      <sqlCheck expectedResult="5848">SELECT COUNT(*) FROM tAT_ResourceKey</sqlCheck>
+    </preConditions>
+    <comment>Load example data for Croatia</comment>
+    <sql dbms="mssql">SET IDENTITY_INSERT tAT_ResourceKey ON</sql>
+    <loadData tableName="tAT_ResourceKey" file="database/tat_resourcekey-hr.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT tAT_ResourceKey OFF</sql>
+    <sql dbms="mssql">SET IDENTITY_INSERT tAT_ResourceValue ON</sql>
+    <loadData tableName="tAT_ResourceValue" file="database/tat_resourcevalue-hr.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT tAT_ResourceValue OFF</sql>
+  </changeSet>
+
 </databaseChangeLog>
