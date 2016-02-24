@@ -25,137 +25,19 @@
     <sql dbms="mssql">SET IDENTITY_INSERT LOV_Culture ON</sql>
     <loadData tableName="LOV_Culture" file="database/lov_culture.csv"/>
     <sql dbms="mssql">SET IDENTITY_INSERT LOV_Culture OFF</sql>
-
-    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceKey ON</sql>
-    <loadData tableName="ReviseResourceKey" file="database/reviseresourcekey.csv"/>
-    
-    <!--
-    <insert tableName="ReviseResourceKey">
-      <column name="ResourceKeyID" valueNumeric="2"/>
-      <column name="ResourceKey" value="HomeWelcomeText"/>
-      <column name="ResourceType" value="Static"/>
-      <column name="AllowHTML" valueBoolean="true"/>
-      <column name="KeyDescription" value=""/>
-      <column name="KeyTitle" value="Welcome to E-PRTR"/>
-      <column name="ContentsGroupID" valueNumeric="2"/>
-      <column name="CreatedDate" valueDate="2010-03-17T00:00:00"/>
-    </insert>
-
-    <insert tableName="ReviseResourceKey">
-      <column name="ResourceKeyID" valueNumeric="3"/>
-      <column name="ResourceKey" value="AboutPageContent"/>
-      <column name="ResourceType" value="Static"/>
-      <column name="AllowHTML" valueBoolean="true"/>
-      <column name="KeyDescription" value=""/>
-      <column name="KeyTitle" value="About E-PRTR"/>
-      <column name="ContentsGroupID" valueNumeric="2"/>
-      <column name="CreatedDate" valueDate="2010-03-17T00:00:00"/>
-    </insert>
-
-    <insert tableName="ReviseResourceKey">
-      <column name="ResourceKeyID" valueNumeric="13"/>
-      <column name="ResourceKey" value="FAQPageContent"/>
-      <column name="ResourceType" value="Static"/>
-      <column name="AllowHTML" valueBoolean="true"/>
-      <column name="KeyDescription" value=""/>
-      <column name="KeyTitle" value="Frequently Asked Questions"/>
-      <column name="ContentsGroupID" valueNumeric="2"/>
-      <column name="CreatedDate" valueDate="2010-03-17T00:00:00"/>
-    </insert>
-
-    <insert tableName="ReviseResourceKey">
-      <column name="ResourceKeyID" valueNumeric="60"/>
-      <column name="ResourceKey" value="Approach"/>
-      <column name="ResourceType" value="Static"/>
-      <column name="AllowHTML" valueBoolean="true"/>
-      <column name="KeyDescription" value="Page describing the approach for diffuse sources"/>
-      <column name="KeyTitle" value="Releases from Diffuse Sources - Approach"/>
-      <column name="ContentsGroupID" valueNumeric="2"/>
-      <column name="CreatedDate" valueDate="2010-03-17T00:00:00"/>
-    </insert>
-    <insert tableName="ReviseResourceKey">
-      <column name="ResourceKeyID" valueNumeric="304"/>
-      <column name="ResourceKey" value="AIR_NOX_InternationalShipping.TitleFull"/>
-      <column name="ResourceType" value="DiffuseSources"/>
-      <column name="AllowHTML" valueBoolean="false"/>
-      <column name="KeyDescription" value=""/>
-      <column name="KeyTitle" value="NOX, International Shipping, Full title"/>
-      <column name="ContentsGroupID" valueNumeric="7"/>
-      <column name="CreatedDate" valueDate="2011-05-13 14:53:47.957"/>
-    </insert>
-    <insert tableName="ReviseResourceKey">
-      <column name="ResourceKeyID" valueNumeric="9"/>
-      <column name="ResourceKey" value="DownloadGuidancePageContent"/>
-      <column name="ResourceType" value="Static"/>
-      <column name="AllowHTML" valueBoolean="true"/>
-      <column name="KeyDescription" value=""/>
-      <column name="KeyTitle" value="Download Guidance Content"/>
-      <column name="ContentsGroupID" valueNumeric="2"/>
-      <column name="CreatedDate" valueDate="2010-03-17 00:00:00.0"/>
-    </insert>
-    -->
-    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceKey OFF</sql>
-
-    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceValue ON</sql>
-    <insert tableName="ReviseResourceValue">
-      <column name="ResourceValueID" value="2"/>
-      <column name="ResourceKeyID" value="2"/>
-      <column name="CultureCode" value="en-GB"/>
-      <column name="ResourceValue" valueClobFile="index.content" encoding="UTF-8"/>
-      <column name="ChangedDate" valueDate="2013-03-17T09:39:01"/>
-    </insert>
-
-    <insert tableName="ReviseResourceValue">
-      <column name="ResourceValueID" value="3"/>
-      <column name="ResourceKeyID" value="3"/>
-      <column name="CultureCode" value="en-GB"/>
-      <column name="ResourceValue" valueClobFile="about.content" encoding="UTF-8"/>
-      <column name="ChangedDate" valueDate="2013-03-17T09:39:01"/>
-    </insert>
-
-    <insert tableName="ReviseResourceValue">
-      <column name="ResourceValueID" value="4"/>
-      <column name="ResourceKeyID" value="13"/>
-      <column name="CultureCode" value="en-GB"/>
-      <column name="ResourceValue" valueClobFile="faq.content" encoding="UTF-8"/>
-      <column name="ChangedDate" valueDate="2013-03-17T09:39:01"/>
-    </insert>
-
-    <insert tableName="ReviseResourceValue">
-      <column name="ResourceValueID" value="5"/>
-      <column name="ResourceKeyID" value="60"/>
-      <column name="CultureCode" value="en-GB"/>
-      <column name="ResourceValue" valueClobFile="diffusesourcesapproach.content" encoding="UTF-8"/>
-      <column name="ChangedDate" valueDate="2013-03-17T09:39:01"/>
-    </insert>
-
-    <insert tableName="ReviseResourceValue">
-      <column name="ResourceValueID" value="788"/>
-      <column name="ResourceKeyID" value="304"/>
-      <column name="CultureCode" value="en-GB"/>
-      <column name="ResourceValue" value="Nitrogen oxides (NOX) emissions from international shipping (in tonnes per grid cell)"/>
-      <column name="ChangedDate" valueDate="2011-05-13 14:53:48.82"/>
-    </insert>
-
-    <insert tableName="ReviseResourceValue">
-      <column name="ResourceValueID" value="9"/>
-      <column name="ResourceKeyID" value="9"/>
-      <column name="CultureCode" value="en-GB"/>
-      <column name="ResourceValue" valueClobFile="downloadguidance.content" encoding="UTF-8"/>
-      <column name="ChangedDate" valueDate="2016-02-11 11:37:39.85"/>
-    </insert>
-    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceValue OFF</sql>
-
-	<!-- inserted by hjelm -->
-    <sql dbms="mssql">SET IDENTITY_INSERT SurveyMaster ON</sql>
-    <loadData tableName="SurveyMaster" file="database/surveymaster.csv"/>
-    <sql dbms="mssql">SET IDENTITY_INSERT SurveyMaster OFF</sql>
-    <sql dbms="mssql">SET IDENTITY_INSERT SurveyItems ON</sql>
-    <loadData tableName="SurveyItems" file="database/surveyitems.csv"/>
-    <sql dbms="mssql">SET IDENTITY_INSERT SurveyItems OFF</sql>
   </changeSet>
 
   <changeSet author="roug" id="rev-2" context="demo">
+    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceKey ON</sql>
+    <loadData tableName="ReviseResourceKey" file="database/reviseresourcekey.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceKey OFF</sql>
+
+    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceValue ON</sql>
+    <loadData tableName="ReviseResourceValue" file="database/reviseresourcevalue.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT ReviseResourceValue OFF</sql>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-3" context="demo">
     <preConditions>
       <sqlCheck expectedResult="0">SELECT COUNT(*) FROM tAT_ResourceKey</sqlCheck>
     </preConditions>
@@ -166,6 +48,15 @@
     <sql dbms="mssql">SET IDENTITY_INSERT tAT_ResourceValue ON</sql>
     <loadData tableName="tAT_ResourceValue" file="database/tat_resourcevalue.csv"/>
     <sql dbms="mssql">SET IDENTITY_INSERT tAT_ResourceValue OFF</sql>
+  </changeSet>
+
+  <changeSet author="roug" id="rev-4" context="demo">
+    <sql dbms="mssql">SET IDENTITY_INSERT SurveyMaster ON</sql>
+    <loadData tableName="SurveyMaster" file="database/surveymaster.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT SurveyMaster OFF</sql>
+    <sql dbms="mssql">SET IDENTITY_INSERT SurveyItems ON</sql>
+    <loadData tableName="SurveyItems" file="database/surveyitems.csv"/>
+    <sql dbms="mssql">SET IDENTITY_INSERT SurveyItems OFF</sql>
   </changeSet>
 
 </databaseChangeLog>

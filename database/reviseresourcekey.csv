@@ -1,7 +1,676 @@
 ResourceKeyID,ResourceKey,ResourceType,AllowHTML,KeyDescription,KeyTitle,ContentsGroupID,CreatedDate
-2,HomeWelcomeText,Static,1,NULL,Welcome to E-PRTR,2,2010-03-17 00:00:00
-3,AboutPageContent,Static,1,NULL,About E-PRTR,2,2010-03-17 00:00:00
+2,HomeWelcomeText,Static,1,NULL,Home Content,2,2010-03-17 00:00:00
+3,AboutPageContent,Static,1,NULL,About Content,2,2010-03-17 00:00:00
+7,DownloadDataSetPageContent,Static,1,NULL,Download Dataset Content,2,2010-03-17 00:00:00
 9,DownloadGuidancePageContent,Static,1,NULL,Download Guidance Content,2,2010-03-17 00:00:00
-13,FAQPageContent,Static,1,NULL,Frequently Asked Questions,2,2010-03-17 00:00:00
-60,Approach,Static,1,Page describing the approach for diffuse sources,Releases from Diffuse Sources - Approach,2,2010-03-17 00:00:00
+11,EventsAndMeetingsPageContent,Static,1,NULL,Events and Meetings Content,2,2010-03-17 00:00:00
+15,FeedbackPageContent,Static,1,NULL,Feedback Content,2,2010-03-17 00:00:00
+17,LinksEUinternationalPageContent,Static,1,NULL,Links EU/international Content,2,2010-03-17 00:00:00
+19,LinksNationalRegistersPageContent,Static,1,NULL,Links National PRTRs Content,2,2010-03-17 00:00:00
+21,LinksResearchProjectsPageContent,Static,1,NULL,"Links Information Sources Content ",2,2010-03-17 00:00:00
+25,NewsPageContent,Static,1,NULL,News Content,2,2010-03-17 00:00:00
+27,PeopleCommunityPageContent,Static,1,NULL,People/Community Page Content,2,2010-03-17 00:00:00
+29,ReviewFactSheetPageContent,Static,1,NULL,Review Factsheet Content,2,2010-03-17 00:00:00
+31,ReviewReportPageContent,Static,1,NULL,Review Report Content,2,2010-03-17 00:00:00
+33,ConfidentialityExplanationFacilityList,Common,1,"General description of confidentiality. Will be shown in menu: Facility Level, Sheet: Confidentiality.",Facility Search - List,3,2010-03-17 00:00:00
+34,ConfidentialityExplanationFacilityLevel,Common,1,General description of confidentiality for a single facility. Will be shown on Facility Details: Sheet: Confidentiality.,Facility Search - Facility Details,3,2010-03-17 00:00:00
+35,ConfidentialityExplanationPT1,Common,1,"Short description of confidentiality for pollutant transfers. Will be shown in menu: Pollutant Transfers, Sheet: Confidentiality, Above tables.",Pollutant Transfers - Text 1,3,2010-03-17 00:00:00
+36,ConfidentialityExplanationPT2,Common,1,"Longer description of confidentiality for pollutant transfers. Will be shown in menu: Pollutant Transfers, Sheet: Confidentiality, Below tables.",Pollutant Transfers - Text 2,3,2010-03-17 00:00:00
+37,ConfidentialityExplanationPR1,Common,1,"Short description of confidentiality for pollutant releases. Will be shown in menu: Pollutant Releases, Sheet: Confidentiality, Above tables.",Pollutant Releases - Text 1,3,2010-03-17 00:00:00
+38,ConfidentialityExplanationPR2,Common,1,"Longer description of confidentiality for pollutant releases. Will be shown in menu: Pollutant Releases, Sheet: Confidentiality, Below tables.",Pollutant Releases - Text 2,3,2010-03-17 00:00:00
+39,ConfidentialityExplanationWT1,Common,1,"Short description of confidentiality for waste transfers. Will be shown in menu: Waste Transfers, Sheet: Confidentiality, Above tables.",Waste Transfers - Text 1,3,2010-03-17 00:00:00
+40,ConfidentialityExplanationWT2,Common,1,"Longer description of confidentiality for waste transfers. Will be shown in menu: Waste Transfers, Sheet: Confidentiality, Below tables.",Waste Transfers - Text 2,3,2010-03-17 00:00:00
+41,ConfidentialityExplanationWTRecievers1,Common,1,"Short description of confidentiality for waste receivers. Will be shown in menu: Waste Transfers, Sheet: Haz. receivers, Sub sheet for one country, Sheet: Confidentiality, Above tables.",Waste receivers - Text 1,3,2010-03-17 00:00:00
+42,ConfidentialityExplanationWTRecievers2,Common,1,"Longer description of confidentiality for waste recievers. Will be shown in menu: Waste Transfers, Sheet: Haz. receivers, Sub sheet for one country, Sheet: Confidentiality, Below tables.",Waste receivers - Text 2,3,2010-03-17 00:00:00
+43,DisclaimerTextConfidentiality,Facility,1,NULL,DisclaimerTextConfidentiality,1,2010-03-17 00:00:00
+44,DisclaimerTextFacilityDetails,Facility,1,NULL,DisclaimerTextFacilityDetails,1,2010-03-17 00:00:00
+45,DisclaimerTextGeneral,Facility,1,NULL,DisclaimerTextGeneral,1,2010-03-17 00:00:00
+46,DisclaimerTextPollutantReleases,Facility,1,NULL,DisclaimerTextPollutantReleases,1,2010-03-17 00:00:00
+47,DisclaimerTextPollutantTransfers,Facility,1,NULL,DisclaimerTextPollutantTransfers,1,2010-03-17 00:00:00
+48,DisclaimerTextWaste,Facility,1,NULL,DisclaimerTextWaste,1,2010-03-17 00:00:00
+49,ActivityPageContent,Library,1,NULL,ActivityPageContent,2,2010-03-17 00:00:00
+53,WastePageContent,Library,1,NULL,WastePageContent,2,2010-03-17 00:00:00
+55,ConfReleaseDesc,Pollutant,1,"Short description of confidentiality for pollutant releases. Will be shown in menu: Industrial Activities, Sheet: Confidentiality, Radio button:Pollutant releases, Above tables.",Industrial Activities - Pollutant Releases,3,2010-03-17 00:00:00
+56,ConfTransfersDesc,Pollutant,1,"Short description of confidentiality for pollutant transfers. Will be shown in menu: Industrial Activities, Sheet: Confidentiality, Radio button:Pollutant transfers, Above tables.",Industrial Activities - Pollutant Transfers,3,2010-03-17 00:00:00
+57,ConfWasteDesc,WasteTransfers,1,"Short description of confidentiality for waste transfers. Will be shown in menu: Industrial Activities, Sheet: Confidentiality, Radio button:Waste transfers, Above tables.",Industrial Activities - Waste Transfers,3,2010-03-17 00:00:00
+60,Approach,DiffuseSources,1,Page describing the approach for diffuse sources,Approach,4,2010-03-17 00:00:00
+61,aSubheadline,DiffuseSources,1,This text is presented at the top of the diffuse sources page for air,Air: Subheadline,6,2010-03-17 00:00:00
+62,wpaggr.SourceData,DiffuseSources,1,NULL,Water: P/agr. land - Source Data,4,2010-03-17 00:00:00
+63,wnaggr.GeneralInformation,DiffuseSources,1,NULL,Water: N/agr. land - General Information,4,2010-03-17 00:00:00
+64,wnaggr.Methodology,DiffuseSources,1,NULL,Water: N/agr. land - Methodology,4,2010-03-17 00:00:00
+65,wnaggr.SourceData,DiffuseSources,1,NULL,Water: N/agr. land - Source Data,4,2010-03-17 00:00:00
+66,wnaggr.TitleFull,DiffuseSources,0,NULL,Water: N/agr. land - Full title,4,2010-03-17 00:00:00
+67,wnaggr.TitleShort,DiffuseSources,0,NULL,Water: N/agr. land - Short title,4,2010-03-17 00:00:00
+68,wnrbd.GeneralInformation,DiffuseSources,1,NULL,Water: N/RBD - General Information,4,2010-03-17 00:00:00
+69,wnrbd.Methodology,DiffuseSources,1,NULL,Water: N/RBD - Methodology,4,2010-03-17 00:00:00
+70,wnrbd.SourceData,DiffuseSources,1,NULL,Water: N/RBD - Source Data,4,2010-03-17 00:00:00
+71,wnrbd.TitleFull,DiffuseSources,0,NULL,Water: N/RBD - Full title,4,2010-03-17 00:00:00
+72,wnrbd.TitleShort,DiffuseSources,0,NULL,Water: N/RBD - Short title,4,2010-03-17 00:00:00
+73,wpaggr.GeneralInformation,DiffuseSources,1,NULL,Water: P/agr. land - General Information,4,2010-03-17 00:00:00
+74,wpaggr.Methodology,DiffuseSources,1,NULL,Water: P/agr. land - Methodology,4,2010-03-17 00:00:00
+75,wpaggr.TitleFull,DiffuseSources,0,NULL,Water: P/agr. land - Full title,4,2010-03-17 00:00:00
+76,wpaggr.TitleShort,DiffuseSources,0,NULL,Water: P/agr. land - Short title,4,2010-03-17 00:00:00
+77,wprbd.GeneralInformation,DiffuseSources,1,NULL,Water: P/RBD - General Information,4,2010-03-17 00:00:00
+78,wprbd.Methodology,DiffuseSources,1,NULL,Water: P/RBD - Methodology,4,2010-03-17 00:00:00
+79,wprbd.SourceData,DiffuseSources,1,NULL,Water: P/RBD - Source Data,4,2010-03-17 00:00:00
+80,wprbd.TitleFull,DiffuseSources,0,NULL,Water: P/RBD - Full title,4,2010-03-17 00:00:00
+81,wprbd.TitleShort,DiffuseSources,0,NULL,Water: P/RBD - Short title,4,2010-03-17 00:00:00
+82,wSubheadline,DiffuseSources,1,This text is presented at the top of the diffuse sources page for water,Water: Subheadline,4,2010-03-17 00:00:00
+83,ConfidentialityExplanationPR1,Timeseries,1,"Short description of confidentiality. Will be shown in menu Time Series -> Pollutant Release, Sheet: Confidentiality.",Time series - Pollutant release,3,2010-03-17 00:00:00
+84,ConfidentialityExplanationWT1,Timeseries,1,"Short description of confidentiality. Will be shown in menu Time Series -> Waste Transfer, Sheet: Confidentiality.",Time series - Waste transfer,3,2010-03-17 00:00:00
+85,ConfidentialityExplanationPT1,Timeseries,1,"Short description of confidentiality. Will be shown in menu Time Series -> Pollutant Transfer, Sheet: Confidentiality.",Time series - Pollutant transfer,3,2010-03-17 00:00:00
+86,PollutantPageContent,Library,1,Temporare replacement of pollutant information page,Temporary pollutant content,2,2010-03-17 00:00:00
+87,ConfidentialityExplanationTrendPR1,Facility,1,"Short description of confidentiality. Will be shown in facility level time series for Pollutant Releases, Sheet: Confidentiality.",Time series - Facility level - Pollutant release,3,2010-03-17 00:00:00
+88,ConfidentialityExplanationTrendPT1,Facility,1,"Short description of confidentiality. Will be shown in facility level time series for PollutantTransfers, Sheet: Confidentiality.",Time series - Facility level - Pollutant transfer,3,2010-03-17 00:00:00
+89,ConfidentialityExplanationTrendWT1,Facility,1,"Short description of confidentiality. Will be shown in facility level time series for WasteTransfers, Sheet: Confidentiality.",Time series - Facility level - Waste transfer,3,2010-03-17 00:00:00
+90,ConfidentialityExplanation,AreaOverview,1,"General description of confidentiality. Will be shown in menu: Area overview, Sheet: Confidentiality.",Areaoverview,3,2010-03-17 00:00:00
+91,SearchHelpFacilityHeader,Help,0,This is the header for the help page available from Facility Search,Facility Search Help Page Header,5,2010-03-17 00:00:00
+92,SearchHelpFacility,Help,1,This is the help page available from Facility Search,Facility Search Help Page,5,2010-03-17 00:00:00
+93,ActivityPageContentEPER,Library,1,NULL,Activity Page EPER,2,2010-10-04 11:15:12
+94,PollutantPageContentEPER,Library,1,Temporary replacement of emission information page,Pollutant Content EPER,2,2010-10-04 11:15:12
+95,DisclaimerTextFacilityDetailsEmissions,Facility,1,NULL,DisclaimerTextFacilityDetailsEmissions,1,2010-10-04 11:15:12
+96,DisclaimerTextEmmissionsDirect,Facility,1,NULL,DisclaimerTextEmmissionsDirect,1,2010-10-04 11:15:12
+97,DisclaimerTextEmisionsIndirect,Facility,1,NULL,DisclaimerTextEmisionsIndirect,1,2010-10-04 11:15:12
+98,AirNOx_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,NOx Non-industrial Combustion - Short title,6,2010-10-04 11:16:49
+99,AirNOx_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,NOx Non-industrial Combustion - Full title,6,2010-10-04 11:16:49
+100,AirNOx_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,NOx Non-industrial Combustion - General Information,6,2010-10-04 11:16:49
+101,AirNOx_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,NOx Non-industrial Combustion - Methodology,6,2010-10-04 11:16:49
+102,AirNOx_NonIndustrialCombustion.SourceData,DiffuseSources,1,NULL,NOx Non-industrial Combustion - Source Data,6,2010-10-04 11:16:49
+103,AirNOx_RoadTransport.TitleShort,DiffuseSources,0,NULL,NOx Road Transport - Short title,6,2010-10-04 11:16:49
+104,AirNOx_RoadTransport.TitleFull,DiffuseSources,0,NULL,NOx Road Transport - Full title,6,2010-10-04 11:16:49
+105,AirNOx_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,NOx Road Transport - General Information,6,2010-10-04 11:16:49
+106,AirNOx_RoadTransport.Methodology,DiffuseSources,1,NULL,NOx Road Transport - Methodology,6,2010-10-04 11:16:49
+107,AirNOx_RoadTransport.SourceData,DiffuseSources,1,NULL,NOx Road Transport - Source Data,6,2010-10-04 11:16:49
+108,AirNOx_OtherMobileSources.TitleShort,DiffuseSources,0,NULL,NOx Other Mobile Sources - Short title,6,2010-10-04 11:16:49
+109,AirNOx_OtherMobileSources.TitleFull,DiffuseSources,0,NULL,NOx Other Mobile Sources - Full title,6,2010-10-04 11:16:49
+110,AirNOx_OtherMobileSources.GeneralInformation,DiffuseSources,1,NULL,NOx Other Mobile Sources - General Information,6,2010-10-04 11:16:49
+111,AirNOx_OtherMobileSources.Methodology,DiffuseSources,1,NULL,NOx Other Mobile Sources - Methodology,6,2010-10-04 11:16:49
+112,AirNOx_OtherMobileSources.SourceData,DiffuseSources,1,NULL,NOx Other Mobile Sources - Source Data,6,2010-10-04 11:16:49
+113,AirSO2_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,SO2 Non-industrial Combustion - Short title,6,2010-10-04 11:16:49
+114,AirSO2_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,SO2 Non-industrial Combustion - Full title,6,2010-10-04 11:16:49
+115,AirSO2_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,SO2 Non-industrial Combustion - General Information,6,2010-10-04 11:16:49
+116,AirSO2_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,SO2 Non-industrial Combustion - Methodology,6,2010-10-04 11:16:49
+117,AirSO2_NonIndustrialCombustion.SourceData,DiffuseSources,1,NULL,SO2 Non-industrial Combustion - Source Data,6,2010-10-04 11:16:49
+118,AirSO2_RoadTransport.TitleShort,DiffuseSources,0,NULL,SO2 Road Transport - Short title,6,2010-10-04 11:16:49
+119,AirSO2_RoadTransport.TitleFull,DiffuseSources,0,NULL,SO2 Road Transport - Full title,6,2010-10-04 11:16:49
+120,AirSO2_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,SO2 Road Transport - General Information,6,2010-10-04 11:16:49
+121,AirSO2_RoadTransport.Methodology,DiffuseSources,1,NULL,SO2 Road Transport - Methodology,6,2010-10-04 11:16:49
+122,AirSO2_RoadTransport.SourceData,DiffuseSources,1,NULL,SO2 Road Transport - Source Data,6,2010-10-04 11:16:49
+123,AirSO2_OtherMobileSources.TitleShort,DiffuseSources,0,NULL,SO2 Other Mobile Source - Short title,6,2010-10-04 11:16:49
+124,AirSO2_OtherMobileSources.TitleFull,DiffuseSources,0,NULL,SO2 Other Mobile Source - Full title,6,2010-10-04 11:16:49
+125,AirSO2_OtherMobileSources.GeneralInformation,DiffuseSources,1,NULL,SO2 Other Mobile Source - General Information,6,2010-10-04 11:16:49
+126,AirSO2_OtherMobileSources.Methodology,DiffuseSources,1,NULL,SO2 Other Mobile Source - Methodology,6,2010-10-04 11:16:49
+127,AirSO2_OtherMobileSources.SourceData,DiffuseSources,1,NULL,SO2 Other Mobile Source - Source Data,6,2010-10-04 11:16:49
+128,AirCO_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,CO Non-industrial Combustion - Short title,6,2010-10-04 11:16:49
+129,AirCO_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,CO Non-industrial Combustion - Full title,6,2010-10-04 11:16:49
+130,AirCO_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,CO Non-industrial Combustion - General Information,6,2010-10-04 11:16:49
+131,AirCO_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,CO Non-industrial Combustion - Methodology,6,2010-10-04 11:16:49
+132,AirCO_NonIndustrialCombustion.SourceData,DiffuseSources,1,NULL,CO Non-industrial Combustion - Source Data,6,2010-10-04 11:16:49
+133,AirCO_RoadTransport.TitleShort,DiffuseSources,0,NULL,CO Road Transport - Short title,6,2010-10-04 11:16:49
+134,AirCO_RoadTransport.TitleFull,DiffuseSources,0,NULL,CO Road Transport - Full title,6,2010-10-04 11:16:49
+135,AirCO_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,CO Road Transport - General Information,6,2010-10-04 11:16:49
+136,AirCO_RoadTransport.Methodology,DiffuseSources,1,NULL,CO Road Transport - Methodology,6,2010-10-04 11:16:49
+137,AirCO_RoadTransport.SourceData,DiffuseSources,1,NULL,CO Road Transport - Source Data,6,2010-10-04 11:16:49
+138,AirCO_OtherMobileSources.TitleShort,DiffuseSources,0,NULL,CO Other Mobile Sources - Short title,6,2010-10-04 11:16:49
+139,AirCO_OtherMobileSources.TitleFull,DiffuseSources,0,NULL,CO Other Mobile Sources - Full title,6,2010-10-04 11:16:49
+140,AirCO_OtherMobileSources.GeneralInformation,DiffuseSources,1,NULL,CO Other Mobile Sources - General Information,6,2010-10-04 11:16:49
+141,AirCO_OtherMobileSources.Methodology,DiffuseSources,1,NULL,CO Other Mobile Sources - Methodology,6,2010-10-04 11:16:49
+142,AirCO_OtherMobileSources.SourceData,DiffuseSources,1,NULL,CO Other Mobile Sources - Source Data,6,2010-10-04 11:16:49
+143,AirPM10_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,PM10 Non-industrial Combustion - Short title,6,2010-10-04 11:16:49
+144,AirPM10_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,PM10 Non-industrial Combustion - Full title,6,2010-10-04 11:16:49
+145,AirPM10_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,PM10 Non-industrial Combustion - General Information,6,2010-10-04 11:16:49
+146,AirPM10_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,PM10 Non-industrial Combustion - Methodology,6,2010-10-04 11:16:49
+147,AirPM10_NonIndustrialCombustion.SourceData,DiffuseSources,1,NULL,PM10 Non-industrial Combustion - Source Data,6,2010-10-04 11:16:49
+148,AirPM10_RoadTransport.TitleShort,DiffuseSources,0,NULL,PM10 Road Transport - Short title,6,2010-10-04 11:16:49
+149,AirPM10_RoadTransport.TitleFull,DiffuseSources,0,NULL,PM10 Road Transport - Full title,6,2010-10-04 11:16:49
+150,AirPM10_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,PM10 Road Transport - General Information,6,2010-10-04 11:16:49
+151,AirPM10_RoadTransport.Methodology,DiffuseSources,1,NULL,PM10 Road Transport - Methodology,6,2010-10-04 11:16:49
+152,AirPM10_RoadTransport.SourceData,DiffuseSources,1,NULL,PM10 Road Transport - Source Data,6,2010-10-04 11:16:49
+153,AirPM10_OtherMobileSources.TitleShort,DiffuseSources,0,NULL,PM10 Other Mobile Sources - Short title,6,2010-10-04 11:16:49
+154,AirPM10_OtherMobileSources.TitleFull,DiffuseSources,0,NULL,PM10 Other Mobile Sources - Full title,6,2010-10-04 11:16:49
+155,AirPM10_OtherMobileSources.GeneralInformation,DiffuseSources,1,NULL,PM10 Other Mobile Sources - General Information,6,2010-10-04 11:16:49
+156,AirPM10_OtherMobileSources.Methodology,DiffuseSources,1,NULL,PM10 Other Mobile Sources - Methodology,6,2010-10-04 11:16:49
+157,AirPM10_OtherMobileSources.SourceData,DiffuseSources,1,NULL,PM10 Other Mobile Sources - Source Data,6,2010-10-04 11:16:49
+158,AirPM10_Agriculture.TitleShort,DiffuseSources,0,NULL,PM10 Agriculture - Short title,6,2010-10-04 11:16:49
+159,AirPM10_Agriculture.TitleFull,DiffuseSources,0,NULL,PM10 Agriculture - Full title,6,2010-10-04 11:16:49
+160,AirPM10_Agriculture.GeneralInformation,DiffuseSources,1,NULL,PM10 Agriculture - General Information,6,2010-10-04 11:16:49
+161,AirPM10_Agriculture.Methodology,DiffuseSources,1,NULL,PM10 Agriculture - Methodology,6,2010-10-04 11:16:49
+162,AirPM10_Agriculture.SourceData,DiffuseSources,1,NULL,PM10 Agriculture - Source Data,6,2010-10-04 11:16:49
+163,AirNH3_Agriculture.TitleShort,DiffuseSources,0,NULL,NH3 Agriculture - Short title,6,2010-10-04 11:16:49
+164,AirNH3_Agriculture.TitleFull,DiffuseSources,0,NULL,NH3 Agriculture - Full title,6,2010-10-04 11:16:49
+165,AirNH3_Agriculture.GeneralInformation,DiffuseSources,1,NULL,NH3 Agriculture - General Information,6,2010-10-04 11:16:49
+166,AirNH3_Agriculture.Methodology,DiffuseSources,1,NULL,NH3 Agriculture - Methodology,6,2010-10-04 11:16:49
+167,AirNH3_Agriculture.SourceData,DiffuseSources,1,NULL,NH3 Agriculture - Source Data,6,2010-10-04 11:16:49
+168,AIR_NOX_IndustrialReleases.TitleShort,DiffuseSources,0,NULL,"NOX, Industrial Releases, Short title",7,2011-05-13 14:52:25
+169,AIR_NOX_IndustrialReleases.TitleFull,DiffuseSources,0,NULL,"NOX, Industrial Releases, Full title",7,2011-05-13 14:52:27
+170,AIR_NOX_IndustrialReleases.GeneralInformation,DiffuseSources,1,NULL,"NOX, Industrial Releases, General Information",7,2011-05-13 14:52:27
+171,AIR_NOX_IndustrialReleases.Methodology,DiffuseSources,1,NULL,"NOX, Industrial Releases, Methodology",7,2011-05-13 14:52:28
+172,AIR_NOX_IndustrialReleases.Sourcedata,DiffuseSources,1,NULL,"NOX, Industrial Releases, SourceData",7,2011-05-13 14:52:28
+173,AIR_NOX_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,"NOX, Non-industrial Combustion, Short title",7,2011-05-13 14:52:28
+174,AIR_NOX_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,"NOX, Non-industrial Combustion, Full title",7,2011-05-13 14:52:28
+175,AIR_NOX_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,"NOX, Non-industrial Combustion, General Information",7,2011-05-13 14:52:28
+176,AIR_NOX_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,"NOX, Non-industrial Combustion, Methodology",7,2011-05-13 14:52:28
+177,AIR_NOX_NonIndustrialCombustion.Sourcedata,DiffuseSources,1,NULL,"NOX, Non-industrial Combustion, SourceData",7,2011-05-13 14:52:29
+178,AIR_NOX_RoadTransport.TitleShort,DiffuseSources,0,NULL,"NOX, Road Transport, Short title",7,2011-05-13 14:52:29
+179,AIR_NOX_RoadTransport.TitleFull,DiffuseSources,0,NULL,"NOX, Road Transport, Full title",7,2011-05-13 14:52:29
+180,AIR_NOX_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,"NOX, Road Transport, General Information",7,2011-05-13 14:52:29
+181,AIR_NOX_RoadTransport.Methodology,DiffuseSources,1,NULL,"NOX, Road Transport, Methodology",7,2011-05-13 14:52:29
+182,AIR_NOX_RoadTransport.Sourcedata,DiffuseSources,1,NULL,"NOX, Road Transport, SourceData",7,2011-05-13 14:52:30
+183,AIR_NOX_DomesticShipping.TitleShort,DiffuseSources,0,NULL,"NOX, Domestic Shipping, Short title",7,2011-05-13 14:52:30
+184,AIR_NOX_DomesticShipping.TitleFull,DiffuseSources,0,NULL,"NOX, Domestic Shipping, Full title",7,2011-05-13 14:52:30
+185,AIR_NOX_DomesticShipping.GeneralInformation,DiffuseSources,1,NULL,"NOX, Domestic Shipping, General Information",7,2011-05-13 14:52:30
+186,AIR_NOX_DomesticShipping.Methodology,DiffuseSources,1,NULL,"NOX, Domestic Shipping, Methodology",7,2011-05-13 14:52:31
+187,AIR_NOX_DomesticShipping.Sourcedata,DiffuseSources,1,NULL,"NOX, Domestic Shipping, SourceData",7,2011-05-13 14:52:31
+188,AIR_NOX_DomesticAviation.TitleShort,DiffuseSources,0,NULL,"NOX, Domestic Aviation, Short title",7,2011-05-13 14:52:32
+189,AIR_NOX_DomesticAviation.TitleFull,DiffuseSources,0,NULL,"NOX, Domestic Aviation, Full title",7,2011-05-13 14:52:32
+190,AIR_NOX_DomesticAviation.GeneralInformation,DiffuseSources,1,NULL,"NOX, Domestic Aviation, General Information",7,2011-05-13 14:52:32
+191,AIR_NOX_DomesticAviation.Methodology,DiffuseSources,1,NULL,"NOX, Domestic Aviation, Methodology",7,2011-05-13 14:52:32
+192,AIR_NOX_DomesticAviation.Sourcedata,DiffuseSources,1,NULL,"NOX, Domestic Aviation, SourceData",7,2011-05-13 14:52:33
+193,AIR_SOX_IndustrialReleases.TitleShort,DiffuseSources,0,NULL,"SO2, Industrial Releases, Short title",8,2011-05-13 14:52:34
+194,AIR_SOX_IndustrialReleases.TitleFull,DiffuseSources,0,NULL,"SO2, Industrial Releases, Full title",8,2011-05-13 14:52:34
+195,AIR_SOX_IndustrialReleases.GeneralInformation,DiffuseSources,1,NULL,"SO2, Industrial Releases, General Information",8,2011-05-13 14:52:34
+196,AIR_SOX_IndustrialReleases.Methodology,DiffuseSources,1,NULL,"SO2, Industrial Releases, Methodology",8,2011-05-13 14:52:35
+197,AIR_SOX_IndustrialReleases.Sourcedata,DiffuseSources,1,NULL,"SO2, Industrial Releases, SourceData",8,2011-05-13 14:52:35
+198,AIR_SOX_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,"SO2, Non-industrial Combustion, Short title",8,2011-05-13 14:52:36
+199,AIR_SOX_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,"SO2, Non-industrial Combustion, Full title",8,2011-05-13 14:52:36
+200,AIR_SOX_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,"SO2, Non-industrial Combustion, General Information",8,2011-05-13 14:52:36
+201,AIR_SOX_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,"SO2, Non-industrial Combustion, Methodology",8,2011-05-13 14:52:36
+202,AIR_SOX_NonIndustrialCombustion.Sourcedata,DiffuseSources,1,NULL,"SO2, Non-industrial Combustion, SourceData",8,2011-05-13 14:52:37
+203,AIR_SOX_RoadTransport.TitleShort,DiffuseSources,0,NULL,"SO2, Road Transport, Short title",8,2011-05-13 14:52:37
+204,AIR_SOX_RoadTransport.TitleFull,DiffuseSources,0,NULL,"SO2, Road Transport, Full title",8,2011-05-13 14:52:38
+205,AIR_SOX_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,"SO2, Road Transport, General Information",8,2011-05-13 14:52:38
+206,AIR_SOX_RoadTransport.Methodology,DiffuseSources,1,NULL,"SO2, Road Transport, Methodology",8,2011-05-13 14:52:38
+207,AIR_SOX_RoadTransport.Sourcedata,DiffuseSources,1,NULL,"SO2, Road Transport, SourceData",8,2011-05-13 14:52:39
+208,AIR_SOX_DomesticShipping.TitleShort,DiffuseSources,0,NULL,"SO2, Domestic Shipping, Short title",8,2011-05-13 14:52:39
+209,AIR_SOX_DomesticShipping.TitleFull,DiffuseSources,0,NULL,"SO2, Domestic Shipping, Full title",8,2011-05-13 14:52:39
+210,AIR_SOX_DomesticShipping.GeneralInformation,DiffuseSources,1,NULL,"SO2, Domestic Shipping, General Information",8,2011-05-13 14:52:40
+211,AIR_SOX_DomesticShipping.Methodology,DiffuseSources,1,NULL,"SO2, Domestic Shipping, Methodology",8,2011-05-13 14:52:40
+212,AIR_SOX_DomesticShipping.Sourcedata,DiffuseSources,1,NULL,"SO2, Domestic Shipping, SourceData",8,2011-05-13 14:52:40
+213,AIR_SOX_DomesticAviation.TitleShort,DiffuseSources,0,NULL,"SO2, Domestic Aviation, Short title",8,2011-05-13 14:52:41
+214,AIR_SOX_DomesticAviation.TitleFull,DiffuseSources,0,NULL,"SO2, Domestic Aviation, Full title",8,2011-05-13 14:52:41
+215,AIR_SOX_DomesticAviation.GeneralInformation,DiffuseSources,1,NULL,"SO2, Domestic Aviation, General Information",8,2011-05-13 14:52:42
+216,AIR_SOX_DomesticAviation.Methodology,DiffuseSources,1,NULL,"SO2, Domestic Aviation, Methodology",8,2011-05-13 14:52:42
+217,AIR_SOX_DomesticAviation.Sourcedata,DiffuseSources,1,NULL,"SO2, Domestic Aviation, SourceData",8,2011-05-13 14:52:42
+218,AIR_PM10_IndustrialReleases.TitleShort,DiffuseSources,0,NULL,"PM10, Industrial Releases, Short title",9,2011-05-13 14:52:43
+219,AIR_PM10_IndustrialReleases.TitleFull,DiffuseSources,0,NULL,"PM10, Industrial Releases, Full title",9,2011-05-13 14:52:43
+220,AIR_PM10_IndustrialReleases.GeneralInformation,DiffuseSources,1,NULL,"PM10, Industrial Releases, General Information",9,2011-05-13 14:52:44
+221,AIR_PM10_IndustrialReleases.Methodology,DiffuseSources,1,NULL,"PM10, Industrial Releases, Methodology",9,2011-05-13 14:52:44
+222,AIR_PM10_IndustrialReleases.Sourcedata,DiffuseSources,1,NULL,"PM10, Industrial Releases, SourceData",9,2011-05-13 14:52:44
+223,AIR_PM10_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,"PM10, Non-industrial Combustion, Short title",9,2011-05-13 14:52:45
+224,AIR_PM10_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,"PM10, Non-industrial Combustion, Full title",9,2011-05-13 14:52:45
+225,AIR_PM10_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,"PM10, Non-industrial Combustion, General Information",9,2011-05-13 14:52:46
+226,AIR_PM10_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,"PM10, Non-industrial Combustion, Methodology",9,2011-05-13 14:52:46
+227,AIR_PM10_NonIndustrialCombustion.Sourcedata,DiffuseSources,1,NULL,"PM10, Non-industrial Combustion, SourceData",9,2011-05-13 14:52:47
+228,AIR_PM10_RoadTransport.TitleShort,DiffuseSources,0,NULL,"PM10, Road Transport, Short title",9,2011-05-13 14:52:47
+229,AIR_PM10_RoadTransport.TitleFull,DiffuseSources,0,NULL,"PM10, Road Transport, Full title",9,2011-05-13 14:52:48
+230,AIR_PM10_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,"PM10, Road Transport, General Information",9,2011-05-13 14:52:48
+231,AIR_PM10_RoadTransport.Methodology,DiffuseSources,1,NULL,"PM10, Road Transport, Methodology",9,2011-05-13 14:52:49
+232,AIR_PM10_RoadTransport.Sourcedata,DiffuseSources,1,NULL,"PM10, Road Transport, SourceData",9,2011-05-13 14:52:49
+233,AIR_PM10_DomesticShipping.TitleShort,DiffuseSources,0,NULL,"PM10, Domestic Shipping, Short title",9,2011-05-13 14:52:50
+234,AIR_PM10_DomesticShipping.TitleFull,DiffuseSources,0,NULL,"PM10, Domestic Shipping, Full title",9,2011-05-13 14:52:50
+235,AIR_PM10_DomesticShipping.GeneralInformation,DiffuseSources,1,NULL,"PM10, Domestic Shipping, General Information",9,2011-05-13 14:52:51
+236,AIR_PM10_DomesticShipping.Methodology,DiffuseSources,1,NULL,"PM10, Domestic Shipping, Methodology",9,2011-05-13 14:52:51
+237,AIR_PM10_DomesticShipping.Sourcedata,DiffuseSources,1,NULL,"PM10, Domestic Shipping, SourceData",9,2011-05-13 14:52:52
+238,AIR_PM10_DomesticAviation.TitleShort,DiffuseSources,0,NULL,"PM10, Domestic Aviation, Short title",9,2011-05-13 14:52:52
+239,AIR_PM10_DomesticAviation.TitleFull,DiffuseSources,0,NULL,"PM10, Domestic Aviation, Full title",9,2011-05-13 14:52:53
+240,AIR_PM10_DomesticAviation.GeneralInformation,DiffuseSources,1,NULL,"PM10, Domestic Aviation, General Information",9,2011-05-13 14:52:53
+241,AIR_PM10_DomesticAviation.Methodology,DiffuseSources,1,NULL,"PM10, Domestic Aviation, Methodology",9,2011-05-13 14:52:54
+242,AIR_PM10_DomesticAviation.Sourcedata,DiffuseSources,1,NULL,"PM10, Domestic Aviation, SourceData",9,2011-05-13 14:52:55
+243,AIR_PM10_Agriculture.TitleShort,DiffuseSources,0,NULL,"PM10, Agriculture, Short title",9,2011-05-13 14:52:55
+244,AIR_PM10_Agriculture.TitleFull,DiffuseSources,0,NULL,"PM10, Agriculture, Full title",9,2011-05-13 14:52:56
+245,AIR_PM10_Agriculture.GeneralInformation,DiffuseSources,1,NULL,"PM10, Agriculture, General Information",9,2011-05-13 14:52:56
+246,AIR_PM10_Agriculture.Methodology,DiffuseSources,1,NULL,"PM10, Agriculture, Methodology",9,2011-05-13 14:52:57
+247,AIR_PM10_Agriculture.Sourcedata,DiffuseSources,1,NULL,"PM10, Agriculture, SourceData",9,2011-05-13 14:52:57
+248,AIR_NH3_Agriculture.TitleShort,DiffuseSources,0,NULL,"NH3, Agriculture, Short title",10,2011-05-13 14:52:58
+249,AIR_NH3_Agriculture.TitleFull,DiffuseSources,0,NULL,"NH3, Agriculture, Full title",10,2011-05-13 14:52:58
+250,AIR_NH3_Agriculture.GeneralInformation,DiffuseSources,1,NULL,"NH3, Agriculture, General Information",10,2011-05-13 14:52:59
+251,AIR_NH3_Agriculture.Methodology,DiffuseSources,1,NULL,"NH3, Agriculture, Methodology",10,2011-05-13 14:53:00
+252,AIR_NH3_Agriculture.Sourcedata,DiffuseSources,1,NULL,"NH3, Agriculture, SourceData",10,2011-05-13 14:53:00
+253,AIR_CO_IndustrialReleases.TitleShort,DiffuseSources,0,NULL,"CO, Industrial Releases, Short title",11,2011-05-13 14:53:01
+254,AIR_CO_IndustrialReleases.TitleFull,DiffuseSources,0,NULL,"CO, Industrial Releases, Full title",11,2011-05-13 14:53:02
+255,AIR_CO_IndustrialReleases.GeneralInformation,DiffuseSources,1,NULL,"CO, Industrial Releases, General Information",11,2011-05-13 14:53:02
+256,AIR_CO_IndustrialReleases.Methodology,DiffuseSources,1,NULL,"CO, Industrial Releases, Methodology",11,2011-05-13 14:53:03
+257,AIR_CO_IndustrialReleases.Sourcedata,DiffuseSources,1,NULL,"CO, Industrial Releases, SourceData",11,2011-05-13 14:53:04
+258,AIR_CO_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,"CO, Non-industrial Combustion, Short title",11,2011-05-13 14:53:04
+259,AIR_CO_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,"CO, Non-industrial Combustion, Full title",11,2011-05-13 14:53:05
+260,AIR_CO_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,"CO, Non-industrial Combustion, General Information",11,2011-05-13 14:53:06
+261,AIR_CO_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,"CO, Non-industrial Combustion, Methodology",11,2011-05-13 14:53:06
+262,AIR_CO_NonIndustrialCombustion.Sourcedata,DiffuseSources,1,NULL,"CO, Non-industrial Combustion, SourceData",11,2011-05-13 14:53:07
+263,AIR_CO_RoadTransport.TitleShort,DiffuseSources,0,NULL,"CO, Road Transport, Short title",11,2011-05-13 14:53:08
+264,AIR_CO_RoadTransport.TitleFull,DiffuseSources,0,NULL,"CO, Road Transport, Full title",11,2011-05-13 14:53:09
+265,AIR_CO_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,"CO, Road Transport, General Information",11,2011-05-13 14:53:10
+266,AIR_CO_RoadTransport.Methodology,DiffuseSources,1,NULL,"CO, Road Transport, Methodology",11,2011-05-13 14:53:11
+267,AIR_CO_RoadTransport.Sourcedata,DiffuseSources,1,NULL,"CO, Road Transport, SourceData",11,2011-05-13 14:53:12
+268,AIR_CO_DomesticShipping.TitleShort,DiffuseSources,0,NULL,"CO, Domestic Shipping, Short title",11,2011-05-13 14:53:13
+269,AIR_CO_DomesticShipping.TitleFull,DiffuseSources,0,NULL,"CO, Domestic Shipping, Full title",11,2011-05-13 14:53:13
+270,AIR_CO_DomesticShipping.GeneralInformation,DiffuseSources,1,NULL,"CO, Domestic Shipping, General Information",11,2011-05-13 14:53:14
+271,AIR_CO_DomesticShipping.Methodology,DiffuseSources,1,NULL,"CO, Domestic Shipping, Methodology",11,2011-05-13 14:53:15
+272,AIR_CO_DomesticShipping.Sourcedata,DiffuseSources,1,NULL,"CO, Domestic Shipping, SourceData",11,2011-05-13 14:53:16
+273,AIR_CO_DomesticAviation.TitleShort,DiffuseSources,0,NULL,"CO, Domestic Aviation, Short title",11,2011-05-13 14:53:17
+274,AIR_CO_DomesticAviation.TitleFull,DiffuseSources,0,NULL,"CO, Domestic Aviation, Full title",11,2011-05-13 14:53:18
+275,AIR_CO_DomesticAviation.GeneralInformation,DiffuseSources,1,NULL,"CO, Domestic Aviation, General Information",11,2011-05-13 14:53:19
+276,AIR_CO_DomesticAviation.Methodology,DiffuseSources,1,NULL,"CO, Domestic Aviation, Methodology",11,2011-05-13 14:53:20
+277,AIR_CO_DomesticAviation.Sourcedata,DiffuseSources,1,NULL,"CO, Domestic Aviation, SourceData",11,2011-05-13 14:53:21
+278,AIR_CO2_IndustrialReleases.TitleShort,DiffuseSources,0,NULL,"CO2, Industrial Releases, Short title",12,2011-05-13 14:53:22
+279,AIR_CO2_IndustrialReleases.TitleFull,DiffuseSources,0,NULL,"CO2, Industrial Releases, Full title",12,2011-05-13 14:53:23
+280,AIR_CO2_IndustrialReleases.GeneralInformation,DiffuseSources,1,NULL,"CO2, Industrial Releases, General Information",12,2011-05-13 14:53:23
+281,AIR_CO2_IndustrialReleases.Methodology,DiffuseSources,1,NULL,"CO2, Industrial Releases, Methodology",12,2011-05-13 14:53:24
+282,AIR_CO2_IndustrialReleases.Sourcedata,DiffuseSources,1,NULL,"CO2, Industrial Releases, SourceData",12,2011-05-13 14:53:25
+283,AIR_CO2_NonIndustrialCombustion.TitleShort,DiffuseSources,0,NULL,"CO2, Non-industrial Combustion, Short title",12,2011-05-13 14:53:26
+284,AIR_CO2_NonIndustrialCombustion.TitleFull,DiffuseSources,0,NULL,"CO2, Non-industrial Combustion, Full title",12,2011-05-13 14:53:26
+285,AIR_CO2_NonIndustrialCombustion.GeneralInformation,DiffuseSources,1,NULL,"CO2, Non-industrial Combustion, General Information",12,2011-05-13 14:53:27
+286,AIR_CO2_NonIndustrialCombustion.Methodology,DiffuseSources,1,NULL,"CO2, Non-industrial Combustion, Methodology",12,2011-05-13 14:53:28
+287,AIR_CO2_NonIndustrialCombustion.Sourcedata,DiffuseSources,1,NULL,"CO2, Non-industrial Combustion, SourceData",12,2011-05-13 14:53:29
+288,AIR_CO2_RoadTransport.TitleShort,DiffuseSources,0,NULL,"CO2, Road Transport, Short title",12,2011-05-13 14:53:30
+289,AIR_CO2_RoadTransport.TitleFull,DiffuseSources,0,NULL,"CO2, Road Transport, Full title",12,2011-05-13 14:53:31
+290,AIR_CO2_RoadTransport.GeneralInformation,DiffuseSources,1,NULL,"CO2, Road Transport, General Information",12,2011-05-13 14:53:32
+291,AIR_CO2_RoadTransport.Methodology,DiffuseSources,1,NULL,"CO2, Road Transport, Methodology",12,2011-05-13 14:53:34
+292,AIR_CO2_RoadTransport.Sourcedata,DiffuseSources,1,NULL,"CO2, Road Transport, SourceData",12,2011-05-13 14:53:35
+293,AIR_CO2_DomesticShipping.TitleShort,DiffuseSources,0,NULL,"CO2, Domestic Shipping, Short title",12,2011-05-13 14:53:36
+294,AIR_CO2_DomesticShipping.TitleFull,DiffuseSources,0,NULL,"CO2, Domestic Shipping, Full title",12,2011-05-13 14:53:37
+295,AIR_CO2_DomesticShipping.GeneralInformation,DiffuseSources,1,NULL,"CO2, Domestic Shipping, General Information",12,2011-05-13 14:53:39
+296,AIR_CO2_DomesticShipping.Methodology,DiffuseSources,1,NULL,"CO2, Domestic Shipping, Methodology",12,2011-05-13 14:53:40
+297,AIR_CO2_DomesticShipping.Sourcedata,DiffuseSources,1,NULL,"CO2, Domestic Shipping, SourceData",12,2011-05-13 14:53:41
+298,AIR_CO2_DomesticAviation.TitleShort,DiffuseSources,0,NULL,"CO2, Domestic Aviation, Short title",12,2011-05-13 14:53:42
+299,AIR_CO2_DomesticAviation.TitleFull,DiffuseSources,0,NULL,"CO2, Domestic Aviation, Full title",12,2011-05-13 14:53:43
+300,AIR_CO2_DomesticAviation.GeneralInformation,DiffuseSources,1,NULL,"CO2, Domestic Aviation, General Information",12,2011-05-13 14:53:44
+301,AIR_CO2_DomesticAviation.Methodology,DiffuseSources,1,NULL,"CO2, Domestic Aviation, Methodology",12,2011-05-13 14:53:45
+302,AIR_CO2_DomesticAviation.Sourcedata,DiffuseSources,1,NULL,"CO2, Domestic Aviation, SourceData",12,2011-05-13 14:53:45
+303,AIR_NOX_InternationalShipping.TitleShort,DiffuseSources,0,NULL,"NOX, International Shipping, Short title",7,2011-05-13 14:53:47
 304,AIR_NOX_InternationalShipping.TitleFull,DiffuseSources,0,NULL,"NOX, International Shipping, Full title",7,2011-05-13 14:53:47
+305,AIR_NOX_InternationalShipping.GeneralInformation,DiffuseSources,1,NULL,"NOX, International Shipping, General Information",7,2011-05-13 14:53:48
+306,AIR_NOX_InternationalShipping.Methodology,DiffuseSources,1,NULL,"NOX, International Shipping, Methodology",7,2011-05-13 14:53:49
+307,AIR_NOX_InternationalShipping.Sourcedata,DiffuseSources,1,NULL,"NOX, International Shipping, SourceData",7,2011-05-13 14:53:50
+308,AIR_SOX_InternationalShipping.TitleShort,DiffuseSources,0,NULL,"SOX, International Shipping, Short title",8,2011-05-13 14:53:51
+309,AIR_SOX_InternationalShipping.TitleFull,DiffuseSources,0,NULL,"SOX, International Shipping, Full title",8,2011-05-13 14:53:52
+310,AIR_SOX_InternationalShipping.GeneralInformation,DiffuseSources,1,NULL,"SOX, International Shipping, General Information",8,2011-05-13 14:53:53
+311,AIR_SOX_InternationalShipping.Methodology,DiffuseSources,1,NULL,"SOX, International Shipping, Methodology",8,2011-05-13 14:53:54
+312,AIR_SOX_InternationalShipping.Sourcedata,DiffuseSources,1,NULL,"SOX, International Shipping, SourceData",8,2011-05-13 14:53:55
+313,AIR_PM10_InternationalShipping.TitleShort,DiffuseSources,0,NULL,"PM10, International Shipping, Short title",9,2011-05-13 14:53:55
+314,AIR_PM10_InternationalShipping.TitleFull,DiffuseSources,0,NULL,"PM10, International Shipping, Full title",9,2011-05-13 14:53:56
+315,AIR_PM10_InternationalShipping.GeneralInformation,DiffuseSources,1,NULL,"PM10, International Shipping, General Information",9,2011-05-13 14:53:57
+316,AIR_PM10_InternationalShipping.Methodology,DiffuseSources,1,NULL,"PM10, International Shipping, Methodology",9,2011-05-13 14:53:58
+317,AIR_PM10_InternationalShipping.Sourcedata,DiffuseSources,1,NULL,"PM10, International Shipping, SourceData",9,2011-05-13 14:54:00
+318,AIR_CO_InternationalShipping.TitleShort,DiffuseSources,0,NULL,"CO, International Shipping, Short title",11,2011-05-13 14:54:01
+319,AIR_CO_InternationalShipping.TitleFull,DiffuseSources,0,NULL,"CO, International Shipping, Full title",11,2011-05-13 14:54:02
+320,AIR_CO_InternationalShipping.GeneralInformation,DiffuseSources,1,NULL,"CO, International Shipping, General Information",11,2011-05-13 14:54:03
+321,AIR_CO_InternationalShipping.Methodology,DiffuseSources,1,NULL,"CO, International Shipping, Methodology",11,2011-05-13 14:54:04
+322,AIR_CO_InternationalShipping.Sourcedata,DiffuseSources,1,NULL,"CO, International Shipping, SourceData",11,2011-05-13 14:54:05
+323,AIR_CO2_InternationalShipping.TitleShort,DiffuseSources,0,NULL,"CO2, International Shipping, Short title",12,2011-05-13 14:54:06
+324,AIR_CO2_InternationalShipping.TitleFull,DiffuseSources,0,NULL,"CO2, International Shipping, Full title",12,2011-05-13 14:54:07
+325,AIR_CO2_InternationalShipping.GeneralInformation,DiffuseSources,1,NULL,"CO2, International Shipping, General Information",12,2011-05-13 14:54:08
+326,AIR_CO2_InternationalShipping.Methodology,DiffuseSources,1,NULL,"CO2, International Shipping, Methodology",12,2011-05-13 14:54:09
+327,AIR_CO2_InternationalShipping.Sourcedata,DiffuseSources,1,NULL,"CO2, International Shipping, SourceData",12,2011-05-13 14:54:10
+328,WATER_ANTHRACENE_InlandNavigation.GeneralInformation,DiffuseSources,1,NULL,"Inland Navigation, General Information",13,2015-12-16 13:21:37
+329,WATER_ANTHRACENE_InlandNavigation.Methodology,DiffuseSources,1,NULL,"Inland Navigation, Methodology",13,2015-12-16 13:21:37
+330,WATER_ANTHRACENE_InlandNavigation.SourceData,DiffuseSources,1,NULL,"Inland Navigation, Source Data",13,2015-12-16 13:21:37
+331,WATER_ANTHRACENE_InlandNavigation.TitleFull,DiffuseSources,0,NULL,"Inland Navigation, Title Full",13,2015-12-16 13:21:37
+332,WATER_ANTHRACENE_InlandNavigation.TitleShort,DiffuseSources,0,NULL,"Inland Navigation, Title Short",13,2015-12-16 13:21:37
+333,WATER_ANTHRACENE_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information",13,2015-12-16 13:21:37
+334,WATER_ANTHRACENE_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology",13,2015-12-16 13:21:37
+335,WATER_ANTHRACENE_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data",13,2015-12-16 13:21:37
+336,WATER_ANTHRACENE_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full",13,2015-12-16 13:21:37
+337,WATER_ANTHRACENE_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short",13,2015-12-16 13:21:37
+338,WATER_ANTHRACENE_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information",13,2015-12-16 13:21:37
+339,WATER_ANTHRACENE_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology",13,2015-12-16 13:21:37
+340,WATER_ANTHRACENE_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data",13,2015-12-16 13:21:37
+341,WATER_ANTHRACENE_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full",13,2015-12-16 13:21:37
+342,WATER_ANTHRACENE_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short",13,2015-12-16 13:21:37
+343,WATER_ANTHRACENE_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",13,2015-12-16 13:21:37
+344,WATER_ANTHRACENE_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology",13,2015-12-16 13:21:37
+345,WATER_ANTHRACENE_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data",13,2015-12-16 13:21:37
+346,WATER_ANTHRACENE_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full",13,2015-12-16 13:21:37
+347,WATER_ANTHRACENE_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short",13,2015-12-16 13:21:37
+348,WATER_CD_AtmosphericDeposition.GeneralInformation,DiffuseSources,1,NULL,"Atmospheric Deposition, GeneralIn formation",14,2015-12-16 13:21:37
+349,WATER_CD_AtmosphericDeposition.Methodology,DiffuseSources,1,NULL,"Atmospheric Deposition, Methodology ",14,2015-12-16 13:21:37
+350,WATER_CD_AtmosphericDeposition.SourceData,DiffuseSources,1,NULL,"Atmospheric Deposition, Source Data ",14,2015-12-16 13:21:37
+351,WATER_CD_AtmosphericDeposition.TitleFull,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Full ",14,2015-12-16 13:21:37
+352,WATER_CD_AtmosphericDeposition.TitleShort,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Short ",14,2015-12-16 13:21:37
+353,WATER_CD_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information ",14,2015-12-16 13:21:37
+354,WATER_CD_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology ",14,2015-12-16 13:21:37
+355,WATER_CD_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data ",14,2015-12-16 13:21:37
+356,WATER_CD_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full ",14,2015-12-16 13:21:37
+357,WATER_CD_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short ",14,2015-12-16 13:21:37
+358,WATER_CD_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",14,2015-12-16 13:21:37
+359,WATER_CD_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",14,2015-12-16 13:21:37
+360,WATER_CD_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",14,2015-12-16 13:21:37
+361,WATER_CD_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",14,2015-12-16 13:21:37
+362,WATER_CD_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",14,2015-12-16 13:21:37
+363,WATER_CD_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",14,2015-12-16 13:21:37
+364,WATER_CD_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",14,2015-12-16 13:21:37
+365,WATER_CD_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",14,2015-12-16 13:21:37
+366,WATER_CD_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",14,2015-12-16 13:21:37
+367,WATER_CD_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",14,2015-12-16 13:21:37
+368,WATER_CO_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information ",15,2015-12-16 13:21:37
+369,WATER_CO_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology ",15,2015-12-16 13:21:37
+370,WATER_CO_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data ",15,2015-12-16 13:21:37
+371,WATER_CO_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full ",15,2015-12-16 13:21:37
+372,WATER_CO_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short ",15,2015-12-16 13:21:37
+373,WATER_CO_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",15,2015-12-16 13:21:37
+374,WATER_CO_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",15,2015-12-16 13:21:37
+375,WATER_CO_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",15,2015-12-16 13:21:37
+376,WATER_CO_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",15,2015-12-16 13:21:37
+377,WATER_CO_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",15,2015-12-16 13:21:37
+378,WATER_CO_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",15,2015-12-16 13:21:37
+379,WATER_CO_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",15,2015-12-16 13:21:37
+380,WATER_CO_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",15,2015-12-16 13:21:37
+381,WATER_CO_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",15,2015-12-16 13:21:37
+382,WATER_CO_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",15,2015-12-16 13:21:37
+383,WATER_FLUORANTHENE_InlandNavigation.GeneralInformation,DiffuseSources,1,NULL,"Inland Navigation, General Information",NULL,2015-12-16 13:21:37
+384,WATER_FLUORANTHENE_InlandNavigation.Methodology,DiffuseSources,1,NULL,"Inland Navigation, Methodology",NULL,2015-12-16 13:21:37
+385,WATER_FLUORANTHENE_InlandNavigation.SourceData,DiffuseSources,1,NULL,"Inland Navigation, Source Data",NULL,2015-12-16 13:21:37
+386,WATER_FLUORANTHENE_InlandNavigation.TitleFull,DiffuseSources,0,NULL,"Inland Navigation, Title Full",NULL,2015-12-16 13:21:37
+387,WATER_FLUORANTHENE_InlandNavigation.TitleShort,DiffuseSources,0,NULL,"Inland Navigation, Title Short",NULL,2015-12-16 13:21:37
+388,WATER_FLUORANTHENE_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information",NULL,2015-12-16 13:21:37
+389,WATER_FLUORANTHENE_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology",NULL,2015-12-16 13:21:37
+390,WATER_FLUORANTHENE_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data",NULL,2015-12-16 13:21:37
+391,WATER_FLUORANTHENE_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full",NULL,2015-12-16 13:21:37
+392,WATER_FLUORANTHENE_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short",NULL,2015-12-16 13:21:37
+393,WATER_FLUORANTHENE_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information",NULL,2015-12-16 13:21:37
+394,WATER_FLUORANTHENE_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology",NULL,2015-12-16 13:21:37
+395,WATER_FLUORANTHENE_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data",NULL,2015-12-16 13:21:37
+396,WATER_FLUORANTHENE_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full",NULL,2015-12-16 13:21:37
+397,WATER_FLUORANTHENE_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short",NULL,2015-12-16 13:21:37
+398,WATER_FLUORANTHENE_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",NULL,2015-12-16 13:21:37
+399,WATER_FLUORANTHENE_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology",NULL,2015-12-16 13:21:37
+400,WATER_FLUORANTHENE_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data",NULL,2015-12-16 13:21:37
+401,WATER_FLUORANTHENE_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full",NULL,2015-12-16 13:21:37
+402,WATER_FLUORANTHENE_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short",NULL,2015-12-16 13:21:37
+403,WATER_HG_AtmosphericDeposition.GeneralInformation,DiffuseSources,1,NULL,"Atmospheric Deposition, General Information",17,2015-12-16 13:21:37
+404,WATER_HG_AtmosphericDeposition.Methodology,DiffuseSources,1,NULL,"Atmospheric Deposition, Methodology",17,2015-12-16 13:21:37
+405,WATER_HG_AtmosphericDeposition.SourceData,DiffuseSources,1,NULL,"Atmospheric Deposition, Source Data",17,2015-12-16 13:21:37
+406,WATER_HG_AtmosphericDeposition.TitleFull,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Full",17,2015-12-16 13:21:37
+407,WATER_HG_AtmosphericDeposition.TitleShort,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Short",17,2015-12-16 13:21:37
+408,WATER_HG_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information",17,2015-12-16 13:21:37
+409,WATER_HG_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology",17,2015-12-16 13:21:37
+410,WATER_HG_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data",17,2015-12-16 13:21:37
+411,WATER_HG_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full",17,2015-12-16 13:21:37
+412,WATER_HG_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short",17,2015-12-16 13:21:37
+413,WATER_HG_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",17,2015-12-16 13:21:37
+414,WATER_HG_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology",17,2015-12-16 13:21:37
+415,WATER_HG_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data",17,2015-12-16 13:21:37
+416,WATER_HG_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full",17,2015-12-16 13:21:37
+417,WATER_HG_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short",17,2015-12-16 13:21:37
+418,WATER_NI_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information ",18,2015-12-16 13:21:37
+419,WATER_NI_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology ",18,2015-12-16 13:21:37
+420,WATER_NI_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data ",18,2015-12-16 13:21:37
+421,WATER_NI_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full ",18,2015-12-16 13:21:37
+422,WATER_NI_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short ",18,2015-12-16 13:21:37
+423,WATER_NI_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",18,2015-12-16 13:21:37
+424,WATER_NI_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",18,2015-12-16 13:21:37
+425,WATER_NI_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",18,2015-12-16 13:21:37
+426,WATER_NI_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",18,2015-12-16 13:21:37
+427,WATER_NI_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",18,2015-12-16 13:21:37
+428,WATER_NI_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",18,2015-12-16 13:21:37
+429,WATER_NI_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",18,2015-12-16 13:21:37
+430,WATER_NI_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",18,2015-12-16 13:21:37
+431,WATER_NI_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",18,2015-12-16 13:21:37
+432,WATER_NI_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",18,2015-12-16 13:21:37
+433,WATER_N_Agriculture.GeneralInformation,DiffuseSources,1,NULL,"Agriculture, General Information ",19,2015-12-16 13:21:37
+434,WATER_N_Agriculture.Methodology,DiffuseSources,1,NULL,"Agriculture, Methodology ",19,2015-12-16 13:21:37
+435,WATER_N_Agriculture.SourceData,DiffuseSources,1,NULL,"Agriculture, Source Data ",19,2015-12-16 13:21:37
+436,WATER_N_Agriculture.TitleFull,DiffuseSources,0,NULL,"Agriculture, Title Full ",19,2015-12-16 13:21:37
+437,WATER_N_Agriculture.TitleShort,DiffuseSources,0,NULL,"Agriculture, Title Short ",19,2015-12-16 13:21:37
+438,WATER_N_AtmosphericDeposition.GeneralInformation,DiffuseSources,1,NULL,"Atmospheric Deposition, General Information",19,2015-12-16 13:21:37
+439,WATER_N_AtmosphericDeposition.Methodology,DiffuseSources,1,NULL,"Atmospheric Deposition, Methodology ",19,2015-12-16 13:21:37
+440,WATER_N_AtmosphericDeposition.SourceData,DiffuseSources,1,NULL,"Atmospheric Deposition, Source Data ",19,2015-12-16 13:21:37
+441,WATER_N_AtmosphericDeposition.TitleFull,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Full ",19,2015-12-16 13:21:37
+442,WATER_N_AtmosphericDeposition.TitleShort,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Short ",19,2015-12-16 13:21:37
+443,WATER_N_InlandNavigation.GeneralInformation,DiffuseSources,1,NULL,"Inland Navigation, General Information ",19,2015-12-16 13:21:37
+444,WATER_N_InlandNavigation.Methodology,DiffuseSources,1,NULL,"Inland Navigation, Methodology ",19,2015-12-16 13:21:37
+445,WATER_N_InlandNavigation.SourceData,DiffuseSources,1,NULL,"Inland Navigation, Source Data ",19,2015-12-16 13:21:37
+446,WATER_N_InlandNavigation.TitleFull,DiffuseSources,0,NULL,"Inland Navigation, Title Full ",19,2015-12-16 13:21:37
+447,WATER_N_InlandNavigation.TitleShort,DiffuseSources,0,NULL,"Inland Navigation, Title Short ",19,2015-12-16 13:21:37
+448,WATER_N_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",19,2015-12-16 13:21:37
+449,WATER_N_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",19,2015-12-16 13:21:37
+450,WATER_N_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",19,2015-12-16 13:21:37
+451,WATER_N_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",19,2015-12-16 13:21:37
+452,WATER_N_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",19,2015-12-16 13:21:37
+453,WATER_N_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",19,2015-12-16 13:21:37
+454,WATER_N_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",19,2015-12-16 13:21:37
+455,WATER_N_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",19,2015-12-16 13:21:37
+456,WATER_N_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",19,2015-12-16 13:21:37
+457,WATER_N_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",19,2015-12-16 13:21:37
+458,WATER_PB_AtmosphericDeposition.GeneralInformation,DiffuseSources,1,NULL,"Atmospheric Deposition, General Information",20,2015-12-16 13:21:37
+459,WATER_PB_AtmosphericDeposition.Methodology,DiffuseSources,1,NULL,"Atmospheric Deposition, Methodology ",20,2015-12-16 13:21:37
+460,WATER_PB_AtmosphericDeposition.SourceData,DiffuseSources,1,NULL,"Atmospheric Deposition, Source Data ",20,2015-12-16 13:21:37
+461,WATER_PB_AtmosphericDeposition.TitleFull,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Full ",20,2015-12-16 13:21:37
+462,WATER_PB_AtmosphericDeposition.TitleShort,DiffuseSources,0,NULL,"Atmospheric Deposition, Title Short ",20,2015-12-16 13:21:37
+463,WATER_PB_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information ",20,2015-12-16 13:21:37
+464,WATER_PB_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology ",20,2015-12-16 13:21:37
+465,WATER_PB_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data ",20,2015-12-16 13:21:37
+466,WATER_PB_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full ",20,2015-12-16 13:21:37
+467,WATER_PB_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short ",20,2015-12-16 13:21:37
+468,WATER_PB_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",20,2015-12-16 13:21:37
+469,WATER_PB_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",20,2015-12-16 13:21:37
+470,WATER_PB_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",20,2015-12-16 13:21:37
+471,WATER_PB_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",20,2015-12-16 13:21:37
+472,WATER_PB_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",20,2015-12-16 13:21:37
+473,WATER_PB_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",20,2015-12-16 13:21:37
+474,WATER_PB_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",20,2015-12-16 13:21:37
+475,WATER_PB_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",20,2015-12-16 13:21:37
+476,WATER_PB_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",20,2015-12-16 13:21:37
+477,WATER_PB_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",20,2015-12-16 13:21:37
+478,WATER_P_Agriculture.GeneralInformation,DiffuseSources,1,NULL,"Agriculture, General Information ",21,2015-12-16 13:21:37
+479,WATER_P_Agriculture.Methodology,DiffuseSources,1,NULL,"Agriculture, Methodology ",21,2015-12-16 13:21:37
+480,WATER_P_Agriculture.SourceData,DiffuseSources,1,NULL,"Agriculture, Source Data ",21,2015-12-16 13:21:37
+481,WATER_P_Agriculture.TitleFull,DiffuseSources,0,NULL,"Agriculture, Title Full ",21,2015-12-16 13:21:37
+482,WATER_P_Agriculture.TitleShort,DiffuseSources,0,NULL,"Agriculture, Title Short ",21,2015-12-16 13:21:37
+483,WATER_P_InlandNavigation.GeneralInformation,DiffuseSources,1,NULL,"Inland Navigation, General Information ",21,2015-12-16 13:21:37
+484,WATER_P_InlandNavigation.Methodology,DiffuseSources,1,NULL,"Inland Navigation, Methodology ",21,2015-12-16 13:21:37
+485,WATER_P_InlandNavigation.SourceData,DiffuseSources,1,NULL,"Inland Navigation, Source Data ",21,2015-12-16 13:21:37
+486,WATER_P_InlandNavigation.TitleFull,DiffuseSources,0,NULL,"Inland Navigation, Title Full ",21,2015-12-16 13:21:37
+487,WATER_P_InlandNavigation.TitleShort,DiffuseSources,0,NULL,"Inland Navigation, Title Short ",21,2015-12-16 13:21:37
+488,WATER_P_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",21,2015-12-16 13:21:37
+489,WATER_P_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",21,2015-12-16 13:21:37
+490,WATER_P_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",21,2015-12-16 13:21:37
+491,WATER_P_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",21,2015-12-16 13:21:37
+492,WATER_P_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",21,2015-12-16 13:21:37
+493,WATER_P_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",21,2015-12-16 13:21:37
+494,WATER_P_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",21,2015-12-16 13:21:37
+495,WATER_P_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",21,2015-12-16 13:21:37
+496,WATER_P_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",21,2015-12-16 13:21:37
+497,WATER_P_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",21,2015-12-16 13:21:37
+498,WATER_TOC_InlandNavigation.GeneralInformation,DiffuseSources,1,NULL,"Inland Navigation, General Information ",22,2015-12-16 13:21:37
+499,WATER_TOC_InlandNavigation.Methodology,DiffuseSources,1,NULL,"Inland Navigation, Methodology ",22,2015-12-16 13:21:37
+500,WATER_TOC_InlandNavigation.SourceData,DiffuseSources,1,NULL,"Inland Navigation, Source Data ",22,2015-12-16 13:21:37
+501,WATER_TOC_InlandNavigation.TitleFull,DiffuseSources,0,NULL,"Inland Navigation, Title Full ",22,2015-12-16 13:21:37
+502,WATER_TOC_InlandNavigation.TitleShort,DiffuseSources,0,NULL,"Inland Navigation, Title Short ",22,2015-12-16 13:21:37
+503,WATER_TOC_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",22,2015-12-16 13:21:37
+504,WATER_TOC_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",22,2015-12-16 13:21:37
+505,WATER_TOC_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",22,2015-12-16 13:21:37
+506,WATER_TOC_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",22,2015-12-16 13:21:37
+507,WATER_TOC_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",22,2015-12-16 13:21:37
+508,WATER_TOC_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",22,2015-12-16 13:21:37
+509,WATER_TOC_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",22,2015-12-16 13:21:37
+510,WATER_TOC_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",22,2015-12-16 13:21:37
+511,WATER_TOC_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",22,2015-12-16 13:21:37
+512,WATER_TOC_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",22,2015-12-16 13:21:37
+513,WATER_ZN_Transport.GeneralInformation,DiffuseSources,1,NULL,"Transport, General Information ",23,2015-12-16 13:21:37
+514,WATER_ZN_Transport.Methodology,DiffuseSources,1,NULL,"Transport, Methodology ",23,2015-12-16 13:21:37
+515,WATER_ZN_Transport.SourceData,DiffuseSources,1,NULL,"Transport, Source Data ",23,2015-12-16 13:21:37
+516,WATER_ZN_Transport.TitleFull,DiffuseSources,0,NULL,"Transport, Title Full ",23,2015-12-16 13:21:37
+517,WATER_ZN_Transport.TitleShort,DiffuseSources,0,NULL,"Transport, Title Short ",23,2015-12-16 13:21:37
+518,WATER_ZN_UWWTP.GeneralInformation,DiffuseSources,1,NULL,"UWWTP, General Information ",23,2015-12-16 13:21:37
+519,WATER_ZN_UWWTP.Methodology,DiffuseSources,1,NULL,"UWWTP, Methodology ",23,2015-12-16 13:21:37
+520,WATER_ZN_UWWTP.SourceData,DiffuseSources,1,NULL,"UWWTP, Source Data ",23,2015-12-16 13:21:37
+521,WATER_ZN_UWWTP.TitleFull,DiffuseSources,0,NULL,"UWWTP, Title Full ",23,2015-12-16 13:21:37
+522,WATER_ZN_UWWTP.TitleShort,DiffuseSources,0,NULL,"UWWTP, Title Short ",23,2015-12-16 13:21:37
+523,WATER_ZN_UnconnectedHouseholds.GeneralInformation,DiffuseSources,1,NULL,"Unconnected Households, General Information",23,2015-12-16 13:21:37
+524,WATER_ZN_UnconnectedHouseholds.Methodology,DiffuseSources,1,NULL,"Unconnected Households, Methodology ",23,2015-12-16 13:21:37
+525,WATER_ZN_UnconnectedHouseholds.SourceData,DiffuseSources,1,NULL,"Unconnected Households, Source Data ",23,2015-12-16 13:21:37
+526,WATER_ZN_UnconnectedHouseholds.TitleFull,DiffuseSources,0,NULL,"Unconnected Households, Title Full ",23,2015-12-16 13:21:37
+527,WATER_ZN_UnconnectedHouseholds.TitleShort,DiffuseSources,0,NULL,"Unconnected Households, Title Short ",23,2015-12-16 13:21:37
+528,Address,LCP,0,NULL,Address,24,2015-12-16 13:21:37
+529,AnnexVI_a_footnote2,LCP,0,NULL,AnnexVI a footnote2,24,2015-12-16 13:21:37
+530,AnnexVI_a_footnote2_operatingho,LCP,0,NULL,AnnexVI a footnote2 operatinghours,24,2015-12-16 13:21:37
+531,AnnexVI_a_footnote3,LCP,0,NULL,AnnexVI a footnote3,24,2015-12-16 13:21:37
+532,AnnexVI_a_footnote3_elvnox,LCP,0,NULL,AnnexVI a footnote3 elvnox,24,2015-12-16 13:21:37
+533,Art5_1,LCP,0,NULL,Art5 1,24,2015-12-16 13:21:37
+534,Biomass,LCP,0,NULL,Biomass,24,2015-12-16 13:21:37
+535,Boiler,LCP,0,NULL,Boiler,24,2015-12-16 13:21:37
+536,Boilerthermalinput,LCP,0,NULL,Boiler thermal input,24,2015-12-16 13:21:37
+537,Capacity,LCP,0,NULL,Capacity,24,2015-12-16 13:21:37
+538,Capacityaddedmw,LCP,0,NULL,Capacity added mw,24,2015-12-16 13:21:37
+539,Capacityaffectedmw,LCP,0,NULL,Capacity affected mw,24,2015-12-16 13:21:37
+540,Capacityoptedoutmw,LCP,0,NULL,Capacity opted out mw,24,2015-12-16 13:21:37
+541,City,LCP,0,NULL,City,24,2015-12-16 13:21:37
+542,Comments,LCP,0,NULL,Comments,24,2015-12-16 13:21:37
+543,Coords,LCP,0,NULL,Coords,24,2015-12-16 13:21:37
+544,Country,LCP,0,NULL,Country,24,2015-12-16 13:21:37
+545,Dateofstartofoperation,LCP,0,NULL,Date of start of operation,24,2015-12-16 13:21:37
+546,Desulphurisationrate,LCP,0,NULL,Desulphurisation rate,24,2015-12-16 13:21:37
+547,Dieselengine,LCP,0,NULL,Dieselengine,24,2015-12-16 13:21:37
+548,Dieselengineturbinethermalinput,LCP,0,NULL,Dieselengine turbine thermal input,24,2015-12-16 13:21:37
+549,Dust,LCP,0,NULL,Dust,24,2015-12-16 13:21:37
+550,EPRTRNationalId,LCP,0,NULL,EPRTR NationalId,24,2015-12-16 13:21:37
+551,Elvnox,LCP,0,NULL,Elv nox,24,2015-12-16 13:21:37
+552,Elvso2,LCP,0,NULL,Elv so2,24,2015-12-16 13:21:37
+553,Email,LCP,0,NULL,Email,24,2015-12-16 13:21:37
+554,EnergyInputAndTotalEmissionsToAir,LCP,0,NULL,Energy Input And Total Emissions To Air,24,2015-12-16 13:21:37
+555,Envelope_isreleased,LCP,0,NULL,Envelope isreleased,24,2015-12-16 13:21:37
+556,Envelope_url,LCP,0,NULL,Envelope url,24,2015-12-16 13:21:37
+557,Extensionby50mwormore,LCP,0,NULL,Extension by 50 mw or more,24,2015-12-16 13:21:37
+558,FacilityName,LCP,0,NULL,Facility Name,24,2015-12-16 13:21:37
+559,Filename,LCP,0,NULL,Filename,24,2015-12-16 13:21:37
+560,Gasengine,LCP,0,NULL,Gas engine,24,2015-12-16 13:21:37
+561,Gasenginethermalinput,LCP,0,NULL,Gas engine thermal input,24,2015-12-16 13:21:37
+562,Gasturbine,LCP,0,NULL,Gas turbine,24,2015-12-16 13:21:37
+563,Gasturbinethermalinput,LCP,0,NULL,Gas turbine thermal input,24,2015-12-16 13:21:37
+564,Hardcoal,LCP,0,NULL,Hardcoal,24,2015-12-16 13:21:37
+565,Headline,LCP,0,NULL,Headline,24,2015-12-16 13:21:37
+566,Hoursoperated,LCP,0,NULL,Hours operated,24,2015-12-16 13:21:37
+567,Latitude,LCP,0,NULL,Latitude,24,2015-12-16 13:21:37
+568,LcpArt15,LCP,0,NULL,Lcp Art 15,24,2015-12-16 13:21:37
+569,Lignite,LCP,0,NULL,Lignite,24,2015-12-16 13:21:37
+570,Liquidfuels,LCP,0,NULL,Liquid fuels,24,2015-12-16 13:21:37
+571,Longitude,LCP,0,NULL,Longitude,24,2015-12-16 13:21:37
+572,Memberstate,LCP,0,NULL,Memberstate,24,2015-12-16 13:21:37
+573,Mwth,LCP,0,NULL,Mwth,24,2015-12-16 13:21:37
+574,Nameofcontactperson,LCP,0,NULL,Name of contact person,24,2015-12-16 13:21:37
+575,Naturalgas,LCP,0,NULL,Naturalgas,24,2015-12-16 13:21:37
+576,NotabeneannexIII,LCP,0,NULL,Notabene annex III,24,2015-12-16 13:21:37
+577,Notabeneelvso2,LCP,0,NULL,Notabene elv so2,24,2015-12-16 13:21:37
+578,Nox,LCP,1,NULL,Nox,24,2015-12-16 13:21:37
+579,Numberofplants,LCP,0,NULL,Number of plants,24,2015-12-16 13:21:37
+580,Operatinghours,LCP,0,NULL,Operating hours,24,2015-12-16 13:21:37
+581,OptOutsAndNERP,LCP,0,NULL,Opt Outs And NERP,24,2015-12-16 13:21:37
+582,Optoutplant,LCP,0,NULL,Optoutplant,24,2015-12-16 13:21:37
+583,Organization,LCP,0,NULL,Organization,24,2015-12-16 13:21:37
+584,Other,LCP,0,NULL,Other,24,2015-12-16 13:21:37
+585,Othergases,LCP,0,NULL,Othergases,24,2015-12-16 13:21:37
+586,Othersector,LCP,0,NULL,Othersector,24,2015-12-16 13:21:37
+587,Othersolidfuels,LCP,0,NULL,Other solid fuels,24,2015-12-16 13:21:37
+588,Otherthermalinput,LCP,0,NULL,Other thermal input,24,2015-12-16 13:21:37
+589,Othertypeofcombustion,LCP,0,NULL,Other type of combustion,24,2015-12-16 13:21:37
+590,Phone,LCP,0,NULL,Phone,24,2015-12-16 13:21:37
+591,Plant,LCP,0,NULL,Plant,24,2015-12-16 13:21:37
+592,PlantDetails,LCP,0,NULL,Plant Details,24,2015-12-16 13:21:37
+593,PlantId,LCP,0,NULL,Plant Id,24,2015-12-16 13:21:37
+594,PlantName,LCP,0,NULL,Plant Name,24,2015-12-16 13:21:37
+595,Plantincludedinnerp,LCP,0,NULL,Plant included inner p,24,2015-12-16 13:21:37
+596,Plants,LCP,0,NULL,Plants,24,2015-12-16 13:21:37
+597,Postalcode,LCP,0,NULL,Postal code,24,2015-12-16 13:21:37
+598,Referenceyear,LCP,0,NULL,Reference year,24,2015-12-16 13:21:37
+599,Refineries,LCP,0,NULL,Refineries,24,2015-12-16 13:21:37
+600,Region,LCP,0,NULL,Region,24,2015-12-16 13:21:37
+601,ReportId,LCP,0,NULL,ReportId,24,2015-12-16 13:21:37
+602,Report_submissiondate,LCP,0,NULL,Report submission date,24,2015-12-16 13:21:37
+603,ReportingAuthority,LCP,0,NULL,Reporting Authority,24,2015-12-16 13:21:37
+604,Sinput,LCP,0,NULL,Sinput,24,2015-12-16 13:21:37
+605,So2,LCP,1,NULL,So2,24,2015-12-16 13:21:37
+606,Source,LCP,0,NULL,Source,24,2015-12-16 13:21:37
+607,State,LCP,0,NULL,State,24,2015-12-16 13:21:37
+608,Statusotheplant,LCP,0,NULL,Status of the plant,24,2015-12-16 13:21:37
+609,Substantialchange,LCP,0,NULL,Substantial change,24,2015-12-16 13:21:37
+610,Thermalinput,LCP,0,NULL,Thermal input,24,2015-12-16 13:21:37
+611,Volatilecontents,LCP,0,NULL,Volatile contents,24,2015-12-16 13:21:37
+612,explanatorytext,LCP,1,NULL,explanatory text,24,2015-12-16 13:21:37
+613,AtmosphericDeposition,DiffuseSources,1,NULL,Atmospheric deposition,4,2015-12-18 13:56:59
+614,Agriculture,DiffuseSources,1,NULL,Agriculture,4,2015-12-18 13:56:59
+615,Transport,DiffuseSources,1,NULL,Transport,4,2015-12-18 13:56:59
+616,UWWTP,DiffuseSources,1,NULL,UWWTP,4,2015-12-18 13:56:59
+617,Un-connectedHouseholds,DiffuseSources,1,NULL,Un-connected households,4,2015-12-18 13:56:59
+618,InlandNavigation,DiffuseSources,1,NULL,Inland navigation,4,2015-12-18 13:56:59
+621,POLLUTANTINFO.All,PollutantInfo,1,NULL,"Label, Pollutantinfo All",25,2015-12-22 13:52:26
+622,POLLUTANTINFO.CASNumber,PollutantInfo,1,NULL,"Label, Pollutant CAS Number",25,2015-12-22 13:52:26
+623,POLLUTANTINFO.CASToolTip,PollutantInfo,1,NULL,"Tooltip, Pollutant CAS number",25,2015-12-22 13:52:26
+624,POLLUTANTINFO.Classification,PollutantInfo,1,NULL,"Label, Pollutant Classification",25,2015-12-22 13:52:26
+625,POLLUTANTINFO.ClassificationTooltip,PollutantInfo,1,NULL,"Tooltip, Pollutant classification",25,2015-12-22 13:52:26
+626,POLLUTANTINFO.Contents,PollutantInfo,1,NULL,"Label, Pollutant Contents",25,2015-12-22 13:52:26
+627,POLLUTANTINFO.ECNumber,PollutantInfo,1,NULL,"Label, Pollutant EC Number",25,2015-12-22 13:52:26
+628,POLLUTANTINFO.ECToolTip,PollutantInfo,1,NULL,"Tooltip, Pollutant EC",25,2015-12-22 13:52:26
+629,POLLUTANTINFO.Formula,PollutantInfo,1,NULL,"Label, Pollutant Formula",25,2015-12-22 13:52:26
+630,POLLUTANTINFO.Group,PollutantInfo,1,NULL,"Label, Pollutant Group",25,2015-12-22 13:52:26
+631,POLLUTANTINFO.IUPAC,PollutantInfo,1,NULL,"Label, Pollutant IUPAC",25,2015-12-22 13:52:26
+632,POLLUTANTINFO.IUPACTooltip,PollutantInfo,1,NULL,"Tooltip, Pollutant IUPAC",25,2015-12-22 13:52:26
+633,POLLUTANTINFO.Name,PollutantInfo,1,NULL,"Label, Pollutant Name",25,2015-12-22 13:52:26
+634,POLLUTANTINFO.Pollutant,PollutantInfo,1,NULL,"Label, Pollutant",25,2015-12-22 13:52:26
+635,POLLUTANTINFO.PollutantId,PollutantInfo,1,NULL,"Label, Pollutant Id",25,2015-12-22 13:52:26
+636,POLLUTANTINFO.PollutantInfo,PollutantInfo,1,NULL,"Label, Pollutant Info",25,2015-12-22 13:52:26
+637,POLLUTANTINFO.Pollutants,PollutantInfo,1,NULL,"Label, Pollutants",25,2015-12-22 13:52:26
+638,POLLUTANTINFO.Search,PollutantInfo,1,NULL,"Label, Pollutantinfo Search",25,2015-12-22 13:52:26
+639,POLLUTANTINFO.Summary,PollutantInfo,1,NULL,"Label, Pollutant Summary",25,2015-12-22 13:52:26
+640,POLLUTANTINFO.air,PollutantInfo,1,NULL,"Label, Pollutantinfo Air",25,2015-12-22 13:52:26
+641,POLLUTANTINFO.chemspider,PollutantInfo,1,NULL,"Label, Pollutant Chemspider id",25,2015-12-22 13:52:26
+642,POLLUTANTINFO.clp,PollutantInfo,1,NULL,"Label, Pollutant Hazard Class",25,2015-12-22 13:52:26
+643,POLLUTANTINFO.clpLinkText,PollutantInfo,1,NULL,"Text, Pollutant CLP Link",25,2015-12-22 13:52:26
+644,POLLUTANTINFO.clpLinkUrl,PollutantInfo,1,NULL,"Link, Pollutant CLP URL1",25,2015-12-22 13:52:26
+645,POLLUTANTINFO.clpLinkUrl2,PollutantInfo,1,NULL,"Link, Pollutant CLP URL2",25,2015-12-22 13:52:26
+646,POLLUTANTINFO.clpex,PollutantInfo,1,NULL,"Text, Pollutant CLPEX",25,2015-12-22 13:52:26
+647,POLLUTANTINFO.clpghs,PollutantInfo,1,NULL,"Label, Pollutant Classification & Labelling",25,2015-12-22 13:52:26
+648,POLLUTANTINFO.description,PollutantInfo,1,NULL,"Label, Pollutant Description",25,2015-12-22 13:52:26
+649,POLLUTANTINFO.eprtrProvisions,PollutantInfo,1,NULL,"Label, Pollutant eprtrProvisions",25,2015-12-22 13:52:26
+650,POLLUTANTINFO.ghs,PollutantInfo,1,NULL,"Label, Pollutant Hazard Statements",25,2015-12-22 13:52:26
+651,POLLUTANTINFO.ghsex,PollutantInfo,1,NULL,"Label, Pollutant Hazard CLP Regulations",25,2015-12-22 13:52:26
+652,POLLUTANTINFO.hazards,PollutantInfo,1,NULL,"Label, Pollutant Hazards",25,2015-12-22 13:52:26
+653,POLLUTANTINFO.healthAffects,PollutantInfo,1,NULL,"Label, Pollutant Health Affects",25,2015-12-22 13:52:26
+654,POLLUTANTINFO.impacts,PollutantInfo,1,NULL,"Label, Pollutant Impacts",25,2015-12-22 13:52:26
+655,POLLUTANTINFO.isoFootNote1,PollutantInfo,1,NULL,"Text, Pollutant ISO Footnote1",25,2015-12-22 13:52:26
+656,POLLUTANTINFO.isoFootNote2,PollutantInfo,1,NULL,"Text, Pollutant ISO Footnote2",25,2015-12-22 13:52:26
+657,POLLUTANTINFO.isoFootNote3,PollutantInfo,1,NULL,"Text, Pollutant ISO Footnote3",25,2015-12-22 13:52:26
+658,POLLUTANTINFO.isoFootNote4,PollutantInfo,1,NULL,"Text, Pollutant ISO Footnote4",25,2015-12-22 13:52:26
+659,POLLUTANTINFO.isoFootNote5,PollutantInfo,1,NULL,"Text, Pollutant ISO Footnote5",25,2015-12-22 13:52:26
+660,POLLUTANTINFO.isoFootNote6,PollutantInfo,1,NULL,"Text, Pollutant ISO Footnote6",25,2015-12-22 13:52:26
+661,POLLUTANTINFO.isoFootNoteLink1,PollutantInfo,1,NULL,"Link, Pollutant ISO Footnote link1",25,2015-12-22 13:52:26
+662,POLLUTANTINFO.isoFootNoteLink2,PollutantInfo,1,NULL,"Link, Pollutant ISO Footnote link2",25,2015-12-22 13:52:26
+663,POLLUTANTINFO.isoFootNoteTitle,PollutantInfo,1,NULL,"Label, Pollutant ISO Footnotes",25,2015-12-22 13:52:26
+664,POLLUTANTINFO.isostandard,PollutantInfo,1,NULL,"Label, Pollutant Standard",25,2015-12-22 13:52:26
+665,POLLUTANTINFO.isotarget,PollutantInfo,1,NULL,"Label, Pollutant ISO Target",25,2015-12-22 13:52:26
+666,POLLUTANTINFO.isotitle,PollutantInfo,1,NULL,"Label, Pollutant ISO Title",25,2015-12-22 13:52:26
+667,POLLUTANTINFO.isouncert,PollutantInfo,1,NULL,"Label, Pollutant ISO Uncertainty",25,2015-12-22 13:52:26
+668,POLLUTANTINFO.land,PollutantInfo,1,NULL,"Label, Pollutantinfo Land",25,2015-12-22 13:52:26
+669,POLLUTANTINFO.mainmethodsrelease,PollutantInfo,1,NULL,"Label, Pollutant Main methods",25,2015-12-22 13:52:26
+670,POLLUTANTINFO.mainuses,PollutantInfo,1,NULL,"Label, Pollutant Main Uses",25,2015-12-22 13:52:26
+671,POLLUTANTINFO.measurement,PollutantInfo,1,NULL,"Label, Pollutant Measurement",25,2015-12-22 13:52:26
+672,POLLUTANTINFO.noClp,PollutantInfo,1,NULL,"Text, Pollutant No CLP",25,2015-12-22 13:52:26
+673,POLLUTANTINFO.noData,PollutantInfo,1,NULL,"Text, Pollutant No Data Available",25,2015-12-22 13:52:26
+674,POLLUTANTINFO.noRandS,PollutantInfo,1,NULL,"Text, Pollutant No R&S",25,2015-12-22 13:52:26
+675,POLLUTANTINFO.physical,PollutantInfo,1,NULL,"Label, Pollutant Physical",25,2015-12-22 13:52:26
+676,POLLUTANTINFO.pollutanthead,PollutantInfo,1,NULL,"Label, Pollutantinfo Header",25,2015-12-22 13:52:26
+677,POLLUTANTINFO.pollutantheadlink,PollutantInfo,1,NULL,"Link, Pollutantinfo Link1",25,2015-12-22 13:52:26
+678,POLLUTANTINFO.pollutantheadlink2,PollutantInfo,1,NULL,"Link, Pollutantinfo Link2",25,2015-12-22 13:52:26
+679,POLLUTANTINFO.pollutantheadlinkLabel,PollutantInfo,1,NULL,"Label, Pollutantinfo Link",25,2015-12-22 13:52:26
+680,POLLUTANTINFO.pollutantheadnotes,PollutantInfo,1,NULL,"Text, Pollutantinfo Notes1",25,2015-12-22 13:52:26
+681,POLLUTANTINFO.pollutantheadnotes2,PollutantInfo,1,NULL,"Text, Pollutantinfo Notes2",25,2015-12-22 13:52:26
+682,POLLUTANTINFO.pollutantheadnotes3,PollutantInfo,1,NULL,"Text, Pollutantinfo Notes3",25,2015-12-22 13:52:26
+683,POLLUTANTINFO.print,PollutantInfo,1,NULL,"Label, Pollutant Print",25,2015-12-22 13:52:26
+684,POLLUTANTINFO.provOverview,PollutantInfo,1,NULL,"Label, Pollutant Prov Overview",25,2015-12-22 13:52:26
+685,POLLUTANTINFO.provReportGeneric,PollutantInfo,1,NULL,"Label, Pollutant Prov General Reporting",25,2015-12-22 13:52:26
+686,POLLUTANTINFO.provReportSpecific,PollutantInfo,1,NULL,"Label, Pollutant Prov Specific Reporting",25,2015-12-22 13:52:26
+687,POLLUTANTINFO.provisions,PollutantInfo,1,NULL,"Label, Pollutant Provisions",25,2015-12-22 13:52:26
+688,POLLUTANTINFO.proviso,PollutantInfo,1,NULL,"Label, Pollutant Proviso",25,2015-12-22 13:52:26
+689,POLLUTANTINFO.provother,PollutantInfo,1,NULL,"Text, Pollutant Prov Other",25,2015-12-22 13:52:26
+690,POLLUTANTINFO.provprtr,PollutantInfo,1,NULL,"Label, Pollutant Provision",25,2015-12-22 13:52:26
+691,POLLUTANTINFO.provprtrNote,PollutantInfo,1,NULL,"Text, Pollutant Prov Note1",25,2015-12-22 13:52:26
+692,POLLUTANTINFO.provprtrNote2,PollutantInfo,1,NULL,"Text, Pollutant Prov Note2",25,2015-12-22 13:52:26
+693,POLLUTANTINFO.rands,PollutantInfo,1,NULL,"Label, Pollutant R&S",25,2015-12-22 13:52:26
+694,POLLUTANTINFO.randsex,PollutantInfo,1,NULL,"Text, Pollutant R&S",25,2015-12-22 13:52:26
+695,POLLUTANTINFO.smiles,PollutantInfo,1,NULL,"Tooltip, Pollutant SMILES",25,2015-12-22 13:52:26
+696,POLLUTANTINFO.structure,PollutantInfo,1,NULL,"Label, Pollutant Structure",25,2015-12-22 13:52:26
+697,POLLUTANTINFO.synonyms,PollutantInfo,1,NULL,"Label, Pollutant Synonyms",25,2015-12-22 13:52:26
+698,POLLUTANTINFO.threshold,PollutantInfo,1,NULL,"Label, Pollutantinfo Threshold",25,2015-12-22 13:52:26
+699,POLLUTANTINFO.water,PollutantInfo,1,NULL,"Label, Pollutantinfo Water",25,2015-12-22 13:52:26
+700,SURVEY.Header,Survey,1,NULL,"Label, Survey header",26,2016-01-12 11:18:12
+701,SURVEY.ParticipateText,Survey,1,NULL,"Text, Participate in survey text",26,2016-01-12 11:18:12
+702,SURVEY.Thanks,Survey,1,NULL,"Label, Survey thank you text",26,2016-01-12 11:18:12
