@@ -1,6 +1,8 @@
 EPRTR2 Content Management
 =========================
 
+----------------------- THIS PACKAGE IS NOW INTEGRATED INTO EPRTR2 -----------------------
+
 The application uses Liquibase to create and upgrade the database, and Thymeleaf as the templating engine.
 You can find the layout template at src/main/webapp/WEB-INF/thymeleaf/layout.html. The database is in-memory
 for the production and file-based for test. You can therefore just drop the WAR file into Tomcat, and it will
@@ -28,15 +30,12 @@ How to build
 ------------
 You need Git to check the code out from the repository and to build you need Java and Maven.  All other dependencies will automatically be downloaded by Maven.
 
-For Windows see the pages on:
-* [Git for Windows](http://git-scm.com/downloads)
-* [Maven for Windows](http://maven.apache.org/guides/getting-started/windows-prerequisites.html).
 
 To build you do:
 ```
 git clone https://github.com/eea/eprtr2.cms.git
 cd eprtr2.cms
-mvn.bat install
+mvn install
 ```
 
 This will create a `target` subdirectory, build the code, run the tests and put a WAR file in target. You can then deploy this file to Tomcat. It contains an embedded database with demo data.
